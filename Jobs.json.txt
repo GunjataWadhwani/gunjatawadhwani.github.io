@@ -1,0 +1,98 @@
+{
+  "3pillar": {
+    "company": "3Pillar Global",
+    "role": "Java Software Engineer",
+
+    "summary": "Software Engineer with 5+ years of experience building Java and Spring Boot microservices, REST APIs and production-grade applications, with experience across SQL, Kubernetes, CI/CD, production troubleshooting, security remediation, unit testing, concurrency and Agile delivery.",
+
+    "metrics": {
+      "experience": "5+ years",
+      "microservices": "6+",
+      "restApis": "10+",
+      "sql": "5+ years",
+      "kubernetes": "2+ years"
+    },
+
+    "fit": [
+      "Java and Spring Boot backend development",
+      "Microservices and REST API development",
+      "MySQL / SQL and relational database work",
+      "Unit testing and application quality",
+      "Java multithreading and concurrency",
+      "JVM memory management and performance awareness",
+      "Factory, Singleton and Observer design patterns",
+      "SOLID and object-oriented design",
+      "Kubernetes and cloud-native development",
+      "Agile / Scrum delivery",
+      "Production troubleshooting, monitoring and RCA",
+      "Security remediation and configuration hardening",
+      "CI/CD with Git and Maven",
+      "Mentoring and technical collaboration"
+    ],
+
+    "jdMatch": [
+      {
+        "requirement": "Java",
+        "experience": "5+ years of Java backend development"
+      },
+      {
+        "requirement": "Spring / Spring Boot",
+        "experience": "5+ years of Spring Boot experience"
+      },
+      {
+        "requirement": "Microservices",
+        "experience": "5+ years; current work includes 6+ Java / Spring Boot microservices"
+      },
+      {
+        "requirement": "MySQL / SQL",
+        "experience": "5+ years of SQL / MySQL experience"
+      },
+      {
+        "requirement": "Unit Testing",
+        "experience": "Hands-on unit testing and software quality practices"
+      },
+      {
+        "requirement": "Multithreading",
+        "experience": "Java concurrency and multithreading"
+      },
+      {
+        "requirement": "Memory Management",
+        "experience": "JVM memory management and performance awareness"
+      },
+      {
+        "requirement": "Design Patterns",
+        "experience": "Factory, Singleton and Observer patterns"
+      },
+      {
+        "requirement": "SOLID / OOP",
+        "experience": "Object-oriented backend design and SOLID principles"
+      },
+      {
+        "requirement": "Kubernetes",
+        "experience": "2+ years of Kubernetes experience"
+      },
+      {
+        "requirement": "Agile",
+        "experience": "Agile / Scrum development and collaboration"
+      },
+      {
+        "requirement": "Production Systems",
+        "experience": "Monitoring, troubleshooting, RCA and production support"
+      },
+      {
+        "requirement": "Security",
+        "experience": "Security remediation and configuration hardening"
+      },
+      {
+        "requirement": "CI/CD",
+        "experience": "Git, Maven and CI/CD practices"
+      },
+      {
+        "requirement": "Mentoring",
+        "experience": "Mentoring and supporting engineers"
+      }
+    ],
+
+    "targetText": "Strong alignment with 3Pillar Global's product mindset through backend engineering, scalable microservices, quality-focused delivery, production reliability, Agile collaboration and continuous improvement."
+  }
+}
