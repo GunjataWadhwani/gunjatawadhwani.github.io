@@ -1,0 +1,64 @@
+{
+  "3pillar": {
+    "company": "3Pillar Global",
+    "role": "Java Software Engineer",
+    "summary": "Software Engineer with 5+ years of experience building Java and Spring Boot microservices, REST APIs and production-grade applications.",
+    "metrics": {
+      "experience": "5+ years",
+      "microservices": "6+",
+      "restApis": "10+",
+      "sql": "5+ years"
+    },
+    "fit": [
+      "Java and Spring Boot backend development",
+      "Microservices and REST API development",
+      "MySQL / SQL",
+      "Unit testing",
+      "Java multithreading and concurrency",
+      "SOLID and object-oriented design",
+      "Kubernetes",
+      "Agile / Scrum",
+      "Production troubleshooting and RCA",
+      "CI/CD with Git and Maven"
+    ],
+    "jdMatch": [
+      {
+        "requirement": "Java",
+        "experience": "5+ years of Java backend development"
+      },
+      {
+        "requirement": "Spring / Spring Boot",
+        "experience": "5+ years of Spring Boot experience"
+      },
+      {
+        "requirement": "Microservices",
+        "experience": "5+ years; current work includes 6+ Java / Spring Boot microservices"
+      }
+    ],
+    "targetOpportunity": {
+      "company": "3Pillar Global",
+      "jobTitle": "Java Software Engineer",
+      "requisition": "",
+      "summary": "Strong alignment with 3Pillar Global through Java backend engineering, Spring Boot microservices, REST APIs, production reliability and Agile delivery.",
+      "matchReasons": [
+        "5+ years of Java and Spring Boot backend development",
+        "6+ Java/Spring Boot microservices and 10+ REST APIs",
+        "Strong experience with SQL, testing, concurrency, CI/CD and production troubleshooting"
+      ],
+      "jdKeywords": [
+        "Java",
+        "Spring Boot",
+        "Microservices",
+        "REST APIs",
+        "SQL",
+        "Unit Testing",
+        "Multithreading",
+        "Kubernetes",
+        "Agile/Scrum",
+        "CI/CD"
+      ],
+      "recruiterSnapshot": "5+ years experience | 30-day notice | Software Engineer | Java Backend / Microservices"
+    },
+    "targetText": "Strong alignment with 3Pillar Global through backend engineering, scalable microservices, quality-focused delivery, production reliability and Agile collaboration."
+  }
+}
