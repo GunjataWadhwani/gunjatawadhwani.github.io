@@ -1,0 +1,23 @@
+"targetOpportunity": {
+  "company": "3Pillar Global",
+  "jobTitle": "Java Software Engineer",
+  "requisition": "",
+  "matchReasons": [
+    "5+ years of Java and Spring Boot backend development",
+    "6+ Java/Spring Boot microservices and 10+ REST APIs",
+    "Strong experience with SQL, testing, concurrency, CI/CD and production troubleshooting"
+  ],
+  "jdKeywords": [
+    "Java",
+    "Spring Boot",
+    "Microservices",
+    "REST APIs",
+    "SQL",
+    "Unit Testing",
+    "Multithreading",
+    "Kubernetes",
+    "Agile/Scrum",
+    "CI/CD"
+  ],
+  "recruiterSnapshot": "5+ years experience | 30-day notice | Software Engineer | Java Backend / Microservices"
+}
