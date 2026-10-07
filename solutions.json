@@ -6,12 +6,28 @@
       "microservice",
       "distributed systems",
       "distributed system",
+      "distributed services",
+      "backend services",
+      "scalable backend",
+      "scalable backend services",
+      "scalable services",
       "resilience",
+      "resilient",
       "reliability",
+      "reliable",
+      "application reliability",
+      "service reliability",
       "production",
-      "downstream service"
+      "production readiness",
+      "production ready",
+      "downstream service",
+      "downstream services",
+      "service-to-service",
+      "service to service",
+      "spring boot services",
+      "java services"
     ],
-    "problem": "A failure or slow response from one downstream service can affect the reliability of the overall application.",
+    "problem": "A failure, slow response or scaling issue in one service can affect the reliability and performance of the overall application.",
     "architecture": [
       "Client",
       "REST API",
@@ -26,7 +42,9 @@
       "Use controlled retries only where safe",
       "Design idempotent operations",
       "Handle failures gracefully",
-      "Add structured logging and monitoring"
+      "Add structured logging and monitoring",
+      "Design services for independent scaling",
+      "Protect critical service dependencies from cascading failures"
     ],
     "prototype": {
       "language": "Java",
@@ -40,6 +58,10 @@
     "title": "Secure REST APIs",
     "triggers": [
       "security",
+      "secure",
+      "secure api",
+      "secure apis",
+      "api security",
       "oauth",
       "oauth2",
       "oauth 2.0",
@@ -47,8 +69,10 @@
       "authentication",
       "authorization",
       "token",
-      "secure api",
-      "api security"
+      "access control",
+      "protected resource",
+      "identity",
+      "security controls"
     ],
     "problem": "Backend APIs need controlled access, validated input and predictable security and error handling.",
     "architecture": [
@@ -80,15 +104,36 @@
     "title": "High-Performance REST APIs",
     "triggers": [
       "performance",
-      "latency",
-      "throughput",
+      "performance tuning",
+      "performance optimization",
+      "performance improvements",
+      "optimize performance",
       "optimization",
-      "scalability",
+      "optimized",
+      "latency",
+      "low latency",
+      "throughput",
       "high performance",
+      "high-performance",
       "response time",
-      "low latency"
+      "response times",
+      "api performance",
+      "application performance",
+      "backend performance",
+      "query performance",
+      "data processing efficiency",
+      "processing efficiency",
+      "efficient processing",
+      "bottleneck",
+      "bottlenecks",
+      "scalability",
+      "scalable",
+      "scaling",
+      "scale",
+      "large scale",
+      "high traffic"
     ],
-    "problem": "Increasing traffic and inefficient processing can increase API latency and reduce system throughput.",
+    "problem": "Increasing traffic, inefficient processing and application or database bottlenecks can increase API latency and reduce system throughput.",
     "architecture": [
       "Client",
       "REST API",
@@ -103,12 +148,13 @@
       "Optimize database queries",
       "Cache appropriate read-heavy data",
       "Avoid unnecessary downstream calls",
-      "Validate improvements with performance testing"
+      "Validate improvements with performance testing",
+      "Monitor latency and throughput after optimization"
     ],
     "prototype": {
       "language": "Java",
       "framework": "Spring Boot",
-      "description": "A simplified service boundary showing where caching can reduce repeated database access.",
+      "description": "A simplified service boundary showing where caching and efficient data access can reduce repeated database work.",
       "code": "```java\n@Service\npublic class ProductService {\n\n    private final ProductRepository repository;\n\n    public ProductService(ProductRepository repository) {\n        this.repository = repository;\n    }\n\n    public Product getProduct(Long id) {\n        return repository.findById(id)\n                .orElseThrow(() ->\n                        new RuntimeException(\"Product not found\"));\n    }\n}\n```"
     }
   },
@@ -118,14 +164,24 @@
     "triggers": [
       "production support",
       "production",
+      "production readiness",
+      "production ready",
+      "production issues",
+      "production issue",
+      "production incidents",
       "incident",
+      "incidents",
       "incident management",
+      "incident response",
       "rca",
       "root cause",
       "root cause analysis",
       "troubleshooting",
       "support",
-      "production issues"
+      "stability",
+      "service recovery",
+      "failure investigation",
+      "operational readiness"
     ],
     "problem": "Production incidents require rapid impact assessment, evidence-based troubleshooting and prevention of recurrence.",
     "architecture": [
@@ -158,13 +214,22 @@
     "triggers": [
       "observability",
       "monitoring",
+      "monitor",
+      "monitored",
       "logging",
+      "logs",
       "metrics",
       "tracing",
+      "distributed tracing",
       "splunk",
       "dynatrace",
       "alerts",
-      "dashboards"
+      "dashboards",
+      "application monitoring",
+      "production monitoring",
+      "performance monitoring",
+      "system visibility",
+      "production visibility"
     ],
     "problem": "Distributed applications are difficult to troubleshoot when logs, metrics and request context are disconnected.",
     "architecture": [
@@ -197,15 +262,34 @@
     "triggers": [
       "cloud",
       "cloud native",
+      "cloud-native",
+      "cloud infrastructure",
+      "cloud platform",
+      "cloud platforms",
+      "cloud deployment",
+      "cloud deployments",
+      "deployment environment",
+      "deployment environments",
+      "infrastructure",
       "aws",
+      "azure",
+      "gcp",
       "kubernetes",
+      "container",
+      "containers",
+      "containerized",
+      "containerized applications",
       "auto scaling",
       "autoscaling",
-      "scalability",
+      "horizontal scaling",
       "elastic",
-      "container"
+      "elasticity",
+      "scalability",
+      "scalable",
+      "scaling",
+      "capacity"
     ],
-    "problem": "Applications need to maintain predictable performance while traffic and resource demand change.",
+    "problem": "Applications need to maintain predictable performance and availability while traffic and resource demand change.",
     "architecture": [
       "Incoming Traffic",
       "Load Balancer",
@@ -237,9 +321,13 @@
       "transaction",
       "transactions",
       "distributed transaction",
+      "distributed transactions",
       "consistency",
       "saga",
-      "transactional"
+      "transactional",
+      "eventual consistency",
+      "state transition",
+      "cross-service transaction"
     ],
     "problem": "Independent microservices make cross-service state changes harder to keep consistent.",
     "architecture": [
@@ -273,7 +361,12 @@
       "latency",
       "read performance",
       "cache hit",
-      "cache invalidation"
+      "cache invalidation",
+      "read-heavy",
+      "frequent reads",
+      "database load",
+      "reduce database load",
+      "response time"
     ],
     "problem": "Repeated reads can create unnecessary database load and increase API response time.",
     "architecture": [
@@ -305,11 +398,19 @@
       "ci cd",
       "continuous integration",
       "continuous delivery",
+      "continuous deployment",
       "deployment",
+      "deployments",
       "release",
+      "releases",
+      "release process",
       "maven",
       "git",
-      "pipeline"
+      "pipeline",
+      "pipelines",
+      "build pipeline",
+      "delivery pipeline",
+      "software delivery"
     ],
     "problem": "Frequent releases require repeatable validation and deployment rather than manual and error-prone steps.",
     "architecture": [
@@ -342,12 +443,18 @@
     "triggers": [
       "testing",
       "unit testing",
+      "unit tests",
       "junit",
       "test automation",
-      "integration testing",
+      "automated testing",
       "automated tests",
+      "integration testing",
+      "integration tests",
       "test coverage",
-      "regression"
+      "regression",
+      "regression testing",
+      "automated validation",
+      "quality validation"
     ],
     "problem": "Fast delivery without automated validation increases regression risk.",
     "architecture": [
@@ -377,14 +484,29 @@
     "triggers": [
       "ai-assisted",
       "ai assisted",
+      "ai-driven",
+      "ai driven",
+      "ai-powered",
+      "ai powered",
+      "artificial intelligence",
+      "ai features",
+      "ai feature",
+      "ai applications",
+      "ai application",
       "copilot",
+      "github copilot",
       "claude",
       "devin",
       "generative ai",
+      "genai",
+      "machine learning",
       "automation",
-      "ai coding"
+      "ai coding",
+      "ai development",
+      "ai-assisted development",
+      "ai assisted development"
     ],
-    "problem": "AI coding tools can reduce repetitive development work while engineering quality, security and human review remain essential.",
+    "problem": "AI capabilities or AI-assisted engineering can improve product functionality and developer productivity while engineering quality, security and human review remain essential.",
     "architecture": [
       "Requirement",
       "AI Assistance",
@@ -394,7 +516,7 @@
       "Production"
     ],
     "engineeringDecisions": [
-      "Use AI for repetitive development tasks",
+      "Use AI for appropriate development or product tasks",
       "Review generated code manually",
       "Run automated tests",
       "Validate security and quality",
