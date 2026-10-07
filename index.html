@@ -1,1138 +1,1724 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<meta name="description" content="Gunjata Wadhwani — Software Engineer specializing in Java, Spring Boot and Microservices">
-
-<title>Gunjata Wadhwani | Software Engineer</title>
-
-<style>
-:root{
-  --bg:#f7f8fb;
-  --card:#fff;
-  --text:#172033;
-  --muted:#5e687a;
-  --line:#e4e8ef;
-  --accent:#2457d6;
-  --dark:#101827;
-  --soft:#eef3ff;
-  --r:18px;
-  --max:1080px
-}
-
-*{
-  box-sizing:border-box
-}
-
-html{
-  scroll-behavior:smooth
-}
-
-body{
-  margin:0;
-  font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.6
-}
-
-a{
-  color:inherit
-}
-
-.container{
-  width:min(var(--max),calc(100% - 36px));
-  margin:auto
-}
-
-nav{
-  position:sticky;
-  top:0;
-  z-index:5;
-  background:#f7f8fbe8;
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--line)
-}
-
-.nav{
-  height:68px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between
-}
-
-.brand{
-  font-weight:800;
-  text-decoration:none
-}
-
-.links{
-  display:flex;
-  gap:22px;
-  font-size:14px;
-  color:var(--muted)
-}
-
-.links a{
-  text-decoration:none
-}
-
-.hero{
-  padding:82px 0 62px;
-  background:linear-gradient(135deg,#fff,#f3f6ff);
-  border-bottom:1px solid var(--line)
-}
-
-.eyebrow,
-.tag{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  border-radius:999px;
-  font-size:12px;
-  font-weight:800
-}
-
-.eyebrow{
-  padding:7px 11px;
-  background:var(--soft);
-  color:#173b96
-}
-
-.dot{
-  width:7px;
-  height:7px;
-  border-radius:50%;
-  background:var(--accent)
-}
-
-h1{
-  font-size:clamp(42px,7vw,72px);
-  line-height:1.02;
-  letter-spacing:-.055em;
-  margin:20px 0 14px
-}
-
-.hero h2{
-  font-size:clamp(21px,3vw,30px);
-  margin:0;
-  color:#344057
-}
-
-.hero p{
-  max-width:760px;
-  color:var(--muted);
-  font-size:18px;
-  margin:20px 0 28px
-}
-
-.actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px
-}
-
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:12px 17px;
-  border-radius:11px;
-  text-decoration:none;
-  font-weight:750;
-  font-size:14px;
-  border:1px solid var(--line);
-  background:#fff
-}
-
-.btn.primary{
-  background:var(--accent);
-  border-color:var(--accent);
-  color:#fff
-}
-
-section{
-  padding:66px 0
-}
-
-.kicker{
-  text-transform:uppercase;
-  letter-spacing:.14em;
-  color:var(--accent);
-  font-size:12px;
-  font-weight:850
-}
-
-h3{
-  font-size:30px;
-  letter-spacing:-.03em;
-  margin:7px 0
-}
-
-.intro{
-  color:var(--muted);
-  max-width:720px
-}
-
-.fit{
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:24px
-}
-
-.card{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:var(--r);
-  box-shadow:0 12px 35px #17203314;
-  padding:27px
-}
-
-.fit-copy{
-  font-size:18px;
-  color:#344057
-}
-
-.fit-copy strong{
-  color:var(--text)
-}
-
-.stats{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px
-}
-
-.stat{
-  padding:18px;
-  border:1px solid var(--line);
-  border-radius:14px;
-  background:#fbfcff
-}
-
-.stat strong{
-  display:block;
-  font-size:28px;
-  letter-spacing:-.04em
-}
-
-.stat span{
-  font-size:13px;
-  color:var(--muted)
-}
-
-.table-wrap{
-  overflow:auto
-}
-
-table{
-  width:100%;
-  border-collapse:collapse;
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:var(--r);
-  overflow:hidden;
-  box-shadow:0 12px 35px #17203314
-}
-
-th,
-td{
-  text-align:left;
-  padding:16px 18px;
-  border-bottom:1px solid var(--line);
-  vertical-align:top
-}
-
-th{
-  font-size:12px;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-  color:var(--muted);
-  background:#f8f9fc
-}
-
-td:first-child{
-  font-weight:750;
-  width:28%
-}
-
-tr:last-child td{
-  border:0
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:14px
-}
-
-.mini h4{
-  margin:0 0 8px;
-  font-size:17px
-}
-
-.mini p{
-  margin:0;
-  color:var(--muted);
-  font-size:14px
-}
-
-.opportunity{
-  background:var(--dark);
-  color:#fff;
-  border-radius:var(--r);
-  padding:30px
-}
-
-.opportunity .kicker{
-  color:#aebfff
-}
-
-.opportunity h3{
-  color:#fff;
-  margin-top:8px
-}
-
-.opportunity p{
-  color:#c7cfdd
-}
-
-.opportunity ul{
-  color:#d8dfeb;
-  margin:16px 0 0;
-  padding-left:22px
-}
-
-.opportunity li{
-  margin-bottom:7px
-}
-
-.tags{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:18px
-}
-
-.tag{
-  padding:7px 10px;
-  border:1px solid #2d394e;
-  color:#d8dfeb
-}
-
-.recruiter-snapshot{
-  margin-top:22px;
-  padding-top:18px;
-  border-top:1px solid #2d394e;
-  color:#c7cfdd;
-  font-size:14px
-}
-
-.recruiter-snapshot strong{
-  color:#fff
-}
-
-.snapshot{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:12px
-}
-
-.contact{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:24px
-}
-
-footer{
-  padding:28px 0 45px;
-  color:var(--muted);
-  font-size:13px
-}
-
-.note{
-  font-size:12px;
-  color:var(--muted)
-}
-
-.error-message{
-  color:#ffb4b4;
-  font-size:14px
-}
-
-@media(max-width:850px){
-
-  .fit{
-    grid-template-columns:1fr
-  }
-
-  .grid{
-    grid-template-columns:1fr 1fr
-  }
-
-  .snapshot{
-    grid-template-columns:1fr 1fr
-  }
-
-  .links{
-    display:none
-  }
-}
-
-@media(max-width:560px){
-
-  .container{
-    width:calc(100% - 24px)
-  }
-
-  .hero{
-    padding:58px 0 46px
-  }
-
-  section{
-    padding:48px 0
-  }
-
-  .grid,
-  .snapshot{
-    grid-template-columns:1fr
-  }
-
-  .card{
-    padding:21px
-  }
-
-  .contact{
-    display:block
-  }
-
-  .contact .actions{
-    margin-top:18px
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Gunjata Wadhwani | Software Engineer</title>
+
+  <meta
+    name="description"
+    content="Gunjata Wadhwani — Software Engineer specializing in Java, Spring Boot, Microservices, Cloud Platforms and Production Engineering."
+  >
+
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #172033;
+      --muted: #667085;
+      --border: #e4e7ec;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --success: #15803d;
+      --warning: #b45309;
+      --danger: #b42318;
+      --soft-blue: #eff6ff;
+      --soft-green: #ecfdf3;
+      --soft-yellow: #fffaeb;
+      --soft-red: #fef3f2;
+      --shadow: 0 8px 30px rgba(16, 24, 40, 0.06);
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--text);
+    }
+
+    nav {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .hero {
+      padding: 80px 0 60px;
+      background:
+        radial-gradient(circle at top right, #dbeafe 0, transparent 35%),
+        linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .kicker {
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: clamp(38px, 6vw, 64px);
+      line-height: 1.05;
+      margin: 0 0 18px;
+      letter-spacing: -0.04em;
+    }
+
+    .hero h2 {
+      margin: 0 0 18px;
+      font-size: 24px;
+      color: #344054;
+      font-weight: 600;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 700px;
+    }
+
+    .hero-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .metric {
+      padding: 18px;
+      background: #f8fafc;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 25px;
+      color: var(--text);
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    section {
+      padding: 65px 0;
+    }
+
+    .section-title {
+      margin-bottom: 30px;
+    }
+
+    .section-title h2 {
+      font-size: 32px;
+      margin: 0 0 8px;
+      letter-spacing: -0.025em;
+    }
+
+    .section-title p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .skill-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+    }
+
+    .skill-card h3 {
+      margin-top: 0;
+      font-size: 17px;
+    }
+
+    .tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      background: #f2f4f7;
+      border-radius: 999px;
+      font-size: 12px;
+      color: #344054;
+      border: 1px solid #eaecf0;
+    }
+
+    .tag.match {
+      background: var(--soft-green);
+      color: var(--success);
+      border-color: #abefc6;
+    }
+
+    .tag.gap {
+      background: var(--soft-red);
+      color: var(--danger);
+      border-color: #fecdca;
+    }
+
+    /* JD Analyzer */
+
+    .analyzer {
+      background:
+        linear-gradient(135deg, #0f172a 0%, #172554 100%);
+      color: white;
+      border-radius: 22px;
+      padding: 34px;
+      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.18);
+    }
+
+    .analyzer .kicker {
+      color: #93c5fd;
+    }
+
+    .analyzer h2 {
+      margin: 0 0 8px;
+      font-size: 32px;
+    }
+
+    .analyzer-intro {
+      color: #cbd5e1;
+      margin-bottom: 28px;
+      max-width: 800px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #e2e8f0;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid #475569;
+      background: #ffffff;
+      color: #111827;
+      border-radius: 10px;
+      padding: 13px 14px;
+      font: inherit;
+      outline: none;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #60a5fa;
+      box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.18);
+    }
+
+    textarea {
+      min-height: 260px;
+      resize: vertical;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 10px;
+      padding: 12px 18px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .btn-primary {
+      background: #3b82f6;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #2563eb;
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: #172033;
+    }
+
+    .btn-secondary:hover {
+      background: #f1f5f9;
+    }
+
+    .btn-dark {
+      background: #334155;
+      color: white;
+    }
+
+    .btn-dark:hover {
+      background: #475569;
+    }
+
+    #analysisResult {
+      display: none;
+      margin-top: 30px;
+    }
+
+    .analysis-header {
+      background: #ffffff;
+      color: var(--text);
+      border-radius: 16px;
+      padding: 25px;
+      margin-bottom: 18px;
+    }
+
+    .analysis-header h3 {
+      margin: 0 0 5px;
+      font-size: 24px;
+    }
+
+    .analysis-header p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .score-row {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .score {
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .score-label {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .progress {
+      height: 10px;
+      width: 260px;
+      max-width: 100%;
+      background: #e5e7eb;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0;
+      transition: width 0.4s ease;
+    }
+
+    .analysis-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .analysis-card {
+      background: #ffffff;
+      color: var(--text);
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .analysis-card.full {
+      grid-column: 1 / -1;
+    }
+
+    .analysis-card h3 {
+      margin-top: 0;
+      font-size: 18px;
+    }
+
+    .analysis-card p {
+      color: var(--muted);
+    }
+
+    .match-list {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .match-list li {
+      margin-bottom: 7px;
+    }
+
+    .match-list strong {
+      color: var(--text);
+    }
+
+    .approach {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+
+    .approach:last-child {
+      margin-bottom: 0;
+    }
+
+    .approach h4 {
+      margin: 0 0 6px;
+      font-size: 16px;
+    }
+
+    .approach p {
+      margin: 5px 0 12px;
+    }
+
+    .flow {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .flow-step {
+      padding: 5px 9px;
+      background: #eef2ff;
+      color: #3730a3;
+      border-radius: 7px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .flow-arrow {
+      color: #98a2b3;
+    }
+
+    .notice {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 16px;
+    }
+
+    .experience-item {
+      border-left: 3px solid var(--primary);
+      padding-left: 20px;
+      margin-bottom: 30px;
+    }
+
+    .experience-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .experience-item h3 {
+      margin: 0;
+    }
+
+    .experience-meta {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 3px 0 12px;
+    }
+
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 850px) {
+      .hero-grid,
+      .skills-grid,
+      .analysis-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .analysis-card.full {
+        grid-column: auto;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 50px;
+      }
+
+      .analyzer {
+        padding: 22px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- =========================
-     NAVIGATION
-========================= -->
-
-<nav>
+<header>
   <div class="container nav">
+    <a class="brand" href="#home">Gunjata Wadhwani</a>
 
-    <a class="brand" href="#">GW.</a>
-
-    <div class="links">
-      <a href="#fit">Why me</a>
-      <a href="#match">JD match</a>
-      <a href="#strengths">Strengths</a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#analyzer">JD Analyzer</a>
       <a href="#contact">Contact</a>
-    </div>
-
+    </nav>
   </div>
-</nav>
-
-
-<!-- =========================
-     HERO
-========================= -->
-
-<header class="hero">
-
-  <div class="container">
-
-    <div class="eyebrow">
-      <span class="dot"></span>
-      Open to Senior Software Engineer / Lead opportunities
-    </div>
-
-    <h1>Gunjata Wadhwani</h1>
-
-    <h2>
-      Software Engineer — Java | Spring Boot | Microservices
-    </h2>
-
-    <p>
-      Backend-focused Software Engineer with 5+ years of experience
-      building, supporting and improving Java-based microservices and
-      REST APIs, with exposure to cloud platforms, CI/CD, production
-      troubleshooting, security remediation and AI-assisted development.
-    </p>
-
-    <div class="actions">
-
-      <a
-        class="btn primary"
-        href="https://drive.google.com/file/d/1mvrVMfl_83HZDqj1YXjiVGfLNoWR84Kx/view?usp=drive_link"
-        target="_blank"
-        rel="noopener"
-      >
-        View Resume
-      </a>
-
-      <a
-        class="btn"
-        href="https://linkedin.com/in/gunjata-wadhwani-5b8a04137"
-        target="_blank"
-        rel="noopener"
-      >
-        LinkedIn
-      </a>
-
-      <a
-        class="btn"
-        href="mailto:gunjatawadhwani15@gmail.com"
-      >
-        Contact Me
-      </a>
-
-    </div>
-
-  </div>
-
 </header>
 
 
 <main>
 
-<!-- =========================
-     WHY I'M A FIT
-========================= -->
-
-<section id="fit">
-
-  <div class="container">
-
-    <div>
-      <div class="kicker">Why I'm a fit</div>
-
-      <h3>
-        Backend engineering with production ownership
-      </h3>
-    </div>
-
-    <div class="fit">
-
-      <div class="card fit-copy">
-
-        <p>
-          I specialize in
-          <strong>Java, Spring Boot and microservices</strong>,
-          with experience across API development, production
-          troubleshooting, monitoring, root-cause analysis, CI/CD,
-          security remediation and Agile delivery.
-        </p>
-
-        <p>
-          My focus is not only writing backend code, but making services
-          <strong>reliable, maintainable and production-ready</strong>.
-          I also use AI coding tools such as Copilot and Claude to
-          improve development efficiency while keeping engineering
-          quality and review practices intact.
-        </p>
-
-      </div>
-
-
-      <div class="stats">
-
-        <div class="stat">
-          <strong>5+ yrs</strong>
-          <span>Software engineering experience</span>
-        </div>
-
-        <div class="stat">
-          <strong>Java 21</strong>
-          <span>Modern Java development</span>
-        </div>
-
-        <div class="stat">
-          <strong>6+</strong>
-          <span>Java / Spring Boot microservices</span>
-        </div>
-
-        <div class="stat">
-          <strong>10+</strong>
-          <span>REST APIs in current project</span>
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     JD MATCH
-========================= -->
-
-<section id="match">
-
-  <div class="container">
-
-    <div class="kicker">Proof of fit</div>
-
-    <h3>
-      JD requirement → relevant experience
-    </h3>
-
-    <p class="intro">
-      A recruiter should be able to scan this section quickly and
-      see where my experience maps to the role.
-    </p>
-
-    <div class="table-wrap">
-
-      <table>
-
-        <thead>
-          <tr>
-            <th>Common requirement</th>
-            <th>My relevant experience</th>
-          </tr>
-        </thead>
-
-        <tbody>
-
-          <tr>
-            <td>Java backend development</td>
-            <td>
-              5+ years working with Java, including Java 8/17/21
-              and backend service development.
-            </td>
-          </tr>
-
-          <tr>
-            <td>Spring / Spring Boot</td>
-            <td>
-              5+ years of Spring Boot and backend service development,
-              including REST APIs and microservices.
-            </td>
-          </tr>
-
-          <tr>
-            <td>Microservices & REST</td>
-            <td>
-              Current work includes 6+ Java/Spring Boot microservices
-              and 10+ REST APIs.
-            </td>
-          </tr>
-
-          <tr>
-            <td>Production support & debugging</td>
-            <td>
-              Monitoring, troubleshooting, RCA, issue resolution
-              and production reliability improvements.
-            </td>
-          </tr>
-
-          <tr>
-            <td>SQL / data layer</td>
-            <td>
-              Hands-on SQL/MySQL experience supporting backend
-              applications and data-driven services.
-            </td>
-          </tr>
-
-          <tr>
-            <td>CI/CD & engineering practices</td>
-            <td>
-              Git, Maven and CI/CD workflows with focus on
-              repeatable deployments and delivery efficiency.
-            </td>
-          </tr>
-
-          <tr>
-            <td>Security & reliability</td>
-            <td>
-              Security remediation, configuration hardening and
-              production-focused reliability improvements.
-            </td>
-          </tr>
-
-          <tr>
-            <td>Agile / collaboration</td>
-            <td>
-              Agile/Scrum delivery, code reviews, troubleshooting
-              and mentoring/supporting team members.
-            </td>
-          </tr>
-
-          <tr>
-            <td>AI-assisted development</td>
-            <td>
-              Practical use of AI coding tools including GitHub
-              Copilot and Claude to accelerate development while
-              maintaining review and quality controls.
-            </td>
-          </tr>
-
-        </tbody>
-
-      </table>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     STRENGTHS
-========================= -->
-
-<section id="strengths">
-
-  <div class="container">
-
-    <div class="kicker">What I bring</div>
-
-    <h3>
-      Four areas I can contribute immediately
-    </h3>
-
-    <div class="grid">
-
-      <div class="card mini">
-
-        <h4>Backend Engineering</h4>
-
-        <p>
-          Java, Spring Boot, REST APIs and microservices with
-          maintainability and clean service boundaries in mind.
-        </p>
-
-      </div>
-
-
-      <div class="card mini">
-
-        <h4>Production Engineering</h4>
-
-        <p>
-          Monitoring, troubleshooting, RCA, incident resolution
-          and performance/reliability improvements.
-        </p>
-
-      </div>
-
-
-      <div class="card mini">
-
-        <h4>Security & Quality</h4>
-
-        <p>
-          Security remediation, configuration hardening, testing,
-          reviews and disciplined SDLC practices.
-        </p>
-
-      </div>
-
-
-      <div class="card mini">
-
-        <h4>AI-Assisted Development</h4>
-
-        <p>
-          Practical use of modern coding assistants to reduce
-          repetitive work and improve developer productivity.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     DYNAMIC TARGET OPPORTUNITY
-========================= -->
-
-<section>
-
-  <div class="container">
-
-    <div
-      class="opportunity"
-      id="targetOpportunity"
-    >
-
-      <div class="kicker">
-        Target opportunity
-      </div>
-
-      <h3 id="opportunityTitle">
-        Loading opportunity...
-      </h3>
-
-      <p id="opportunitySummary">
-        Loading company-specific information...
-      </p>
-
-      <div id="opportunityReasons"></div>
-
-      <div
-        class="tags"
-        id="opportunityKeywords"
-      ></div>
-
-      <div
-        class="recruiter-snapshot"
-        id="opportunitySnapshot"
-      ></div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     EXPERIENCE SNAPSHOT
-========================= -->
-
-<section>
-
-  <div class="container">
-
-    <div class="kicker">
-      Experience snapshot
-    </div>
-
-    <h3>
-      Core profile at a glance
-    </h3>
-
-    <div class="snapshot">
-
-      <div class="card stat">
-        <strong>5+</strong>
-        <span>Years experience</span>
-      </div>
-
-      <div class="card stat">
-        <strong>Java</strong>
-        <span>Core backend stack</span>
-      </div>
-
-      <div class="card stat">
-        <strong>Spring</strong>
-        <span>Spring Boot / services</span>
-      </div>
-
-      <div class="card stat">
-        <strong>REST</strong>
-        <span>10+ APIs in current project</span>
-      </div>
-
-      <div class="card stat">
-        <strong>SQL</strong>
-        <span>MySQL / backend data</span>
-      </div>
-
-    </div>
-
-    <p class="note">
-      Only include technologies and claims you can confidently
-      discuss in an interview.
-    </p>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     CONTACT
-========================= -->
-
-<section id="contact">
-
-  <div class="container">
-
-    <div class="card contact">
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
 
       <div>
+        <div class="kicker">Software Engineer</div>
 
-        <div class="kicker">
-          Let's connect
-        </div>
+        <h1>Backend, Microservices & Cloud Platforms</h1>
 
-        <h3>
-          Looking for the right backend engineering challenge.
-        </h3>
+        <h2>Java • Spring Boot • Microservices • Production Engineering</h2>
 
-        <p class="intro">
-          Happy to discuss Senior Software Engineer or Lead
-          opportunities involving Java, Spring Boot, microservices
-          and production engineering.
+        <p>
+          Software Engineer with 5+ years of experience building Java and
+          Spring Boot microservices, REST APIs and production-grade
+          applications.
         </p>
 
+        <div class="button-row">
+          <a
+            class="btn-primary"
+            style="display:inline-block"
+            href="#analyzer"
+          >
+            Analyze a Job Description
+          </a>
+
+          <a
+            class="btn-secondary"
+            style="display:inline-block"
+            href="https://www.linkedin.com/in/gunjata-wadhwani-5b8a04137"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+        </div>
       </div>
 
-      <div class="actions">
 
-        <a
-          class="btn primary"
-          href="mailto:gunjatawadhwani15@gmail.com"
-        >
-          Email Me
-        </a>
+      <div class="hero-card">
+        <div class="metric-grid">
 
-        <a
-          class="btn"
-          href="https://linkedin.com/in/gunjata-wadhwani-5b8a04137"
-          target="_blank"
-          rel="noopener"
-        >
-          LinkedIn
-        </a>
+          <div class="metric">
+            <strong>5+</strong>
+            <span>Years Experience</span>
+          </div>
+
+          <div class="metric">
+            <strong>6+</strong>
+            <span>Microservices</span>
+          </div>
+
+          <div class="metric">
+            <strong>10+</strong>
+            <span>REST APIs</span>
+          </div>
+
+          <div class="metric">
+            <strong>30</strong>
+            <span>Days Notice</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>About Me</h2>
+        <p>Backend engineering focused on scalable and production-ready systems.</p>
+      </div>
+
+      <div class="card">
+        <p>
+          I work primarily with Java, Spring Boot and microservices, with
+          experience across REST APIs, SQL, cloud platforms, CI/CD,
+          production troubleshooting, monitoring, testing and Agile delivery.
+        </p>
+
+        <p>
+          My focus is on building reliable services, improving production
+          stability, solving technical problems and delivering maintainable
+          backend systems.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Technical Skills</h2>
+        <p>Core technologies and engineering capabilities.</p>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <h3>Java & Spring</h3>
+          <div class="tags">
+            <span class="tag">Java 8</span>
+            <span class="tag">Java 17</span>
+            <span class="tag">Java 21</span>
+            <span class="tag">Core Java</span>
+            <span class="tag">Spring Boot</span>
+            <span class="tag">Spring Framework</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Backend Architecture</h3>
+          <div class="tags">
+            <span class="tag">Microservices</span>
+            <span class="tag">Distributed Systems</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">API Design</span>
+            <span class="tag">SOLID</span>
+            <span class="tag">OOP</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Cloud & Platforms</h3>
+          <div class="tags">
+            <span class="tag">PCF</span>
+            <span class="tag">Kubernetes</span>
+            <span class="tag">AWS</span>
+            <span class="tag">Cloud Native</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Database</h3>
+          <div class="tags">
+            <span class="tag">SQL</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">Relational Database</span>
+            <span class="tag">Caching</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Testing & Delivery</h3>
+          <div class="tags">
+            <span class="tag">JUnit</span>
+            <span class="tag">Unit Testing</span>
+            <span class="tag">Git</span>
+            <span class="tag">Maven</span>
+            <span class="tag">CI/CD</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Production Engineering</h3>
+          <div class="tags">
+            <span class="tag">Monitoring</span>
+            <span class="tag">Logging</span>
+            <span class="tag">RCA</span>
+            <span class="tag">Troubleshooting</span>
+            <span class="tag">Splunk</span>
+            <span class="tag">Dynatrace</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Experience</h2>
+        <p>Backend engineering and production delivery experience.</p>
+      </div>
+
+      <div class="card">
+
+        <div class="experience-item">
+          <h3>Software Engineer</h3>
+
+          <div class="experience-meta">
+            Dexian India Technologies • Client: Dell
+          </div>
+
+          <p>
+            Working on Java and Spring Boot based microservices and REST APIs,
+            with responsibilities spanning backend development, production
+            troubleshooting, monitoring, RCA, testing, code reviews and
+            Agile delivery.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Java</span>
+            <span class="tag">Spring Boot</span>
+            <span class="tag">Microservices</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">SQL</span>
+            <span class="tag">PCF</span>
+            <span class="tag">Kubernetes</span>
+            <span class="tag">CI/CD</span>
+          </div>
+        </div>
 
       </div>
 
     </div>
+  </section>
 
-  </div>
 
-</section>
+  <!-- JD ANALYZER -->
+  <section id="analyzer">
+    <div class="container">
+
+      <div class="analyzer">
+
+        <div class="kicker">Job Search Tool</div>
+
+        <h2>JD → Profile Analyzer</h2>
+
+        <p class="analyzer-intro">
+          Paste any Java/backend job description and compare it with my
+          engineering profile. The analyzer identifies strong matches,
+          potential gaps and relevant engineering approaches.
+        </p>
+
+
+        <div class="form-grid">
+
+          <div class="field">
+            <label for="companyInput">Company</label>
+            <input
+              id="companyInput"
+              type="text"
+              placeholder="Example: Mastercard"
+            >
+          </div>
+
+          <div class="field">
+            <label for="roleInput">Role</label>
+            <input
+              id="roleInput"
+              type="text"
+              placeholder="Example: Senior Software Engineer"
+            >
+          </div>
+
+        </div>
+
+
+        <div class="field">
+          <label for="jdInput">Paste Job Description</label>
+
+          <textarea
+            id="jdInput"
+            placeholder="Paste the complete job description here..."
+          ></textarea>
+        </div>
+
+
+        <div class="button-row">
+
+          <button
+            id="analyzeBtn"
+            class="btn-primary"
+            type="button"
+          >
+            Analyze opportunity
+          </button>
+
+          <button
+            id="exampleBtn"
+            class="btn-secondary"
+            type="button"
+          >
+            Load 3Pillar example
+          </button>
+
+          <button
+            id="clearBtn"
+            class="btn-dark"
+            type="button"
+          >
+            Clear
+          </button>
+
+        </div>
+
+
+        <div id="analysisResult">
+
+          <div class="analysis-header">
+
+            <h3 id="resultTitle">
+              Profile Alignment
+            </h3>
+
+            <p id="resultSubtitle">
+              -
+            </p>
+
+            <div class="score-row">
+
+              <div>
+                <div class="score" id="scoreValue">0%</div>
+                <div class="score-label">
+                  Practical profile alignment
+                </div>
+              </div>
+
+              <div>
+                <div class="progress">
+                  <div
+                    id="scoreBar"
+                    class="progress-bar"
+                  ></div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="notice">
+              This is a practical profile-alignment estimate, not an ATS
+              score or hiring prediction. Actual suitability depends on the
+              complete JD, recruiter requirements and interview expectations.
+            </div>
+
+          </div>
+
+
+          <div class="analysis-grid">
+
+            <div class="analysis-card">
+
+              <h3>Strong Matches</h3>
+
+              <div
+                id="strongMatches"
+                class="tags"
+              ></div>
+
+            </div>
+
+
+            <div class="analysis-card">
+
+              <h3>Potential Gaps</h3>
+
+              <div
+                id="potentialGaps"
+                class="tags"
+              ></div>
+
+            </div>
+
+
+            <div class="analysis-card full">
+
+              <h3>Why This Profile Fits</h3>
+
+              <ul
+                id="matchReasons"
+                class="match-list"
+              ></ul>
+
+            </div>
+
+
+            <div class="analysis-card full">
+
+              <h3>Relevant Engineering Approaches</h3>
+
+              <div id="engineeringApproaches"></div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Contact</h2>
+        <p>Open to Senior Software Engineer and Lead opportunities.</p>
+      </div>
+
+      <div class="card">
+
+        <p>
+          <strong>Location:</strong>
+          Indore, Madhya Pradesh, India
+        </p>
+
+        <p>
+          <strong>Notice Period:</strong>
+          30 days
+        </p>
+
+        <p>
+          <strong>LinkedIn:</strong>
+          <a
+            href="https://www.linkedin.com/in/gunjata-wadhwani-5b8a04137"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            linkedin.com/in/gunjata-wadhwani-5b8a04137
+          </a>
+        </p>
+
+        <p>
+          <strong>GitHub:</strong>
+          <a
+            href="https://github.com/GunjataWadhwani"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            github.com/GunjataWadhwani
+          </a>
+        </p>
+
+      </div>
+
+    </div>
+  </section>
 
 </main>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
-
 <footer>
-
   <div class="container">
-    © 2026 Gunjata Wadhwani · Software Engineer ·
-    Java / Spring Boot / Microservices
+    © 2026 Gunjata Wadhwani. Built for engineering and career research.
   </div>
-
 </footer>
 
 
-<!-- =========================
-     DYNAMIC JOB LOADER
-========================= -->
-
 <script>
 
-async function loadTargetOpportunity() {
-
-  const params =
-    new URLSearchParams(window.location.search);
-
-  /*
-    Example:
-
-    https://gunjatawadhwani.github.io/?job=3pillar
-
-    jobId = "3pillar"
-  */
-
-  const jobId =
-    params.get("job") || "3pillar";
+  let profileData = null;
+  let solutionsData = null;
 
 
-  try {
+  /* -------------------------------------------------------
+     Utility functions
+  ------------------------------------------------------- */
 
-    const response =
-      await fetch("jobs.json");
+  function normalize(value) {
+    return String(value || "")
+      .toLowerCase()
+      .replace(/[^\w+#./-]+/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
 
 
-    if (!response.ok) {
+  function phraseFound(text, phrase) {
+    const normalizedText = normalize(text);
+    const normalizedPhrase = normalize(phrase);
 
-      throw new Error(
-        "Could not load jobs.json"
-      );
+    if (!normalizedPhrase) {
+      return false;
+    }
+
+    return normalizedText.includes(normalizedPhrase);
+  }
+
+
+  function uniqueArray(items) {
+    return [...new Set(items)];
+  }
+
+
+  function getAllProfileSkills() {
+
+    const result = [];
+
+    Object.values(profileData.skills || {}).forEach(category => {
+
+      category.forEach(skill => {
+        result.push(skill);
+      });
+
+    });
+
+    return uniqueArray(result);
+  }
+
+
+  function getProfileCategories() {
+
+    return Object.keys(profileData.skills || {});
+
+  }
+
+
+  /* -------------------------------------------------------
+     Load profile + reusable engineering solutions
+  ------------------------------------------------------- */
+
+  async function loadProfileData() {
+
+    try {
+
+      const [profileResponse, solutionsResponse] = await Promise.all([
+        fetch("profile.json", { cache: "no-store" }),
+        fetch("solutions.json", { cache: "no-store" })
+      ]);
+
+      if (!profileResponse.ok) {
+        throw new Error("Could not load profile.json");
+      }
+
+      if (!solutionsResponse.ok) {
+        throw new Error("Could not load solutions.json");
+      }
+
+      profileData = await profileResponse.json();
+      solutionsData = await solutionsResponse.json();
+
+    } catch (error) {
+
+      console.error(error);
+
+      const analyzer = document.querySelector(".analyzer");
+
+      if (analyzer) {
+
+        const warning = document.createElement("div");
+
+        warning.className = "notice";
+
+        warning.style.marginTop = "20px";
+
+        warning.textContent =
+          "Unable to load profile.json or solutions.json. Make sure both files are uploaded to the same GitHub Pages folder as index.html.";
+
+        analyzer.appendChild(warning);
+
+      }
 
     }
 
-
-    const jobs =
-      await response.json();
+  }
 
 
-    const job =
-      jobs[jobId];
+  /* -------------------------------------------------------
+     Detect profile matches
+  ------------------------------------------------------- */
 
+  function findSkillMatches(jdText) {
+
+    const matches = [];
+
+    Object.entries(profileData.skills || {}).forEach(
+      ([category, skills]) => {
+
+        const matchedSkills = skills.filter(skill =>
+          phraseFound(jdText, skill)
+        );
+
+        if (matchedSkills.length > 0) {
+
+          matches.push({
+            category,
+            skills: uniqueArray(matchedSkills)
+          });
+
+        }
+
+      }
+    );
+
+    return matches;
+  }
+
+
+  /* -------------------------------------------------------
+     Detect JD requirement categories
+  ------------------------------------------------------- */
+
+  function detectJDRequirements(jdText) {
+
+    const requirements = [];
+
+    Object.entries(profileData.skills || {}).forEach(
+      ([category, skills]) => {
+
+        const matchedSkills = skills.filter(skill =>
+          phraseFound(jdText, skill)
+        );
+
+        if (matchedSkills.length > 0) {
+
+          requirements.push({
+            category,
+            skills: uniqueArray(matchedSkills)
+          });
+
+        }
+
+      }
+    );
+
+    return requirements;
+  }
+
+
+  /* -------------------------------------------------------
+     Find likely gaps
+  ------------------------------------------------------- */
+
+  function findPotentialGaps(jdText, matchedSkills) {
+
+    const commonRequirements = [
+      "Hibernate",
+      "JPA",
+      "Kafka",
+      "Docker",
+      "Terraform",
+      "Redis",
+      "MongoDB",
+      "PostgreSQL",
+      "GraphQL",
+      "Angular",
+      "React",
+      "Python",
+      "AWS",
+      "Azure",
+      "GCP",
+      "OAuth",
+      "OAuth 2.0",
+      "JWT",
+      "Jira",
+      "Splunk",
+      "Dynatrace"
+    ];
+
+    const profileSkills = getAllProfileSkills()
+      .map(skill => normalize(skill));
+
+    const matchedNormalized = matchedSkills
+      .map(skill => normalize(skill));
+
+    const gaps = [];
+
+    commonRequirements.forEach(requirement => {
+
+      const normalizedRequirement = normalize(requirement);
+
+      if (
+        phraseFound(jdText, requirement) &&
+        !profileSkills.includes(normalizedRequirement) &&
+        !matchedNormalized.includes(normalizedRequirement)
+      ) {
+
+        gaps.push(requirement);
+
+      }
+
+    });
+
+    return uniqueArray(gaps);
+
+  }
+
+
+  /* -------------------------------------------------------
+     Score calculation
+  ------------------------------------------------------- */
+
+  function calculateScore(jdText, requirements) {
+
+    const categoryCount = Object.keys(profileData.skills || {}).length;
+
+    if (!jdText.trim() || categoryCount === 0) {
+      return 0;
+    }
+
+    const matchedCategoryCount = requirements.length;
 
     /*
-      If the requested company does not exist
+      Base score:
+      Measures how many identifiable technical categories
+      from the candidate profile appear in the JD.
+
+      This is intentionally NOT an ATS score.
     */
 
-    if (!job || !job.targetOpportunity) {
+    let score =
+      (matchedCategoryCount / categoryCount) * 100;
 
-      document.getElementById(
-        "opportunityTitle"
-      ).textContent =
-        "Target opportunity";
+    /*
+      Avoid making a short JD with one keyword look perfect.
+      Cap low-information matches.
+    */
+
+    const wordCount =
+      normalize(jdText).split(" ").filter(Boolean).length;
+
+    if (wordCount < 80 && score > 60) {
+      score = 60;
+    }
+
+    return Math.max(
+      0,
+      Math.min(
+        100,
+        Math.round(score)
+      )
+    );
+
+  }
 
 
-      document.getElementById(
-        "opportunitySummary"
-      ).textContent =
-        "No company-specific opportunity information is available yet.";
+  /* -------------------------------------------------------
+     Render tags
+  ------------------------------------------------------- */
 
+  function renderTags(
+    container,
+    items,
+    type = ""
+  ) {
+
+    container.innerHTML = "";
+
+    if (!items || items.length === 0) {
+
+      const empty = document.createElement("span");
+
+      empty.className = "tag";
+
+      empty.textContent =
+        type === "gap"
+          ? "No obvious gaps detected"
+          : "No direct matches detected";
+
+      container.appendChild(empty);
+
+      return;
+
+    }
+
+    items.forEach(item => {
+
+      const tag = document.createElement("span");
+
+      tag.className =
+        type === "gap"
+          ? "tag gap"
+          : "tag match";
+
+      tag.textContent = item;
+
+      container.appendChild(tag);
+
+    });
+
+  }
+
+
+  /* -------------------------------------------------------
+     Render engineering approaches
+  ------------------------------------------------------- */
+
+  function renderEngineeringApproaches(jdText) {
+
+    const container =
+      document.getElementById("engineeringApproaches");
+
+    container.innerHTML = "";
+
+    const scoredSolutions = [];
+
+    Object.entries(solutionsData || {}).forEach(
+      ([id, solution]) => {
+
+        let score = 0;
+
+        solution.triggers.forEach(trigger => {
+
+          if (phraseFound(jdText, trigger)) {
+            score++;
+          }
+
+        });
+
+        if (score > 0) {
+
+          scoredSolutions.push({
+            id,
+            solution,
+            score
+          });
+
+        }
+
+      }
+    );
+
+    scoredSolutions.sort(
+      (a, b) => b.score - a.score
+    );
+
+    const topSolutions =
+      scoredSolutions.slice(0, 3);
+
+
+    if (topSolutions.length === 0) {
+
+      const empty = document.createElement("p");
+
+      empty.textContent =
+        "No specific reusable engineering pattern was strongly triggered by this JD.";
+
+      container.appendChild(empty);
 
       return;
 
     }
 
 
-    const opportunity =
-      job.targetOpportunity;
+    topSolutions.forEach(item => {
+
+      const solution = item.solution;
+
+      const card = document.createElement("div");
+
+      card.className = "approach";
+
+      const title =
+        document.createElement("h4");
+
+      title.textContent =
+        solution.title;
+
+      card.appendChild(title);
 
 
-    /*
-      COMPANY + JOB TITLE
-    */
-
-    document.getElementById(
-      "opportunityTitle"
-    ).textContent =
-      `${opportunity.company} — ${opportunity.jobTitle}`;
-
-
-    /*
-      SUMMARY
-    */
-
-    let summary =
-      opportunity.summary || "";
-
-
-    /*
-      OPTIONAL REQUISITION
-    */
-
-    if (opportunity.requisition) {
-
-      summary +=
-        ` Requisition: ${opportunity.requisition}.`;
-
-    }
-
-
-    document.getElementById(
-      "opportunitySummary"
-    ).textContent =
-      summary;
-
-
-    /*
-      MATCH REASONS
-    */
-
-    const reasonsContainer =
-      document.getElementById(
-        "opportunityReasons"
-      );
-
-
-    reasonsContainer.innerHTML = "";
-
-
-    if (
-      opportunity.matchReasons &&
-      opportunity.matchReasons.length > 0
-    ) {
-
-      const heading =
+      const problem =
         document.createElement("p");
 
+      problem.textContent =
+        solution.problem;
 
-      heading.innerHTML =
-        "<strong>Why this role is a strong match</strong>";
-
-
-      reasonsContainer.appendChild(
-        heading
-      );
+      card.appendChild(problem);
 
 
-      const list =
-        document.createElement("ul");
+      if (solution.approach?.length) {
 
+        const approachTags =
+          document.createElement("div");
 
-      opportunity.matchReasons.forEach(
-        reason => {
+        approachTags.className = "tags";
 
-          const item =
-            document.createElement("li");
-
-
-          item.textContent =
-            reason;
-
-
-          list.appendChild(
-            item
-          );
-
-        }
-      );
-
-
-      reasonsContainer.appendChild(
-        list
-      );
-
-    }
-
-
-    /*
-      JD KEYWORDS
-    */
-
-    const keywordContainer =
-      document.getElementById(
-        "opportunityKeywords"
-      );
-
-
-    keywordContainer.innerHTML =
-      "";
-
-
-    if (
-      opportunity.jdKeywords &&
-      opportunity.jdKeywords.length > 0
-    ) {
-
-      opportunity.jdKeywords.forEach(
-        keyword => {
+        solution.approach.forEach(step => {
 
           const tag =
             document.createElement("span");
 
+          tag.className = "tag";
 
-          tag.className =
-            "tag";
+          tag.textContent = step;
+
+          approachTags.appendChild(tag);
+
+        });
+
+        card.appendChild(approachTags);
+
+      }
 
 
-          tag.textContent =
-            keyword;
+      if (solution.flow?.length) {
+
+        const flow =
+          document.createElement("div");
+
+        flow.className = "flow";
+
+        solution.flow.forEach(
+          (step, index) => {
+
+            const flowStep =
+              document.createElement("span");
+
+            flowStep.className =
+              "flow-step";
+
+            flowStep.textContent =
+              step;
+
+            flow.appendChild(flowStep);
 
 
-          keywordContainer.appendChild(
-            tag
+            if (
+              index <
+              solution.flow.length - 1
+            ) {
+
+              const arrow =
+                document.createElement("span");
+
+              arrow.className =
+                "flow-arrow";
+
+              arrow.textContent =
+                "→";
+
+              flow.appendChild(arrow);
+
+            }
+
+          }
+        );
+
+        flow.style.marginTop = "14px";
+
+        card.appendChild(flow);
+
+      }
+
+
+      container.appendChild(card);
+
+    });
+
+  }
+
+
+  /* -------------------------------------------------------
+     Main JD analysis
+  ------------------------------------------------------- */
+
+  function analyzeJD() {
+
+    if (!profileData || !solutionsData) {
+
+      alert(
+        "Profile data is still loading. Please try again."
+      );
+
+      return;
+
+    }
+
+
+    const company =
+      document
+        .getElementById("companyInput")
+        .value
+        .trim();
+
+    const role =
+      document
+        .getElementById("roleInput")
+        .value
+        .trim();
+
+    const jdText =
+      document
+        .getElementById("jdInput")
+        .value
+        .trim();
+
+
+    if (!jdText) {
+
+      alert(
+        "Please paste the job description first."
+      );
+
+      return;
+
+    }
+
+
+    const requirements =
+      detectJDRequirements(jdText);
+
+
+    const matchedSkills =
+      uniqueArray(
+        requirements.flatMap(
+          item => item.skills
+        )
+      );
+
+
+    const gaps =
+      findPotentialGaps(
+        jdText,
+        matchedSkills
+      );
+
+
+    const score =
+      calculateScore(
+        jdText,
+        requirements
+      );
+
+
+    /*
+      Result title
+    */
+
+    const resultTitle =
+      document.getElementById(
+        "resultTitle"
+      );
+
+    const resultSubtitle =
+      document.getElementById(
+        "resultSubtitle"
+      );
+
+
+    resultTitle.textContent =
+      company
+        ? `${company} — Profile Alignment`
+        : "Profile Alignment";
+
+
+    resultSubtitle.textContent =
+      role
+        ? role
+        : "Job description analysis";
+
+
+    /*
+      Score
+    */
+
+    document.getElementById(
+      "scoreValue"
+    ).textContent =
+      `${score}%`;
+
+
+    document.getElementById(
+      "scoreBar"
+    ).style.width =
+      `${score}%`;
+
+
+    /*
+      Strong matches
+    */
+
+    renderTags(
+      document.getElementById(
+        "strongMatches"
+      ),
+      matchedSkills
+    );
+
+
+    /*
+      Potential gaps
+    */
+
+    renderTags(
+      document.getElementById(
+        "potentialGaps"
+      ),
+      gaps,
+      "gap"
+    );
+
+
+    /*
+      Match reasons
+    */
+
+    const reasonList =
+      document.getElementById(
+        "matchReasons"
+      );
+
+    reasonList.innerHTML = "";
+
+
+    if (requirements.length === 0) {
+
+      const li =
+        document.createElement("li");
+
+      li.textContent =
+        "No strong technical keyword overlap was detected from the current profile data.";
+
+      reasonList.appendChild(li);
+
+    } else {
+
+      requirements.forEach(
+        requirement => {
+
+          const li =
+            document.createElement("li");
+
+          const strong =
+            document.createElement("strong");
+
+          strong.textContent =
+            `${requirement.category}: `;
+
+          li.appendChild(strong);
+
+          li.appendChild(
+            document.createTextNode(
+              requirement.skills.join(", ")
+            )
           );
+
+          reasonList.appendChild(li);
 
         }
       );
@@ -1141,58 +1727,138 @@ async function loadTargetOpportunity() {
 
 
     /*
-      RECRUITER SNAPSHOT
+      Engineering approaches
     */
 
-    const snapshot =
-      document.getElementById(
-        "opportunitySnapshot"
-      );
-
-
-    snapshot.innerHTML =
-      "";
-
-
-    if (opportunity.recruiterSnapshot) {
-
-      snapshot.innerHTML =
-        `<strong>Recruiter snapshot:</strong> ${opportunity.recruiterSnapshot}`;
-
-    }
-
-  }
-
-
-  catch (error) {
-
-    console.error(
-      "Target opportunity error:",
-      error
+    renderEngineeringApproaches(
+      jdText
     );
 
 
-    document.getElementById(
-      "opportunityTitle"
-    ).textContent =
-      "Target opportunity";
+    /*
+      Display results
+    */
 
+    const result =
+      document.getElementById(
+        "analysisResult"
+      );
 
-    document.getElementById(
-      "opportunitySummary"
-    ).textContent =
-      "Company-specific information could not be loaded. Please check jobs.json.";
+    result.style.display = "block";
+
+    result.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
 
   }
 
-}
+
+  /* -------------------------------------------------------
+     3Pillar example
+  ------------------------------------------------------- */
+
+  function load3PillarExample() {
+
+    document.getElementById(
+      "companyInput"
+    ).value =
+      "3Pillar";
 
 
-/*
-  Load company-specific opportunity
-*/
+    document.getElementById(
+      "roleInput"
+    ).value =
+      "Senior Software Engineer - Java, Spring Boot, Microservices";
 
-loadTargetOpportunity();
+
+    document.getElementById(
+      "jdInput"
+    ).value =
+`We are looking for a Senior Software Engineer with strong experience in Java, Spring Boot and Microservices.
+
+The role involves designing and developing scalable backend applications, building REST APIs and working with cloud technologies.
+
+Key areas include:
+- Java
+- Spring Boot
+- Microservices
+- REST APIs
+- AWS
+- SQL / databases
+- ORM tools
+- Production-quality software
+- Agile development
+
+The candidate should have strong backend engineering experience and be comfortable working on distributed systems and scalable applications.`;
+
+
+    analyzeJD();
+
+  }
+
+
+  /* -------------------------------------------------------
+     Clear analyzer
+  ------------------------------------------------------- */
+
+  function clearAnalyzer() {
+
+    document.getElementById(
+      "companyInput"
+    ).value = "";
+
+
+    document.getElementById(
+      "roleInput"
+    ).value = "";
+
+
+    document.getElementById(
+      "jdInput"
+    ).value = "";
+
+
+    document.getElementById(
+      "analysisResult"
+    ).style.display = "none";
+
+  }
+
+
+  /* -------------------------------------------------------
+     Event listeners
+  ------------------------------------------------------- */
+
+  document
+    .getElementById("analyzeBtn")
+    .addEventListener(
+      "click",
+      analyzeJD
+    );
+
+
+  document
+    .getElementById("exampleBtn")
+    .addEventListener(
+      "click",
+      load3PillarExample
+    );
+
+
+  document
+    .getElementById("clearBtn")
+    .addEventListener(
+      "click",
+      clearAnalyzer
+    );
+
+
+  /* -------------------------------------------------------
+     Initialize
+  ------------------------------------------------------- */
+
+  loadProfileData();
 
 </script>
 
