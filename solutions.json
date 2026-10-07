@@ -1,0 +1,355 @@
+{
+  "microservices-reliability": {
+    "title": "Reliable Java Microservices",
+
+    "triggers": [
+      "microservices",
+      "distributed systems",
+      "resilience",
+      "reliability",
+      "downstream",
+      "production"
+    ],
+
+    "problem": "A slow or unavailable dependency can turn a local failure into a customer-facing outage.",
+
+    "approach": [
+      "Timeouts",
+      "Controlled retries",
+      "Idempotency",
+      "Graceful failure",
+      "Observability"
+    ],
+
+    "flow": [
+      "API",
+      "Service",
+      "Dependency",
+      "Failure",
+      "Recovery",
+      "Monitoring"
+    ]
+  },
+
+  "secure-api": {
+    "title": "Secure REST APIs",
+
+    "triggers": [
+      "security",
+      "oauth",
+      "oauth2",
+      "jwt",
+      "authentication",
+      "authorization",
+      "token",
+      "secure api"
+    ],
+
+    "problem": "APIs need controlled access, validated input and predictable failure handling.",
+
+    "approach": [
+      "Authentication",
+      "Authorization",
+      "Token validation",
+      "Input validation",
+      "Centralized error handling"
+    ],
+
+    "flow": [
+      "Client",
+      "Authentication",
+      "API",
+      "Service",
+      "Protected Resource"
+    ]
+  },
+
+  "api-performance": {
+    "title": "High-Performance APIs",
+
+    "triggers": [
+      "performance",
+      "latency",
+      "throughput",
+      "optimization",
+      "scalability",
+      "high performance"
+    ],
+
+    "problem": "Growing traffic and inefficient processing can increase latency and reduce throughput.",
+
+    "approach": [
+      "Measure latency",
+      "Find bottlenecks",
+      "Optimize database access",
+      "Cache where appropriate",
+      "Validate with testing"
+    ],
+
+    "flow": [
+      "Request",
+      "API",
+      "Service",
+      "Cache/DB",
+      "Response"
+    ]
+  },
+
+  "production-incident": {
+    "title": "Production Incident & RCA",
+
+    "triggers": [
+      "production support",
+      "incident",
+      "incident management",
+      "rca",
+      "root cause",
+      "troubleshooting",
+      "production"
+    ],
+
+    "problem": "A production symptom must be isolated quickly without confusing the symptom with the root cause.",
+
+    "approach": [
+      "Detect",
+      "Scope impact",
+      "Correlate logs/metrics",
+      "Identify root cause",
+      "Mitigate",
+      "Prevent recurrence"
+    ],
+
+    "flow": [
+      "Alert",
+      "Impact",
+      "Evidence",
+      "Root Cause",
+      "Fix",
+      "Validation"
+    ]
+  },
+
+  "observability": {
+    "title": "Production Observability",
+
+    "triggers": [
+      "observability",
+      "monitoring",
+      "logging",
+      "metrics",
+      "tracing",
+      "splunk",
+      "dynatrace"
+    ],
+
+    "problem": "Distributed systems are difficult to troubleshoot when logs, metrics and request context are disconnected.",
+
+    "approach": [
+      "Structured logs",
+      "Correlation IDs",
+      "Metrics",
+      "Dashboards",
+      "Alerting",
+      "RCA"
+    ],
+
+    "flow": [
+      "Request",
+      "Logs",
+      "Metrics",
+      "Alert",
+      "Investigation",
+      "RCA"
+    ]
+  },
+
+  "cloud-scalability": {
+    "title": "Cloud Scalability",
+
+    "triggers": [
+      "cloud",
+      "aws",
+      "kubernetes",
+      "auto scaling",
+      "autoscaling",
+      "scalability",
+      "cloud native"
+    ],
+
+    "problem": "Applications need predictable performance while demand changes.",
+
+    "approach": [
+      "Capacity signals",
+      "Horizontal scaling",
+      "Health checks",
+      "Resource limits",
+      "Failure recovery"
+    ],
+
+    "flow": [
+      "Traffic",
+      "Service",
+      "Metrics",
+      "Scale",
+      "Healthy Instances"
+    ]
+  },
+
+  "data-consistency": {
+    "title": "Data Consistency Across Services",
+
+    "triggers": [
+      "data consistency",
+      "transaction",
+      "transactions",
+      "distributed transaction",
+      "consistency",
+      "saga"
+    ],
+
+    "problem": "Independent services make cross-service state changes harder to keep consistent.",
+
+    "approach": [
+      "Define ownership",
+      "Transactional boundaries",
+      "Idempotency",
+      "Compensation",
+      "Monitoring"
+    ],
+
+    "flow": [
+      "Service A",
+      "Event/Command",
+      "Service B",
+      "State",
+      "Compensation"
+    ]
+  },
+
+  "caching": {
+    "title": "Caching for Read Performance",
+
+    "triggers": [
+      "caching",
+      "cache",
+      "redis",
+      "latency",
+      "read performance"
+    ],
+
+    "problem": "Repeated reads can create unnecessary database load and increase response time.",
+
+    "approach": [
+      "Identify hot reads",
+      "Choose cache boundary",
+      "Define TTL",
+      "Handle invalidation",
+      "Measure hit rate"
+    ],
+
+    "flow": [
+      "API",
+      "Cache",
+      "Database",
+      "Response"
+    ]
+  },
+
+  "ci-cd": {
+    "title": "Reliable CI/CD",
+
+    "triggers": [
+      "ci/cd",
+      "ci cd",
+      "continuous integration",
+      "continuous delivery",
+      "deployment",
+      "release",
+      "maven",
+      "git"
+    ],
+
+    "problem": "Frequent releases require repeatable validation and deployment rather than manual steps.",
+
+    "approach": [
+      "Build",
+      "Automated tests",
+      "Quality checks",
+      "Artifact",
+      "Deployment",
+      "Verification"
+    ],
+
+    "flow": [
+      "Commit",
+      "Build",
+      "Test",
+      "Artifact",
+      "Deploy",
+      "Verify"
+    ]
+  },
+
+  "testing": {
+    "title": "Quality Through Automated Testing",
+
+    "triggers": [
+      "testing",
+      "unit testing",
+      "junit",
+      "test automation",
+      "integration testing",
+      "automated tests"
+    ],
+
+    "problem": "Fast delivery without automated validation increases regression risk.",
+
+    "approach": [
+      "Unit tests",
+      "Boundary cases",
+      "Integration coverage",
+      "Failure-path testing",
+      "Regression prevention"
+    ],
+
+    "flow": [
+      "Change",
+      "Unit Test",
+      "Integration Test",
+      "Validation",
+      "Release"
+    ]
+  },
+
+  "ai-assisted-engineering": {
+    "title": "AI-Assisted Engineering",
+
+    "triggers": [
+      "ai-assisted",
+      "ai assisted",
+      "copilot",
+      "claude",
+      "devin",
+      "generative ai",
+      "automation"
+    ],
+
+    "problem": "Engineering teams can reduce repetitive development effort while keeping human review and quality controls.",
+
+    "approach": [
+      "Generate candidates",
+      "Review output",
+      "Run tests",
+      "Security and quality checks",
+      "Human approval"
+    ],
+
+    "flow": [
+      "Requirement",
+      "AI Assistance",
+      "Engineer Review",
+      "Tests",
+      "Production"
+    ]
+  }
+}
