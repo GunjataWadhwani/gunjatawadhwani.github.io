@@ -1,137 +1,160 @@
 {
   "microservices-reliability": {
     "title": "Reliable Java Microservices",
-
     "triggers": [
       "microservices",
+      "microservice",
       "distributed systems",
+      "distributed system",
       "resilience",
       "reliability",
-      "downstream",
-      "production"
+      "production",
+      "downstream service"
     ],
-
-    "problem": "A slow or unavailable dependency can turn a local failure into a customer-facing outage.",
-
-    "approach": [
-      "Timeouts",
-      "Controlled retries",
-      "Idempotency",
-      "Graceful failure",
-      "Observability"
-    ],
-
-    "flow": [
-      "API",
-      "Service",
-      "Dependency",
-      "Failure",
-      "Recovery",
+    "problem": "A failure or slow response from one downstream service can affect the reliability of the overall application.",
+    "architecture": [
+      "Client",
+      "REST API",
+      "Spring Boot Service",
+      "Business Logic",
+      "Downstream Service",
       "Monitoring"
-    ]
+    ],
+    "engineeringDecisions": [
+      "Define clear service boundaries",
+      "Use timeouts for downstream calls",
+      "Use controlled retries only where safe",
+      "Design idempotent operations",
+      "Handle failures gracefully",
+      "Add structured logging and monitoring"
+    ],
+    "prototype": {
+      "language": "Java",
+      "framework": "Spring Boot",
+      "description": "A small REST API demonstrating controller-service separation and controlled downstream interaction.",
+      "code": "```java\n@RestController\n@RequestMapping(\"/api/orders\")\npublic class OrderController {\n\n    private final OrderService orderService;\n\n    public OrderController(OrderService orderService) {\n        this.orderService = orderService;\n    }\n\n    @GetMapping(\"/{id}\")\n    public ResponseEntity<OrderResponse> getOrder(\n            @PathVariable Long id) {\n\n        return ResponseEntity.ok(\n                orderService.getOrder(id)\n        );\n    }\n}\n```"
+    }
   },
 
   "secure-api": {
     "title": "Secure REST APIs",
-
     "triggers": [
       "security",
       "oauth",
       "oauth2",
+      "oauth 2.0",
       "jwt",
       "authentication",
       "authorization",
       "token",
-      "secure api"
+      "secure api",
+      "api security"
     ],
-
-    "problem": "APIs need controlled access, validated input and predictable failure handling.",
-
-    "approach": [
-      "Authentication",
-      "Authorization",
-      "Token validation",
-      "Input validation",
-      "Centralized error handling"
-    ],
-
-    "flow": [
+    "problem": "Backend APIs need controlled access, validated input and predictable security and error handling.",
+    "architecture": [
       "Client",
       "Authentication",
-      "API",
-      "Service",
+      "Token Validation",
+      "REST API",
+      "Authorization",
+      "Business Service",
       "Protected Resource"
-    ]
+    ],
+    "engineeringDecisions": [
+      "Authenticate requests before accessing protected resources",
+      "Validate token claims",
+      "Apply authorization at the appropriate boundary",
+      "Validate request input",
+      "Avoid exposing sensitive information in errors",
+      "Centralize exception handling"
+    ],
+    "prototype": {
+      "language": "Java",
+      "framework": "Spring Boot",
+      "description": "A simplified Spring Boot API showing the protected endpoint boundary.",
+      "code": "```java\n@RestController\n@RequestMapping(\"/api/customers\")\npublic class CustomerController {\n\n    @GetMapping(\"/{id}\")\n    public ResponseEntity<CustomerResponse> getCustomer(\n            @PathVariable Long id) {\n\n        return ResponseEntity.ok(\n                customerService.findCustomer(id)\n        );\n    }\n}\n```"
+    }
   },
 
   "api-performance": {
-    "title": "High-Performance APIs",
-
+    "title": "High-Performance REST APIs",
     "triggers": [
       "performance",
       "latency",
       "throughput",
       "optimization",
       "scalability",
-      "high performance"
+      "high performance",
+      "response time",
+      "low latency"
     ],
-
-    "problem": "Growing traffic and inefficient processing can increase latency and reduce throughput.",
-
-    "approach": [
-      "Measure latency",
-      "Find bottlenecks",
-      "Optimize database access",
-      "Cache where appropriate",
-      "Validate with testing"
-    ],
-
-    "flow": [
-      "Request",
-      "API",
-      "Service",
-      "Cache/DB",
+    "problem": "Increasing traffic and inefficient processing can increase API latency and reduce system throughput.",
+    "architecture": [
+      "Client",
+      "REST API",
+      "Spring Boot Service",
+      "Cache",
+      "Database",
       "Response"
-    ]
+    ],
+    "engineeringDecisions": [
+      "Measure latency before optimizing",
+      "Identify application and database bottlenecks",
+      "Optimize database queries",
+      "Cache appropriate read-heavy data",
+      "Avoid unnecessary downstream calls",
+      "Validate improvements with performance testing"
+    ],
+    "prototype": {
+      "language": "Java",
+      "framework": "Spring Boot",
+      "description": "A simplified service boundary showing where caching can reduce repeated database access.",
+      "code": "```java\n@Service\npublic class ProductService {\n\n    private final ProductRepository repository;\n\n    public ProductService(ProductRepository repository) {\n        this.repository = repository;\n    }\n\n    public Product getProduct(Long id) {\n        return repository.findById(id)\n                .orElseThrow(() ->\n                        new RuntimeException(\"Product not found\"));\n    }\n}\n```"
+    }
   },
 
   "production-incident": {
     "title": "Production Incident & RCA",
-
     "triggers": [
       "production support",
+      "production",
       "incident",
       "incident management",
       "rca",
       "root cause",
+      "root cause analysis",
       "troubleshooting",
-      "production"
+      "support",
+      "production issues"
     ],
-
-    "problem": "A production symptom must be isolated quickly without confusing the symptom with the root cause.",
-
-    "approach": [
-      "Detect",
-      "Scope impact",
-      "Correlate logs/metrics",
-      "Identify root cause",
-      "Mitigate",
-      "Prevent recurrence"
-    ],
-
-    "flow": [
-      "Alert",
-      "Impact",
-      "Evidence",
+    "problem": "Production incidents require rapid impact assessment, evidence-based troubleshooting and prevention of recurrence.",
+    "architecture": [
+      "Production Alert",
+      "Impact Assessment",
+      "Logs",
+      "Metrics",
       "Root Cause",
-      "Fix",
+      "Mitigation",
       "Validation"
-    ]
+    ],
+    "engineeringDecisions": [
+      "Identify the affected service and business impact",
+      "Correlate logs and metrics",
+      "Separate symptoms from root cause",
+      "Apply the safest mitigation first",
+      "Validate the recovery",
+      "Document preventive actions"
+    ],
+    "prototype": {
+      "language": "Engineering Process",
+      "framework": "Production Troubleshooting",
+      "description": "A lightweight incident-response flow showing how a production issue can be investigated.",
+      "code": "```text\nAlert\n  ↓\nIdentify Impact\n  ↓\nCheck Logs + Metrics\n  ↓\nIsolate Service\n  ↓\nFind Root Cause\n  ↓\nMitigate\n  ↓\nValidate\n  ↓\nPrevent Recurrence\n```"
+    }
   },
 
   "observability": {
     "title": "Production Observability",
-
     "triggers": [
       "observability",
       "monitoring",
@@ -139,125 +162,144 @@
       "metrics",
       "tracing",
       "splunk",
-      "dynatrace"
+      "dynatrace",
+      "alerts",
+      "dashboards"
     ],
-
-    "problem": "Distributed systems are difficult to troubleshoot when logs, metrics and request context are disconnected.",
-
-    "approach": [
-      "Structured logs",
-      "Correlation IDs",
+    "problem": "Distributed applications are difficult to troubleshoot when logs, metrics and request context are disconnected.",
+    "architecture": [
+      "Application",
+      "Structured Logs",
       "Metrics",
-      "Dashboards",
-      "Alerting",
-      "RCA"
-    ],
-
-    "flow": [
-      "Request",
-      "Logs",
-      "Metrics",
+      "Monitoring Platform",
       "Alert",
       "Investigation",
       "RCA"
-    ]
+    ],
+    "engineeringDecisions": [
+      "Use structured logs",
+      "Include correlation or request identifiers",
+      "Track application and business metrics",
+      "Create actionable alerts",
+      "Monitor error rate and latency",
+      "Use evidence from logs and metrics during RCA"
+    ],
+    "prototype": {
+      "language": "Java",
+      "framework": "Spring Boot",
+      "description": "A simplified logging example showing request context that can be correlated during production troubleshooting.",
+      "code": "```java\n@Slf4j\n@RestController\npublic class OrderController {\n\n    @GetMapping(\"/orders/{id}\")\n    public Order getOrder(@PathVariable Long id) {\n\n        log.info(\"Fetching order id={}\", id);\n\n        return orderService.getOrder(id);\n    }\n}\n```"
+    }
   },
 
   "cloud-scalability": {
     "title": "Cloud Scalability",
-
     "triggers": [
       "cloud",
+      "cloud native",
       "aws",
       "kubernetes",
       "auto scaling",
       "autoscaling",
       "scalability",
-      "cloud native"
+      "elastic",
+      "container"
     ],
-
-    "problem": "Applications need predictable performance while demand changes.",
-
-    "approach": [
-      "Capacity signals",
-      "Horizontal scaling",
-      "Health checks",
-      "Resource limits",
-      "Failure recovery"
-    ],
-
-    "flow": [
-      "Traffic",
-      "Service",
+    "problem": "Applications need to maintain predictable performance while traffic and resource demand change.",
+    "architecture": [
+      "Incoming Traffic",
+      "Load Balancer",
+      "Application Instances",
       "Metrics",
-      "Scale",
+      "Autoscaling",
       "Healthy Instances"
-    ]
+    ],
+    "engineeringDecisions": [
+      "Define useful scaling signals",
+      "Use horizontal scaling where appropriate",
+      "Configure health checks",
+      "Set reasonable resource limits",
+      "Monitor capacity and latency",
+      "Design for instance failure"
+    ],
+    "prototype": {
+      "language": "Architecture",
+      "framework": "Kubernetes",
+      "description": "A simplified deployment model showing multiple application instances behind a load balancer.",
+      "code": "```text\nUsers\n  ↓\nLoad Balancer\n  ↓\n┌───────────────┐\n│ Spring Boot   │\n│ Instance 1    │\n├───────────────┤\n│ Spring Boot   │\n│ Instance 2    │\n└───────────────┘\n       ↓\n   Monitoring\n       ↓\n   Autoscaling\n```"
+    }
   },
 
   "data-consistency": {
     "title": "Data Consistency Across Services",
-
     "triggers": [
       "data consistency",
       "transaction",
       "transactions",
       "distributed transaction",
       "consistency",
-      "saga"
+      "saga",
+      "transactional"
     ],
-
-    "problem": "Independent services make cross-service state changes harder to keep consistent.",
-
-    "approach": [
-      "Define ownership",
-      "Transactional boundaries",
-      "Idempotency",
-      "Compensation",
-      "Monitoring"
-    ],
-
-    "flow": [
+    "problem": "Independent microservices make cross-service state changes harder to keep consistent.",
+    "architecture": [
       "Service A",
-      "Event/Command",
+      "Command/Event",
       "Service B",
-      "State",
+      "State Change",
       "Compensation"
-    ]
+    ],
+    "engineeringDecisions": [
+      "Define ownership of data",
+      "Keep transaction boundaries clear",
+      "Make operations idempotent",
+      "Use compensation where required",
+      "Monitor failed state transitions"
+    ],
+    "prototype": {
+      "language": "Architecture",
+      "framework": "Microservices",
+      "description": "A simplified service flow demonstrating eventual consistency and compensation.",
+      "code": "```text\nOrder Service\n     ↓\nPayment Request\n     ↓\nPayment Service\n     ↓\nPayment Success\n     ↓\nOrder Confirmed\n\nIf Payment Fails\n     ↓\nCompensation / Retry\n```"
+    }
   },
 
   "caching": {
     "title": "Caching for Read Performance",
-
     "triggers": [
       "caching",
       "cache",
       "redis",
       "latency",
-      "read performance"
+      "read performance",
+      "cache hit",
+      "cache invalidation"
     ],
-
-    "problem": "Repeated reads can create unnecessary database load and increase response time.",
-
-    "approach": [
-      "Identify hot reads",
-      "Choose cache boundary",
-      "Define TTL",
-      "Handle invalidation",
-      "Measure hit rate"
-    ],
-
-    "flow": [
+    "problem": "Repeated reads can create unnecessary database load and increase API response time.",
+    "architecture": [
       "API",
       "Cache",
       "Database",
       "Response"
-    ]
+    ],
+    "engineeringDecisions": [
+      "Identify frequently accessed data",
+      "Choose an appropriate cache boundary",
+      "Define TTL carefully",
+      "Plan cache invalidation",
+      "Measure cache hit rate",
+      "Avoid stale data where business impact is high"
+    ],
+    "prototype": {
+      "language": "Architecture",
+      "framework": "Caching",
+      "description": "A simple cache-aside pattern for frequently requested data.",
+      "code": "```text\nRequest\n  ↓\nCheck Cache\n  ↓\nHit? ── Yes ──→ Return\n  │\n  No\n  ↓\nDatabase\n  ↓\nUpdate Cache\n  ↓\nReturn\n```"
+    }
   },
 
   "ci-cd": {
     "title": "Reliable CI/CD",
-
     "triggers": [
       "ci/cd",
       "ci cd",
@@ -266,64 +308,72 @@
       "deployment",
       "release",
       "maven",
-      "git"
+      "git",
+      "pipeline"
     ],
-
-    "problem": "Frequent releases require repeatable validation and deployment rather than manual steps.",
-
-    "approach": [
+    "problem": "Frequent releases require repeatable validation and deployment rather than manual and error-prone steps.",
+    "architecture": [
+      "Developer Commit",
       "Build",
-      "Automated tests",
-      "Quality checks",
+      "Automated Tests",
+      "Quality Checks",
       "Artifact",
       "Deployment",
       "Verification"
     ],
-
-    "flow": [
-      "Commit",
-      "Build",
-      "Test",
-      "Artifact",
-      "Deploy",
-      "Verify"
-    ]
+    "engineeringDecisions": [
+      "Automate builds",
+      "Run automated tests",
+      "Perform quality checks before deployment",
+      "Create repeatable deployment artifacts",
+      "Verify deployments",
+      "Keep rollback or recovery options available"
+    ],
+    "prototype": {
+      "language": "CI/CD",
+      "framework": "Git + Maven",
+      "description": "A simplified pipeline showing the core validation stages before production deployment.",
+      "code": "```text\nGit Commit\n    ↓\nMaven Build\n    ↓\nUnit Tests\n    ↓\nQuality Checks\n    ↓\nArtifact\n    ↓\nDeploy\n    ↓\nSmoke Test\n```"
+    }
   },
 
   "testing": {
     "title": "Quality Through Automated Testing",
-
     "triggers": [
       "testing",
       "unit testing",
       "junit",
       "test automation",
       "integration testing",
-      "automated tests"
+      "automated tests",
+      "test coverage",
+      "regression"
     ],
-
     "problem": "Fast delivery without automated validation increases regression risk.",
-
-    "approach": [
-      "Unit tests",
-      "Boundary cases",
-      "Integration coverage",
-      "Failure-path testing",
-      "Regression prevention"
-    ],
-
-    "flow": [
-      "Change",
-      "Unit Test",
-      "Integration Test",
+    "architecture": [
+      "Code Change",
+      "Unit Tests",
+      "Integration Tests",
       "Validation",
       "Release"
-    ]
+    ],
+    "engineeringDecisions": [
+      "Cover important business logic with unit tests",
+      "Test boundary and failure conditions",
+      "Use integration tests for service boundaries",
+      "Automate regression validation",
+      "Run tests as part of CI/CD"
+    ],
+    "prototype": {
+      "language": "Java",
+      "framework": "JUnit",
+      "description": "A simple unit-test structure for validating service behaviour.",
+      "code": "```java\n@Test\nvoid shouldReturnOrderWhenIdExists() {\n\n    Order order = service.getOrder(100L);\n\n    assertNotNull(order);\n    assertEquals(100L, order.getId());\n}\n```"
+    }
   },
 
   "ai-assisted-engineering": {
     "title": "AI-Assisted Engineering",
-
     "triggers": [
       "ai-assisted",
       "ai assisted",
@@ -331,25 +381,30 @@
       "claude",
       "devin",
       "generative ai",
-      "automation"
+      "automation",
+      "ai coding"
     ],
-
-    "problem": "Engineering teams can reduce repetitive development effort while keeping human review and quality controls.",
-
-    "approach": [
-      "Generate candidates",
-      "Review output",
-      "Run tests",
-      "Security and quality checks",
-      "Human approval"
-    ],
-
-    "flow": [
+    "problem": "AI coding tools can reduce repetitive development work while engineering quality, security and human review remain essential.",
+    "architecture": [
       "Requirement",
       "AI Assistance",
       "Engineer Review",
-      "Tests",
+      "Automated Tests",
+      "Security Checks",
       "Production"
-    ]
+    ],
+    "engineeringDecisions": [
+      "Use AI for repetitive development tasks",
+      "Review generated code manually",
+      "Run automated tests",
+      "Validate security and quality",
+      "Keep human approval in the delivery process"
+    ],
+    "prototype": {
+      "language": "Engineering Workflow",
+      "framework": "AI-Assisted Development",
+      "description": "A controlled workflow for using AI coding assistance without removing engineering review.",
+      "code": "```text\nRequirement\n    ↓\nAI Assistance\n    ↓\nEngineer Review\n    ↓\nUnit Tests\n    ↓\nSecurity / Quality Checks\n    ↓\nProduction\n```"
+    }
   }
 }
