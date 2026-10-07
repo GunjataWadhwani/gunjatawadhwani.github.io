@@ -1,0 +1,128 @@
+{
+  "name": "Gunjata Wadhwani",
+  "headline": "Software Engineer — Backend, Microservices & Cloud Platforms",
+  "location": "Indore, Madhya Pradesh, India",
+  "experience": "5+ years",
+  "noticePeriod": "30 days",
+
+  "summary": "Software Engineer with 5+ years of experience building Java and Spring Boot microservices, REST APIs and production-grade applications.",
+
+  "metrics": {
+    "microservices": "6+",
+    "restApis": "10+",
+    "sql": "5+ years"
+  },
+
+  "skills": {
+    "Java": [
+      "Java",
+      "Java 8",
+      "Java 17",
+      "Java 21",
+      "Core Java"
+    ],
+
+    "Spring": [
+      "Spring",
+      "Spring Boot",
+      "Spring Framework"
+    ],
+
+    "Microservices": [
+      "Microservices",
+      "Microservice",
+      "Distributed Systems",
+      "Distributed System"
+    ],
+
+    "APIs": [
+      "REST",
+      "REST APIs",
+      "REST API",
+      "API",
+      "APIs"
+    ],
+
+    "Database": [
+      "SQL",
+      "MySQL",
+      "Relational Database",
+      "Database"
+    ],
+
+    "Cloud": [
+      "PCF",
+      "Pivotal Cloud Foundry",
+      "Kubernetes",
+      "AWS"
+    ],
+
+    "Testing": [
+      "Unit Testing",
+      "Unit Tests",
+      "JUnit",
+      "Testing",
+      "Test Automation"
+    ],
+
+    "Delivery": [
+      "CI/CD",
+      "CI CD",
+      "Git",
+      "Maven",
+      "Continuous Integration",
+      "Continuous Delivery"
+    ],
+
+    "Production": [
+      "Production Support",
+      "Production Troubleshooting",
+      "Troubleshooting",
+      "RCA",
+      "Root Cause Analysis",
+      "Incident Management"
+    ],
+
+    "Engineering": [
+      "SOLID",
+      "Object-Oriented Design",
+      "OOP",
+      "Concurrency",
+      "Multithreading",
+      "Agile",
+      "Scrum"
+    ],
+
+    "Security": [
+      "OAuth",
+      "OAuth 2.0",
+      "JWT",
+      "Token",
+      "API Security",
+      "Security"
+    ],
+
+    "Observability": [
+      "Monitoring",
+      "Observability",
+      "Logging",
+      "Splunk",
+      "Dynatrace"
+    ],
+
+    "AI": [
+      "GitHub Copilot",
+      "Copilot",
+      "Claude",
+      "Devin",
+      "AI-assisted development",
+      "AI assisted development"
+    ]
+  },
+
+  "profileNotes": [
+    "Current work includes 6+ Java/Spring Boot microservices and 10+ REST APIs.",
+    "Experience includes production troubleshooting, monitoring, RCA, testing, code reviews and Agile/Scrum delivery.",
+    "Only claim technologies that are genuinely part of the candidate's experience."
+  ]
+}
