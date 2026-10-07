@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
 
   <title>Career Fit Analyzer — Gunjata Wadhwani</title>
 
@@ -27,6 +31,8 @@
       --warning-bg: #fffaeb;
       --danger: #b42318;
       --danger-bg: #fef3f2;
+      --purple: #6941c6;
+      --purple-bg: #f9f5ff;
       --shadow: 0 8px 30px rgba(16, 24, 40, 0.06);
       --radius: 16px;
     }
@@ -55,8 +61,8 @@
     }
 
     button,
-    input,
-    textarea {
+    textarea,
+    input {
       font: inherit;
     }
 
@@ -70,86 +76,93 @@
     }
 
     header {
-      background: linear-gradient(
-        135deg,
-        #0f172a,
-        #172554
-      );
-      color: white;
-      padding: 52px 0 42px;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
     }
 
-    .header-grid {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 32px;
-      align-items: center;
+    .header-inner {
+      padding: 42px 0 36px;
     }
 
     .eyebrow {
-      display: inline-block;
-      font-size: 12px;
+      color: var(--primary);
+      font-size: 13px;
       font-weight: 700;
-      letter-spacing: 0.08em;
+      letter-spacing: .06em;
       text-transform: uppercase;
-      opacity: 0.75;
       margin-bottom: 8px;
     }
 
+    h1,
+    h2,
+    h3 {
+      line-height: 1.25;
+      margin-top: 0;
+    }
+
     h1 {
-      margin: 0 0 10px;
-      font-size: clamp(30px, 5vw, 48px);
-      line-height: 1.08;
+      margin-bottom: 8px;
+      font-size: clamp(28px, 5vw, 44px);
+    }
+
+    h2 {
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+
+    h3 {
+      font-size: 17px;
+      margin-bottom: 8px;
     }
 
     .headline {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 600;
-      margin-bottom: 14px;
-      color: #dbeafe;
+      color: #344054;
+      margin-bottom: 12px;
     }
 
     .summary {
-      max-width: 780px;
-      color: #cbd5e1;
-      margin: 0;
+      max-width: 850px;
+      color: var(--muted);
+      margin: 0 0 18px;
     }
 
     .profile-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 22px;
+      gap: 8px;
     }
 
-    .profile-pill {
-      padding: 8px 12px;
+    .profile-pill,
+    .concept,
+    .skill-tag {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--border);
+      background: #fff;
       border-radius: 999px;
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.15);
-      font-size: 13px;
-    }
-
-    .profile-card {
-      min-width: 210px;
-      padding: 22px;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.07);
-      border-radius: 18px;
-    }
-
-    .profile-card strong {
-      display: block;
-      font-size: 30px;
-      margin-bottom: 4px;
+      padding: 6px 10px;
+      font-size: 12px;
+      color: #475467;
     }
 
     main {
-      padding: 32px 0 70px;
+      padding: 28px 0 60px;
     }
 
     section {
-      margin-bottom: 28px;
+      margin-bottom: 24px;
+    }
+
+    .section-header {
+      margin-bottom: 14px;
+    }
+
+    .section-header p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 14px;
     }
 
     .card {
@@ -157,36 +170,25 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 24px;
-    }
-
-    .section-title {
-      margin: 0 0 6px;
-      font-size: 23px;
-    }
-
-    .section-subtitle {
-      margin: 0 0 22px;
-      color: var(--muted);
-      font-size: 14px;
+      padding: 22px;
     }
 
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 14px;
     }
 
     .skill-card {
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 16px;
-      background: #fbfcfe;
+      padding: 15px;
+      background: #fff;
     }
 
     .skill-card h3 {
-      margin: 0 0 10px;
       font-size: 14px;
+      margin-bottom: 10px;
     }
 
     .skill-list {
@@ -196,23 +198,28 @@
     }
 
     .skill-tag {
-      font-size: 12px;
-      padding: 5px 8px;
-      border-radius: 999px;
-      background: #eef4ff;
-      color: #1d4ed8;
+      background: #f8fafc;
+      padding: 4px 8px;
     }
 
     .analyzer-grid {
       display: grid;
-      grid-template-columns: 0.75fr 1.25fr;
-      gap: 20px;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .field {
+      margin-bottom: 16px;
+    }
+
+    .field:last-child {
+      margin-bottom: 0;
     }
 
     label {
       display: block;
-      font-size: 13px;
       font-weight: 700;
+      font-size: 13px;
       margin-bottom: 7px;
     }
 
@@ -221,65 +228,66 @@
       width: 100%;
       border: 1px solid #d0d5dd;
       border-radius: 10px;
-      padding: 11px 13px;
+      padding: 11px 12px;
       color: var(--text);
-      background: white;
+      background: #fff;
       outline: none;
     }
 
     input:focus,
     textarea:focus {
       border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, .10);
     }
 
     textarea {
-      min-height: 330px;
+      min-height: 300px;
       resize: vertical;
+      line-height: 1.55;
     }
 
-    .field {
-      margin-bottom: 16px;
+    .jd-field {
+      grid-column: 1 / -1;
     }
 
     .button-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
+      gap: 9px;
+      margin-top: 16px;
     }
 
-    .btn {
-      border: 0;
-      border-radius: 10px;
-      padding: 11px 16px;
+    button {
+      border: 1px solid var(--border);
+      background: #fff;
+      color: #344054;
+      border-radius: 9px;
+      padding: 10px 14px;
       font-weight: 700;
-      font-size: 13px;
     }
 
-    .btn-primary {
+    button:hover {
+      background: #f8fafc;
+    }
+
+    button.primary {
       background: var(--primary);
-      color: white;
+      border-color: var(--primary);
+      color: #fff;
     }
 
-    .btn-primary:hover {
+    button.primary:hover {
       background: var(--primary-dark);
     }
 
-    .btn-secondary {
-      background: #eef2f6;
-      color: #344054;
+    button.success {
+      background: var(--success);
+      border-color: var(--success);
+      color: #fff;
     }
 
-    .btn-outline {
-      background: white;
-      color: #344054;
-      border: 1px solid #d0d5dd;
-    }
-
-    .btn-danger {
-      background: #fff1f0;
-      color: var(--danger);
+    button.secondary {
+      background: #f8fafc;
     }
 
     .hidden {
@@ -292,78 +300,39 @@
 
     .score-grid {
       display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 20px;
-      align-items: center;
+      grid-template-columns: 220px 1fr;
+      gap: 18px;
+      align-items: stretch;
     }
 
-    .score-circle {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      margin: auto;
-      border: 12px solid #e8eefc;
-      background: white;
+    .score-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #f8fafc;
+      padding: 24px;
+      text-align: center;
     }
 
     .score-number {
-      font-size: 38px;
+      font-size: 56px;
+      line-height: 1;
       font-weight: 800;
+      color: var(--primary);
     }
 
-    .fit-label {
-      font-size: 16px;
+    .score-label {
       font-weight: 800;
-      margin-bottom: 8px;
+      margin-top: 8px;
     }
 
-    .fit-description {
+    .score-description {
       color: var(--muted);
-      margin: 0;
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    .three-col {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .mini-card {
-      border: 1px solid var(--border);
-      border-radius: 13px;
-      padding: 17px;
-      background: #fff;
-    }
-
-    .mini-card h3 {
-      font-size: 15px;
-      margin: 0 0 8px;
-    }
-
-    .mini-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .problem-box {
-      border-left: 4px solid var(--primary);
-      background: #f5f8ff;
-      padding: 18px;
-      border-radius: 10px;
-    }
-
-    .problem-box strong {
-      display: block;
-      margin-bottom: 5px;
+      font-size: 13px;
+      margin-top: 6px;
     }
 
     .concept-list {
@@ -373,40 +342,11 @@
       margin-top: 12px;
     }
 
-    .concept {
-      background: #f2f4f7;
-      color: #344054;
-      border-radius: 999px;
-      padding: 6px 9px;
-      font-size: 12px;
-      font-weight: 600;
-    }
-
-    .requirement-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    .requirement-table th,
-    .requirement-table td {
-      padding: 12px;
-      border-bottom: 1px solid var(--border);
-      text-align: left;
-      vertical-align: top;
-      font-size: 13px;
-    }
-
-    .requirement-table th {
-      font-size: 12px;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
     .status {
       display: inline-flex;
-      padding: 5px 9px;
+      align-items: center;
       border-radius: 999px;
+      padding: 4px 8px;
       font-size: 11px;
       font-weight: 800;
       white-space: nowrap;
@@ -432,164 +372,311 @@
       background: #f2f4f7;
     }
 
-    .solution-card {
-      border: 1px solid var(--border);
+    .problem-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
       border-radius: 14px;
       padding: 18px;
-      background: white;
     }
 
-    .solution-card.primary {
-      border: 2px solid var(--primary);
-      background: #f8fbff;
+    .problem-box strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #1e40af;
     }
 
-    .solution-rank {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      background: #eaf1ff;
-      color: var(--primary);
-      font-weight: 800;
-      margin-bottom: 10px;
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 12px;
     }
 
-    .solution-card h3 {
-      margin: 0 0 7px;
-      font-size: 17px;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 780px;
     }
 
-    .solution-card p {
-      margin: 0 0 12px;
-      color: var(--muted);
+    th,
+    td {
+      padding: 12px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--border);
       font-size: 13px;
     }
 
+    th {
+      background: #f8fafc;
+      color: #475467;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .03em;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .list-card ul {
+      margin: 10px 0 0;
+      padding-left: 20px;
+    }
+
+    .list-card li {
+      margin-bottom: 9px;
+      color: #475467;
+    }
+
+    .solution-card {
+      position: relative;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 14px;
+      background: #fff;
+    }
+
+    .solution-card.primary {
+      border-color: #93c5fd;
+      box-shadow: 0 8px 24px rgba(37, 99, 235, .08);
+    }
+
+    .solution-rank {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #eff6ff;
+      color: var(--primary);
+      font-weight: 800;
+    }
+
     .solution-score {
-      font-size: 11px;
-      color: var(--muted);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 800;
       margin-bottom: 12px;
+    }
+
+    .architecture-title,
+    .decision-title,
+    .prototype-title {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #667085;
+      letter-spacing: .04em;
+      margin-top: 16px;
+      margin-bottom: 8px;
     }
 
     .architecture {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
-      margin: 10px 0;
+      align-items: center;
+      gap: 7px;
     }
 
     .architecture span {
-      font-size: 11px;
-      background: #f2f4f7;
-      padding: 5px 8px;
-      border-radius: 6px;
+      border: 1px solid #dbeafe;
+      background: #eff6ff;
+      color: #1e40af;
+      border-radius: 8px;
+      padding: 7px 10px;
+      font-size: 12px;
+    }
+
+    .architecture span:not(:last-child)::after {
+      content: "→";
+      margin-left: 7px;
+      color: #94a3b8;
     }
 
     .decision-list {
-      margin: 8px 0 0;
-      padding-left: 18px;
-      font-size: 13px;
-    }
-
-    .gap-list,
-    .match-list {
       margin: 0;
-      padding-left: 18px;
+      padding-left: 20px;
     }
 
-    .gap-list li,
-    .match-list li {
-      margin-bottom: 8px;
+    .decision-list li {
+      margin-bottom: 6px;
+      color: #475467;
       font-size: 13px;
+    }
+
+    .prototype {
+      margin-top: 8px;
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 12px;
+      padding: 15px;
+      overflow-x: auto;
+      font-size: 12px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+
+    .text-block {
+      white-space: pre-line;
+      color: #475467;
     }
 
     .message-box {
       background: #f8fafc;
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 16px;
-      white-space: pre-wrap;
+      padding: 15px;
+      white-space: pre-line;
+      color: #475467;
       font-size: 13px;
-      line-height: 1.65;
     }
 
     .share-box {
-      background: #0f172a;
-      color: white;
-    }
-
-    .share-box .section-subtitle {
-      color: #cbd5e1;
+      background: var(--purple-bg);
+      border: 1px solid #e9d7fe;
     }
 
     .share-link {
-      background: #020617;
-      border: 1px solid #334155;
-      border-radius: 10px;
-      padding: 12px;
+      margin-top: 12px;
+      padding: 10px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      font-size: 12px;
       word-break: break-all;
-      font-size: 12px;
-      margin-bottom: 12px;
+      color: #475467;
     }
 
-    .loading {
-      padding: 30px;
-      text-align: center;
-      color: var(--muted);
+    .fit-card-view {
+      display: none;
+      padding: 30px 0 60px;
     }
 
-    .error {
-      padding: 15px;
-      background: var(--danger-bg);
-      color: var(--danger);
-      border-radius: 10px;
-      margin-bottom: 16px;
+    .fit-card-header {
+      background: linear-gradient(
+        135deg,
+        #172554,
+        #1d4ed8
+      );
+      color: #fff;
+      border-radius: 20px;
+      padding: 28px;
+      margin-bottom: 18px;
     }
 
-    .small {
-      font-size: 12px;
-      color: var(--muted);
+    .fit-card-header .eyebrow {
+      color: #bfdbfe;
+    }
+
+    .fit-card-header h1 {
+      margin-bottom: 5px;
+    }
+
+    .fit-card-header .role {
+      color: #dbeafe;
+      font-size: 17px;
+    }
+
+    .fit-card-score {
+      margin-top: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 12px;
+      padding: 12px 15px;
+    }
+
+    .fit-card-score strong {
+      font-size: 30px;
+    }
+
+    .fit-card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .fit-card-section {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .fit-card-section.full {
+      grid-column: 1 / -1;
+    }
+
+    .fit-card-section h2 {
+      font-size: 17px;
+    }
+
+    .fit-card-list {
+      margin: 0;
+      padding-left: 19px;
+    }
+
+    .fit-card-list li {
+      margin-bottom: 8px;
+      color: #475467;
+    }
+
+    .proof-highlight {
+      border-left: 4px solid var(--primary);
+      padding: 12px 14px;
+      background: #eff6ff;
+      border-radius: 0 10px 10px 0;
+      color: #344054;
+    }
+
+    .fit-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-bottom: 18px;
     }
 
     footer {
-      padding: 30px 0;
+      padding: 25px 0;
+      border-top: 1px solid var(--border);
       color: var(--muted);
-      text-align: center;
       font-size: 12px;
+      text-align: center;
+    }
+
+    .error {
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 10px;
+      background: var(--danger-bg);
+      color: var(--danger);
+      border: 1px solid #fecdca;
+      font-size: 13px;
     }
 
     @media (max-width: 950px) {
+
       .skills-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
       .analyzer-grid,
-      .two-col {
-        grid-template-columns: 1fr;
-      }
-
-      .three-col {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .container {
-        width: min(100% - 20px, 1180px);
-      }
-
-      header {
-        padding: 36px 0;
-      }
-
-      .header-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .skills-grid {
+      .two-column,
+      .fit-card-grid {
         grid-template-columns: 1fr;
       }
 
@@ -597,181 +684,164 @@
         grid-template-columns: 1fr;
       }
 
-      .card {
-        padding: 18px;
+      .fit-card-section.full {
+        grid-column: auto;
       }
 
-      .requirement-table {
-        display: block;
-        overflow-x: auto;
+    }
+
+    @media (max-width: 600px) {
+
+      .container {
+        width: min(100% - 20px, 1180px);
       }
+
+      .header-inner {
+        padding-top: 28px;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 16px;
+      }
+
+      .fit-card-header {
+        padding: 20px;
+      }
+
+      .button-row,
+      .fit-actions {
+        flex-direction: column;
+      }
+
+      button {
+        width: 100%;
+      }
+
     }
 
     @media print {
 
       body {
-        background: white;
+        background: #fff;
       }
 
-      header {
-        background: white;
-        color: black;
-        padding: 20px 0;
-      }
-
-      .headline,
-      .summary {
-        color: #344054;
-      }
-
-      .profile-card,
-      .profile-pill {
-        border-color: #ddd;
-        background: white;
-        color: black;
-      }
-
-      .analyzer,
+      header,
+      .analyzer-section,
       .button-row,
       .share-box,
       footer {
         display: none !important;
       }
 
-      .card {
-        box-shadow: none;
-        break-inside: avoid;
-      }
-
       .results {
         display: block !important;
       }
+
+      .card {
+        box-shadow: none;
+      }
+
     }
 
   </style>
 </head>
 
+
 <body>
 
-<header>
-  <div class="container">
+  <!-- =====================================================
+       MAIN APPLICATION
+       ===================================================== -->
 
-    <div class="header-grid">
+  <div id="mainApp">
 
-      <div>
+    <header>
+      <div class="container header-inner">
 
         <div class="eyebrow">
-          Engineering Career Fit Analyzer
+          Career Fit Analyzer
         </div>
 
         <h1 id="profileName">
-          Loading...
+          Gunjata Wadhwani
         </h1>
 
         <div
-          class="headline"
-          id="profileHeadline">
-          Loading profile...
+          id="profileHeadline"
+          class="headline">
+          Software Engineer — Backend, Microservices & Cloud Platforms
         </div>
 
         <p
-          class="summary"
-          id="profileSummary">
+          id="profileSummary"
+          class="summary">
+          Loading profile...
         </p>
 
         <div
-          class="profile-meta"
-          id="profileMeta">
+          id="profileMeta"
+          class="profile-meta">
         </div>
 
       </div>
+    </header>
 
-      <div class="profile-card">
 
-        <strong id="profileExperience">
-          —
-        </strong>
+    <main class="container">
 
-        <span>
-          Professional experience
-        </span>
+      <!-- =================================================
+           TECHNICAL PROFILE
+           ================================================= -->
 
-        <div style="margin-top:16px">
+      <section>
 
-          <strong
-            id="profileNotice"
-            style="font-size:22px">
-            —
-          </strong>
+        <div class="section-header">
 
-          <span>
-            Notice period
-          </span>
+          <h2>
+            Technical Profile
+          </h2>
+
+          <p>
+            Evidence used by the analyzer when evaluating job descriptions.
+          </p>
 
         </div>
-
-      </div>
-
-    </div>
-
-  </div>
-</header>
-
-
-<main>
-
-  <div class="container">
-
-    <!-- PROFILE -->
-
-    <section>
-
-      <div class="card">
-
-        <h2 class="section-title">
-          Technical Profile
-        </h2>
-
-        <p class="section-subtitle">
-          Current engineering capabilities used by the JD analyzer.
-        </p>
 
         <div
-          class="skills-grid"
-          id="skillsGrid">
+          id="skillsGrid"
+          class="skills-grid">
         </div>
 
-      </div>
-
-    </section>
+      </section>
 
 
-    <!-- ANALYZER -->
+      <!-- =================================================
+           ANALYZER
+           ================================================= -->
 
-    <section class="analyzer">
+      <section
+        class="analyzer-section">
 
-      <div class="card">
+        <div class="section-header">
 
-        <h2 class="section-title">
-          JD Analyzer
-        </h2>
+          <h2>
+            Analyze a Job Description
+          </h2>
 
-        <p class="section-subtitle">
-          Instead of only counting keywords, this analyzer asks:
-          <strong>
-            What problem is the company hiring this person to solve,
-            and what evidence do I have that I can solve it?
-          </strong>
-        </p>
+          <p>
+            Identify the company's hiring problem and map it to your engineering evidence.
+          </p>
 
-        <div
-          id="loadError"
-          class="error hidden">
         </div>
 
-        <div class="analyzer-grid">
 
-          <div>
+        <div class="card">
+
+          <div class="analyzer-grid">
 
             <div class="field">
 
@@ -782,9 +852,11 @@
               <input
                 id="company"
                 type="text"
-                placeholder="Example: 3Pillar Global" />
+                placeholder="e.g. Mastercard"
+              />
 
             </div>
+
 
             <div class="field">
 
@@ -795,43 +867,13 @@
               <input
                 id="role"
                 type="text"
-                placeholder="Example: Senior Java Engineer" />
+                placeholder="e.g. Senior Software Engineer"
+              />
 
             </div>
 
-            <div class="button-row">
 
-              <button
-                class="btn btn-primary"
-                id="analyzeButton">
-                Analyze Opportunity
-              </button>
-
-              <button
-                class="btn btn-secondary"
-                id="exampleButton">
-                Load 3Pillar Example
-              </button>
-
-              <button
-                class="btn btn-outline"
-                id="clearButton">
-                Clear
-              </button>
-
-            </div>
-
-            <p class="small" style="margin-top:15px">
-              The analyzer compares the JD against the profile and
-              reusable engineering solution library.
-            </p>
-
-          </div>
-
-
-          <div>
-
-            <div class="field">
+            <div class="field jd-field">
 
               <label for="jd">
                 Job Description
@@ -845,343 +887,420 @@
 
           </div>
 
-        </div>
 
-      </div>
+          <div class="button-row">
 
-    </section>
+            <button
+              id="analyzeButton"
+              class="primary">
+              Analyze JD
+            </button>
 
+            <button
+              id="exampleButton"
+              class="secondary">
+              Load 3Pillar Example
+            </button>
 
-    <!-- RESULTS -->
-
-    <section
-      id="results"
-      class="results">
-
-      <!-- SCORE -->
-
-      <div class="card">
-
-        <h2 class="section-title">
-          Profile Alignment
-        </h2>
-
-        <p class="section-subtitle">
-          Evidence-based fit rather than simple keyword matching.
-        </p>
-
-        <div class="score-grid">
-
-          <div class="score-circle">
-
-            <div
-              class="score-number"
-              id="scoreNumber">
-              0
-            </div>
+            <button
+              id="clearButton">
+              Clear
+            </button>
 
           </div>
 
-          <div>
 
-            <div
-              class="fit-label"
-              id="fitLabel">
-              —
-            </div>
+          <div
+            id="loadError"
+            class="error hidden">
+          </div>
 
-            <p
-              class="fit-description"
-              id="fitDescription">
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           RESULTS
+           ================================================= -->
+
+      <section
+        id="results"
+        class="results">
+
+
+        <!-- SCORE -->
+
+        <div class="card">
+
+          <div class="section-header">
+
+            <h2>
+              Profile Alignment
+            </h2>
+
+            <p>
+              Overall technical and experience alignment with the JD.
             </p>
 
-            <div
-              id="experienceSummary"
-              style="margin-top:12px">
+          </div>
+
+
+          <div class="score-grid">
+
+            <div class="score-card">
+
+              <div
+                id="scoreNumber"
+                class="score-number">
+                0
+              </div>
+
+              <div
+                id="fitLabel"
+                class="score-label">
+                —
+              </div>
+
+              <div
+                id="fitDescription"
+                class="score-description">
+              </div>
+
+            </div>
+
+
+            <div>
+
+              <h3>
+                Experience
+              </h3>
+
+              <div
+                id="experienceSummary">
+              </div>
+
+
+              <h3 style="margin-top:20px;">
+                Detected JD Areas
+              </h3>
+
+              <div
+                id="conceptList"
+                class="concept-list">
+              </div>
+
             </div>
 
           </div>
 
         </div>
 
-      </div>
 
+        <!-- HIRING PROBLEM -->
 
-      <!-- DETECTED AREAS -->
+        <div class="card">
 
-      <div class="card">
+          <div class="section-header">
 
-        <h2 class="section-title">
-          Detected JD Areas
-        </h2>
+            <h2>
+              What Problem Is The Company Hiring For?
+            </h2>
 
-        <p class="section-subtitle">
-          Engineering concepts detected even when the JD uses different wording.
-        </p>
+            <p>
+              The analyzer converts the JD into the underlying engineering problem.
+            </p>
 
-        <div
-          id="conceptList"
-          class="concept-list">
-        </div>
+          </div>
 
-      </div>
+          <div class="problem-box">
 
+            <strong>
+              Hiring Problem
+            </strong>
 
-      <!-- HIRING PROBLEM -->
+            <div id="hiringProblem">
+            </div>
 
-      <div class="card">
-
-        <h2 class="section-title">
-          Hiring Problem
-        </h2>
-
-        <p class="section-subtitle">
-          The technical problem this role appears to be solving.
-        </p>
-
-        <div class="problem-box">
-
-          <strong>
-            What the company is likely hiring for
-          </strong>
-
-          <div id="hiringProblem">
           </div>
 
         </div>
 
-      </div>
 
-
-      <!-- REQUIREMENTS -->
-
-      <div class="card">
-
-        <h2 class="section-title">
-          Requirement Evidence
-        </h2>
-
-        <p class="section-subtitle">
-          Strong matches, partial matches and important gaps.
-        </p>
-
-        <div style="overflow-x:auto">
-
-          <table class="requirement-table">
-
-            <thead>
-
-              <tr>
-                <th>
-                  JD Area
-                </th>
-
-                <th>
-                  JD Evidence
-                </th>
-
-                <th>
-                  Profile Evidence
-                </th>
-
-                <th>
-                  Status
-                </th>
-              </tr>
-
-            </thead>
-
-            <tbody
-              id="requirementsBody">
-            </tbody>
-
-          </table>
-
-        </div>
-
-      </div>
-
-
-      <!-- MATCH / GAPS -->
-
-      <div class="two-col">
+        <!-- REQUIREMENTS -->
 
         <div class="card">
 
-          <h2 class="section-title">
-            Strong Matches
-          </h2>
+          <div class="section-header">
 
-          <ul
-            class="match-list"
-            id="strongMatches">
-          </ul>
+            <h2>
+              Requirement Evidence
+            </h2>
+
+            <p>
+              Direct evidence, transferable experience and important gaps.
+            </p>
+
+          </div>
+
+
+          <div class="table-wrap">
+
+            <table>
+
+              <thead>
+
+                <tr>
+                  <th>Requirement</th>
+                  <th>JD Evidence</th>
+                  <th>Profile Evidence</th>
+                  <th>Status</th>
+                </tr>
+
+              </thead>
+
+              <tbody
+                id="requirementsBody">
+              </tbody>
+
+            </table>
+
+          </div>
 
         </div>
 
+
+        <!-- MATCHES / GAPS -->
+
+        <div class="two-column">
+
+          <div class="card list-card">
+
+            <h2>
+              Strong Matches
+            </h2>
+
+            <ul id="strongMatches">
+            </ul>
+
+          </div>
+
+
+          <div class="card list-card">
+
+            <h2>
+              Potential Gaps
+            </h2>
+
+            <ul id="potentialGaps">
+            </ul>
+
+          </div>
+
+        </div>
+
+
+        <!-- WHY FIT -->
 
         <div class="card">
 
-          <h2 class="section-title">
-            Potential Gaps
-          </h2>
+          <div class="section-header">
 
-          <ul
-            class="gap-list"
-            id="potentialGaps">
-          </ul>
+            <h2>
+              Why This Profile Fits
+            </h2>
 
-        </div>
+          </div>
 
-      </div>
-
-
-      <!-- WHY FIT -->
-
-      <div class="card">
-
-        <h2 class="section-title">
-          Why This Profile Fits
-        </h2>
-
-        <p class="section-subtitle">
-          The strongest overlap between the role and current engineering experience.
-        </p>
-
-        <div
-          class="message-box"
-          id="whyFits">
-        </div>
-
-      </div>
-
-
-      <!-- TECHNICAL APPROACH -->
-
-      <div class="card">
-
-        <h2 class="section-title">
-          My Technical Approach for This Role
-        </h2>
-
-        <p class="section-subtitle">
-          Reusable engineering patterns selected automatically from the JD.
-        </p>
-
-        <div
-          id="solutionsContainer"
-          class="three-col">
-        </div>
-
-      </div>
-
-
-      <!-- COMPACT HM PROOF -->
-
-      <div class="card">
-
-        <h2 class="section-title">
-          Compact Hiring-Manager Proof
-        </h2>
-
-        <p class="section-subtitle">
-          A concise technical explanation that can be used during outreach.
-        </p>
-
-        <div
-          class="message-box"
-          id="hmProof">
-        </div>
-
-      </div>
-
-
-      <!-- COMPANY FIT -->
-
-      <div class="card">
-
-        <h2 class="section-title">
-          Company Fit Brief
-        </h2>
-
-        <p class="section-subtitle">
-          Short-form explanation of the role, problem, evidence and gaps.
-        </p>
-
-        <div
-          class="message-box"
-          id="companyFitBrief">
-        </div>
-
-      </div>
-
-
-      <!-- SHARE -->
-
-      <div class="card share-box">
-
-        <h2 class="section-title">
-          Generate Shareable Fit Brief
-        </h2>
-
-        <p class="section-subtitle">
-          Create a URL containing the analyzed fit summary.
-          No jobs database is required.
-        </p>
-
-        <div
-          id="shareLinkContainer"
-          class="share-link hidden">
-        </div>
-
-        <div class="button-row">
-
-          <button
-            class="btn btn-primary"
-            id="generateShareButton">
-            Generate Shareable Fit Brief
-          </button>
-
-          <button
-            class="btn btn-secondary"
-            id="copyShareButton">
-            Copy Share Link
-          </button>
-
-          <button
-            class="btn btn-secondary"
-            id="copyHRButton">
-            Copy HR Message
-          </button>
-
-          <button
-            class="btn btn-secondary"
-            id="copyHMButton">
-            Copy Hiring Manager Message
-          </button>
-
-          <button
-            class="btn btn-secondary"
-            id="printButton">
-            Print / Save PDF
-          </button>
+          <div
+            id="whyFits"
+            class="text-block">
+          </div>
 
         </div>
 
-      </div>
 
-    </section>
+        <!-- TECHNICAL APPROACH -->
+
+        <div class="card">
+
+          <div class="section-header">
+
+            <h2>
+              My Technical Approach for This Role
+            </h2>
+
+            <p>
+              Reusable engineering patterns selected from the JD's underlying problem.
+            </p>
+
+          </div>
+
+
+          <div
+            id="solutionsContainer">
+          </div>
+
+        </div>
+
+
+        <!-- HM PROOF -->
+
+        <div class="card">
+
+          <div class="section-header">
+
+            <h2>
+              Compact Hiring-Manager Proof
+            </h2>
+
+          </div>
+
+          <div
+            id="hmProof"
+            class="message-box">
+          </div>
+
+        </div>
+
+
+        <!-- COMPANY BRIEF -->
+
+        <div class="card">
+
+          <div class="section-header">
+
+            <h2>
+              Company Fit Brief
+            </h2>
+
+          </div>
+
+          <div
+            id="companyFitBrief"
+            class="message-box">
+          </div>
+
+        </div>
+
+
+        <!-- SHARE -->
+
+        <div class="card share-box">
+
+          <div class="section-header">
+
+            <h2>
+              Share Fit Card
+            </h2>
+
+            <p>
+              Generate one compact link that opens directly to the finished Fit Card.
+            </p>
+
+          </div>
+
+
+          <div class="button-row">
+
+            <button
+              id="generateShareButton"
+              class="primary">
+              Generate Fit Card Link
+            </button>
+
+            <button
+              id="copyShareButton">
+              Copy Link
+            </button>
+
+            <button
+              id="copyHRButton">
+              Copy HR Message
+            </button>
+
+            <button
+              id="copyHMButton">
+              Copy Hiring Manager Message
+            </button>
+
+            <button
+              id="printButton">
+              Print
+            </button>
+
+          </div>
+
+
+          <div
+            id="shareLinkContainer"
+            class="share-link hidden">
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+
+    <footer>
+
+      Gunjata Wadhwani · Java · Spring Boot · Microservices · Cloud
+
+    </footer>
 
   </div>
 
-</main>
+
+  <!-- =====================================================
+       DIRECT SHARE / FIT CARD VIEW
+       ===================================================== -->
+
+  <div
+    id="fitCardView"
+    class="fit-card-view">
+
+    <div class="container">
+
+      <div class="fit-actions">
+
+        <button
+          id="backToAnalyzerButton"
+          class="secondary">
+          ← Back to Analyzer
+        </button>
+
+        <button
+          id="fitCopyHRButton">
+          Copy HR Message
+        </button>
+
+        <button
+          id="fitCopyHMButton">
+          Copy Hiring Manager Message
+        </button>
+
+        <button
+          id="fitCopyLinkButton">
+          Copy Fit Card Link
+        </button>
+
+        <button
+          id="fitPrintButton">
+          Print Fit Card
+        </button>
+
+      </div>
 
 
-<footer>
+      <div
+        id="fitCardContent">
+      </div>
 
-  Gunjata Wadhwani · Software Engineer — Backend, Microservices & Cloud Platforms
+    </div>
 
-</footer>
+  </div>
 
 
 <script>
@@ -1193,8 +1312,12 @@
    */
 
   let profile = null;
+
   let solutions = [];
+
   let currentAnalysis = null;
+
+  let sharedFitMode = false;
 
 
   /*
@@ -1207,8 +1330,7 @@
 
     return String(value || "")
       .toLowerCase()
-      .replace(/[–—]/g, "-")
-      .replace(/[^\w\s+.#/-]/g, " ")
+      .replace(/[^\w\s+#/.:-]/g, " ")
       .replace(/\s+/g, " ")
       .trim();
 
@@ -1217,19 +1339,17 @@
 
   function phraseFound(text, phrase) {
 
-    const normalizedText =
-      normalize(text);
+    return normalize(text)
+      .includes(
+        normalize(phrase)
+      );
 
-    const normalizedPhrase =
-      normalize(phrase);
+  }
 
-    if (!normalizedPhrase) {
-      return false;
-    }
 
-    return normalizedText.includes(
-      normalizedPhrase
-    );
+  function unique(items) {
+
+    return [...new Set(items)];
 
   }
 
@@ -1246,16 +1366,13 @@
   }
 
 
-  function unique(values) {
-
-    return [...new Set(values)];
-
-  }
-
-
   function prettyConcept(concept) {
 
-    const names = {
+    const labels = {
+
+      backend: "Backend",
+
+      microservices: "Microservices",
 
       performance: "Performance",
 
@@ -1263,13 +1380,9 @@
 
       reliability: "Reliability",
 
-      backend: "Backend",
-
-      microservices: "Microservices",
-
       cloud: "Cloud",
 
-      production: "Production Readiness",
+      production: "Production",
 
       security: "Security",
 
@@ -1279,150 +1392,102 @@
 
       cicd: "CI/CD",
 
-      ai: "AI",
+      ai: "AI Development",
 
       frontend: "Frontend",
 
-      dataPlatform: "Data Platform / Analytics",
+      dataPlatform: "Data Platform",
 
       leadership: "Technical Leadership"
 
     };
 
-    return names[concept] || concept;
+    return labels[concept] || concept;
 
   }
 
 
   /*
    * =========================================================
-   * CONCEPT / SYNONYM DETECTION
+   * CONCEPT DETECTION
    * =========================================================
    */
 
   const conceptAliases = {
 
-    performance: [
-      "performance",
-      "performance tuning",
-      "performance optimization",
-      "performance improvements",
-      "optimize performance",
-      "optimization",
-      "optimized",
-      "latency",
-      "low latency",
-      "response time",
-      "response times",
-      "throughput",
-      "query performance",
-      "application performance",
-      "backend performance",
-      "data processing efficiency",
-      "processing efficiency",
-      "efficient processing",
-      "high performance",
-      "high-performance",
-      "bottleneck",
-      "bottlenecks"
-    ],
-
-    scalability: [
-      "scalability",
-      "scalable",
-      "scaling",
-      "scale",
-      "large scale",
-      "high scale",
-      "elastic",
-      "elasticity",
-      "autoscaling",
-      "auto scaling",
-      "horizontal scaling",
-      "high traffic"
-    ],
-
-    reliability: [
-      "reliability",
-      "reliable",
-      "resilience",
-      "resilient",
-      "stability",
-      "stable",
-      "production readiness",
-      "production ready",
-      "operational readiness",
-      "fault tolerant",
-      "fault-tolerant"
-    ],
-
     backend: [
       "backend",
       "back-end",
-      "backend services",
       "server-side",
-      "server side",
       "java services",
-      "java backend",
-      "backend applications",
-      "server applications"
+      "backend services"
     ],
 
     microservices: [
       "microservices",
       "microservice",
       "distributed systems",
-      "distributed system",
-      "distributed services",
-      "service-to-service",
-      "service to service"
+      "distributed system"
+    ],
+
+    performance: [
+      "performance",
+      "performance tuning",
+      "performance optimization",
+      "optimization",
+      "latency",
+      "throughput",
+      "response time",
+      "query performance"
+    ],
+
+    scalability: [
+      "scalability",
+      "scalable",
+      "scale",
+      "autoscaling",
+      "auto scaling",
+      "high volume"
+    ],
+
+    reliability: [
+      "reliability",
+      "resilience",
+      "fault tolerance",
+      "availability",
+      "reliable"
     ],
 
     cloud: [
       "cloud",
       "cloud infrastructure",
       "cloud platform",
-      "cloud platforms",
-      "cloud deployment",
-      "cloud deployments",
-      "cloud native",
-      "cloud-native",
-      "deployment environment",
-      "deployment environments",
-      "infrastructure",
       "aws",
       "azure",
       "gcp",
       "kubernetes",
-      "containerized",
-      "containerized applications"
+      "container"
     ],
 
     production: [
       "production",
       "production support",
-      "production issue",
-      "production issues",
       "production readiness",
       "production ready",
-      "production environment",
-      "production incidents",
-      "incident management",
-      "operational readiness"
+      "production issues",
+      "production incidents"
     ],
 
     security: [
       "security",
-      "secure",
       "secure api",
-      "secure apis",
       "api security",
-      "authentication",
-      "authorization",
       "oauth",
       "oauth2",
       "oauth 2.0",
       "jwt",
+      "authentication",
+      "authorization",
       "token"
     ],
 
@@ -1430,15 +1495,12 @@
       "observability",
       "monitoring",
       "logging",
-      "logs",
       "metrics",
       "tracing",
-      "distributed tracing",
       "splunk",
       "dynatrace",
-      "dashboards",
       "alerts",
-      "production monitoring"
+      "dashboards"
     ],
 
     testing: [
@@ -1447,12 +1509,8 @@
       "unit tests",
       "junit",
       "test automation",
-      "automated testing",
-      "automated tests",
       "integration testing",
-      "integration tests",
-      "regression testing",
-      "test coverage"
+      "automated tests"
     ],
 
     cicd: [
@@ -1461,78 +1519,54 @@
       "continuous integration",
       "continuous delivery",
       "continuous deployment",
-      "deployment pipeline",
-      "delivery pipeline",
-      "build pipeline",
-      "release process",
-      "software delivery"
+      "pipeline"
     ],
 
     ai: [
-      "ai",
-      "ai-assisted",
-      "ai assisted",
-      "ai-driven",
-      "ai driven",
-      "ai-powered",
-      "ai powered",
-      "artificial intelligence",
-      "ai features",
-      "ai feature",
-      "ai applications",
-      "ai application",
-      "generative ai",
-      "genai",
-      "machine learning",
       "ai-assisted development",
-      "ai assisted development"
+      "ai assisted development",
+      "copilot",
+      "claude",
+      "devin",
+      "ai coding",
+      "generative ai",
+      "ai-driven"
     ],
 
     frontend: [
       "frontend",
-      "front end",
       "front-end",
       "react",
       "react.js",
-      "react architecture",
+      "reactjs",
       "typescript",
       "javascript",
       "html",
-      "html/css",
-      "css",
-      "angular"
+      "css"
     ],
 
     dataPlatform: [
       "snowflake",
       "databricks",
-      "data pipelines",
       "data pipeline",
+      "data pipelines",
       "data processing",
-      "data processing efficiency",
-      "analytics",
-      "analytics workflows",
-      "bi",
+      "data integration",
       "business intelligence",
-      "data warehouse",
-      "data engineering",
-      "data integration"
+      "analytics",
+      "analytics workflows"
     ],
 
     leadership: [
       "technical leadership",
       "technical lead",
       "technical guidance",
-      "architecture decisions",
       "architectural decisions",
-      "architectural decision",
+      "architecture decisions",
       "mentor",
       "mentoring",
-      "mentor engineers",
       "code review",
-      "code reviews",
-      "senior engineers",
-      "leadership"
+      "senior engineers"
     ]
 
   };
@@ -1540,39 +1574,32 @@
 
   function detectConcepts(jd) {
 
-    const text =
+    const normalizedJD =
       normalize(jd);
 
-    const detected = [];
-
-    Object.entries(
+    return Object.entries(
       conceptAliases
-    ).forEach(
-      ([concept, aliases]) => {
-
-        const matched =
-          aliases.some(
-            alias =>
-              text.includes(
-                normalize(alias)
+    )
+      .filter(
+        ([, phrases]) =>
+          phrases.some(
+            phrase =>
+              normalizedJD.includes(
+                normalize(phrase)
               )
-          );
-
-        if (matched) {
-          detected.push(concept);
-        }
-
-      }
-    );
-
-    return detected;
+          )
+      )
+      .map(
+        ([concept]) =>
+          concept
+      );
 
   }
 
 
   /*
    * =========================================================
-   * EXPERIENCE DETECTION
+   * EXPERIENCE
    * =========================================================
    */
 
@@ -1581,26 +1608,46 @@
     const text =
       String(jd || "");
 
-    const patterns = [
+    const ranges = [
 
-      /(\d+)\s*[-–]\s*(\d+)\s*(?:years|yrs)/i,
+      /(\d+)\s*(?:\+)?\s*(?:to|-)\s*(\d+)\s*(?:years|yrs)/i,
 
-      /(\d+)\s*\+\s*(?:years|yrs)/i,
+      /(\d+)\s*(?:\+)?\s*(?:years|yrs)\s+(?:of\s+)?experience/i,
 
-      /(\d+)\s*(?:years|yrs)\s*(?:of|professional)/i
+      /experience\s*(?:of\s*)?(\d+)\s*(?:\+)?\s*(?:years|yrs)/i
 
     ];
 
+
     for (
-      const pattern of patterns
+      const regex of ranges
     ) {
 
       const match =
-        text.match(pattern);
+        text.match(regex);
+
 
       if (!match) {
         continue;
       }
+
+
+      if (
+        match[2]
+      ) {
+
+        return {
+
+          minimum:
+            Number(match[1]),
+
+          maximum:
+            Number(match[2])
+
+        };
+
+      }
+
 
       return {
 
@@ -1608,15 +1655,102 @@
           Number(match[1]),
 
         maximum:
-          match[2]
-            ? Number(match[2])
-            : null
+          null
 
       };
 
     }
 
+
     return null;
+
+  }
+
+
+  function getProfileYears() {
+
+    const raw =
+      String(
+        profile?.experience || "5+"
+      );
+
+    const match =
+      raw.match(
+        /\d+(?:\.\d+)?/
+      );
+
+    return match
+      ? Number(match[0])
+      : 5;
+
+  }
+
+
+  function analyzeExperience(jd) {
+
+    const requirement =
+      detectExperienceRequirement(jd);
+
+    const profileYears =
+      getProfileYears();
+
+
+    if (!requirement) {
+
+      return {
+
+        requirement: null,
+
+        profileYears,
+
+        status: "Unknown",
+
+        message:
+          "No explicit experience range detected in the JD."
+
+      };
+
+    }
+
+
+    if (
+      profileYears >=
+      requirement.minimum
+    ) {
+
+      return {
+
+        requirement,
+
+        profileYears,
+
+        status: "Strong",
+
+        message:
+          `Profile: ${profileYears}+ years. JD minimum: ${requirement.minimum}+ years.`
+
+      };
+
+    }
+
+
+    const gap =
+      requirement.minimum -
+      profileYears;
+
+
+    return {
+
+      requirement,
+
+      profileYears,
+
+      status: "Gap",
+
+      message:
+        `Profile: ${profileYears}+ years. JD minimum: ${requirement.minimum}+ years. Approximate gap: ${gap}+ years.`
+
+    };
 
   }
 
@@ -1630,45 +1764,25 @@
   const profileCapabilityMap = {
 
     java: true,
-
     spring: true,
-
     microservices: true,
-
     backend: true,
-
     rest: true,
-
     sql: true,
-
     cloud: true,
-
     cicd: true,
-
     testing: true,
-
     production: true,
-
     performance: true,
-
     observability: true,
-
     security: true,
-
     ai: true,
-
     frontend: false,
-
     react: false,
-
     typescript: false,
-
     javascript: false,
-
     snowflake: false,
-
     databricks: false,
-
     leadership: true
 
   };
@@ -1709,7 +1823,7 @@
       observability: 4
     },
 
-    observability: {
+    "observability": {
       observability: 8,
       production: 4,
       reliability: 3
@@ -1725,7 +1839,7 @@
       microservices: 4
     },
 
-    caching: {
+    "caching": {
       performance: 6,
       scalability: 3
     },
@@ -1736,7 +1850,7 @@
       production: 2
     },
 
-    testing: {
+    "testing": {
       testing: 8,
       cicd: 3
     },
@@ -1748,12 +1862,6 @@
   };
 
 
-  /*
-   * =========================================================
-   * SOLUTION RANKING
-   * =========================================================
-   */
-
   function rankSolutions(jd) {
 
     const normalizedJD =
@@ -1762,78 +1870,34 @@
     const concepts =
       detectConcepts(jd);
 
-    const ranked =
-      solutions.map(solution => {
+
+    return solutions
+      .map(solution => {
 
         let score = 0;
 
         const matchedTriggers = [];
 
-        /*
-         * Exact trigger matching
-         */
 
-        (
-          solution.triggers || []
-        ).forEach(trigger => {
-
-          const normalizedTrigger =
-            normalize(trigger);
-
-          if (
-            normalizedTrigger &&
-            normalizedJD.includes(
-              normalizedTrigger
-            )
-          ) {
-
-            const wordCount =
-              normalizedTrigger
-                .split(" ")
-                .length;
-
-            let weight = 2;
-
-            if (wordCount >= 4) {
-              weight = 5;
-            }
-            else if (wordCount === 3) {
-              weight = 4;
-            }
-            else if (wordCount === 2) {
-              weight = 3;
-            }
-
-            score += weight;
-
-            matchedTriggers.push(
-              trigger
-            );
-
-          }
-
-        });
+        const triggers =
+          solution.triggers || [];
 
 
-        /*
-         * Concept-level scoring
-         */
-
-        const conceptWeights =
-          solutionConceptWeights[
-            solution.id
-          ] || {};
-
-        Object.entries(
-          conceptWeights
-        ).forEach(
-          ([concept, weight]) => {
+        triggers.forEach(
+          trigger => {
 
             if (
-              concepts.includes(concept)
+              normalizedJD.includes(
+                normalize(trigger)
+              )
             ) {
 
-              score += weight;
+              score +=
+                2;
+
+              matchedTriggers.push(
+                trigger
+              );
 
             }
 
@@ -1841,70 +1905,28 @@
         );
 
 
-        /*
-         * Backend bonus
-         */
-
-        if (
-          concepts.includes("backend") &&
-          [
-            "microservices-reliability",
-            "api-performance",
-            "secure-api"
-          ].includes(solution.id)
-        ) {
-
-          score += 2;
-
-        }
+        const weights =
+          solutionConceptWeights[
+            solution.id
+          ] || {};
 
 
-        /*
-         * Performance + scalability
-         */
+        Object.entries(weights)
+          .forEach(
+            ([concept, weight]) => {
 
-        if (
-          solution.id ===
-            "api-performance" &&
-          concepts.includes("performance") &&
-          concepts.includes("scalability")
-        ) {
+              if (
+                concepts.includes(
+                  concept
+                )
+              ) {
 
-          score += 5;
+                score += weight;
 
-        }
+              }
 
-
-        /*
-         * Cloud + scalability
-         */
-
-        if (
-          solution.id ===
-            "cloud-scalability" &&
-          concepts.includes("cloud") &&
-          concepts.includes("scalability")
-        ) {
-
-          score += 5;
-
-        }
-
-
-        /*
-         * Production + reliability
-         */
-
-        if (
-          solution.id ===
-            "production-incident" &&
-          concepts.includes("production") &&
-          concepts.includes("reliability")
-        ) {
-
-          score += 4;
-
-        }
+            }
+          );
 
 
         return {
@@ -1913,38 +1935,18 @@
 
           score,
 
-          matchedTriggers,
-
-          concepts
+          matchedTriggers
 
         };
 
-      });
-
-
-    return ranked
-
+      })
       .filter(
-        item => item.score > 0
+        item =>
+          item.score > 0
       )
-
       .sort(
-        (a, b) => {
-
-          if (
-            b.score !== a.score
-          ) {
-
-            return b.score - a.score;
-
-          }
-
-          return (
-            (b.matchedTriggers?.length || 0) -
-            (a.matchedTriggers?.length || 0)
-          );
-
-        }
+        (a, b) =>
+          b.score - a.score
       );
 
   }
@@ -1968,9 +1970,7 @@
         "java 17",
         "java 21"
       ],
-      profileCategories: [
-        "Java"
-      ]
+      profileCategories: ["Java"]
     },
 
     {
@@ -1981,9 +1981,7 @@
         "spring framework",
         "spring"
       ],
-      profileCategories: [
-        "Spring"
-      ]
+      profileCategories: ["Spring"]
     },
 
     {
@@ -1995,9 +1993,7 @@
         "distributed systems",
         "distributed system"
       ],
-      profileCategories: [
-        "Microservices"
-      ]
+      profileCategories: ["Microservices"]
     },
 
     {
@@ -2010,9 +2006,7 @@
         "restful apis",
         "rest services"
       ],
-      profileCategories: [
-        "APIs"
-      ]
+      profileCategories: ["APIs"]
     },
 
     {
@@ -2024,9 +2018,7 @@
         "database",
         "relational database"
       ],
-      profileCategories: [
-        "Database"
-      ]
+      profileCategories: ["Database"]
     },
 
     {
@@ -2042,9 +2034,7 @@
         "kubernetes",
         "container"
       ],
-      profileCategories: [
-        "Cloud"
-      ]
+      profileCategories: ["Cloud"]
     },
 
     {
@@ -2058,9 +2048,7 @@
         "continuous deployment",
         "pipeline"
       ],
-      profileCategories: [
-        "Delivery"
-      ]
+      profileCategories: ["Delivery"]
     },
 
     {
@@ -2070,9 +2058,7 @@
         "git",
         "maven"
       ],
-      profileCategories: [
-        "Delivery"
-      ]
+      profileCategories: ["Delivery"]
     },
 
     {
@@ -2087,9 +2073,7 @@
         "integration testing",
         "automated tests"
       ],
-      profileCategories: [
-        "Testing"
-      ]
+      profileCategories: ["Testing"]
     },
 
     {
@@ -2103,9 +2087,7 @@
         "production incidents",
         "production environment"
       ],
-      profileCategories: [
-        "Production"
-      ]
+      profileCategories: ["Production"]
     },
 
     {
@@ -2118,9 +2100,7 @@
         "troubleshooting",
         "incident response"
       ],
-      profileCategories: [
-        "Production"
-      ]
+      profileCategories: ["Production"]
     },
 
     {
@@ -2158,9 +2138,7 @@
         "authorization",
         "token"
       ],
-      profileCategories: [
-        "Security"
-      ]
+      profileCategories: ["Security"]
     },
 
     {
@@ -2175,9 +2153,7 @@
         "splunk",
         "dynatrace"
       ],
-      profileCategories: [
-        "Observability"
-      ]
+      profileCategories: ["Observability"]
     },
 
     {
@@ -2189,9 +2165,7 @@
         "sprint",
         "scrum ceremonies"
       ],
-      profileCategories: [
-        "Engineering"
-      ]
+      profileCategories: ["Engineering"]
     },
 
     {
@@ -2206,9 +2180,7 @@
         "ai coding",
         "generative ai"
       ],
-      profileCategories: [
-        "AI"
-      ]
+      profileCategories: ["AI"]
     },
 
     {
@@ -2313,9 +2285,7 @@
         "code review",
         "senior engineers"
       ],
-      profileCategories: [
-        "Engineering"
-      ]
+      profileCategories: ["Engineering"]
     }
 
   ];
@@ -2358,16 +2328,13 @@
         Array.isArray(
           profile.skills[category]
         ) &&
-        profile.skills[category]
-          .length > 0
+        profile.skills[category].length > 0
     );
 
   }
 
 
-  function buildRequirementAnalysis(
-    jd
-  ) {
+  function buildRequirementAnalysis(jd) {
 
     const normalizedJD =
       normalize(jd);
@@ -2376,6 +2343,7 @@
       normalize(
         flattenProfileSkills()
       );
+
 
     return requirementGroups
       .map(group => {
@@ -2388,22 +2356,21 @@
               )
           );
 
+
         if (
           matchedPhrases.length === 0
         ) {
+
           return null;
+
         }
 
-        let status =
-          "Gap";
+
+        let status = "Gap";
 
         let profileEvidence =
           "No direct profile evidence.";
 
-        /*
-         * Explicit technologies that are not
-         * currently supported by the profile.
-         */
 
         const explicitGapMap = {
 
@@ -2441,9 +2408,7 @@
           status = "Gap";
 
           profileEvidence =
-            explicitGapMap[
-              group.key
-            ];
+            explicitGapMap[group.key];
 
         }
 
@@ -2455,19 +2420,21 @@
 
           status = "Strong";
 
+
           const categoryText =
             group.profileCategories
               .filter(
                 category =>
-                  profile.skills?.[
-                    category
-                  ]
+                  profile.skills?.[category]
               )
               .map(
                 category =>
-                  `${category}: ${profile.skills[category].slice(0, 6).join(", ")}`
+                  `${category}: ${profile.skills[category]
+                    .slice(0, 6)
+                    .join(", ")}`
               )
               .join(" | ");
+
 
           profileEvidence =
             categoryText ||
@@ -2475,16 +2442,9 @@
 
         }
 
-        /*
-         * Performance is transferable from
-         * backend/API/cloud experience.
-         */
-
         else if (
           group.key === "Performance" &&
-          (
-            profileCapabilityMap.performance
-          )
+          profileCapabilityMap.performance
         ) {
 
           status = "Strong";
@@ -2494,13 +2454,8 @@
 
         }
 
-        /*
-         * Leadership should remain conservative.
-         */
-
         else if (
-          group.key ===
-            "Technical Leadership"
+          group.key === "Technical Leadership"
         ) {
 
           status = "Partial";
@@ -2509,10 +2464,6 @@
             "Profile includes code reviews, Agile/Scrum delivery and mentoring-related engineering experience, but Principal-level leadership scope should be validated.";
 
         }
-
-        /*
-         * Generic profile text fallback
-         */
 
         else if (
           matchedPhrases.some(
@@ -2696,113 +2647,17 @@
 
   /*
    * =========================================================
-   * EXPERIENCE FIT
-   * =========================================================
-   */
-
-  function getProfileYears() {
-
-    const raw =
-      String(
-        profile?.experience || "5+"
-      );
-
-    const match =
-      raw.match(/\d+(?:\.\d+)?/);
-
-    return match
-      ? Number(match[0])
-      : 5;
-
-  }
-
-
-  function analyzeExperience(
-    jd
-  ) {
-
-    const requirement =
-      detectExperienceRequirement(jd);
-
-    const profileYears =
-      getProfileYears();
-
-    if (!requirement) {
-
-      return {
-
-        requirement: null,
-
-        profileYears,
-
-        status: "Unknown",
-
-        message:
-          "No explicit experience range detected in the JD."
-
-      };
-
-    }
-
-    const minimum =
-      requirement.minimum;
-
-    if (
-      profileYears >= minimum
-    ) {
-
-      return {
-
-        requirement,
-
-        profileYears,
-
-        status: "Strong",
-
-        message:
-          `Profile: ${profileYears}+ years. JD minimum: ${minimum}+ years.`
-
-      };
-
-    }
-
-    const gap =
-      minimum - profileYears;
-
-    return {
-
-      requirement,
-
-      profileYears,
-
-      status: "Gap",
-
-      message:
-        `Profile: ${profileYears}+ years. JD minimum: ${minimum}+ years. Approximate gap: ${gap}+ years.`
-
-    };
-
-  }
-
-
-  /*
-   * =========================================================
    * SCORE
    * =========================================================
    */
 
   function calculateScore(
     requirements,
-    experienceAnalysis,
-    concepts
+    experienceAnalysis
   ) {
 
-    if (
-      !requirements.length
-    ) {
-
+    if (!requirements.length) {
       return 0;
-
     }
 
 
@@ -2816,10 +2671,6 @@
 
         let weight = 1;
 
-        /*
-         * Core backend requirements carry
-         * more importance.
-         */
 
         if (
           [
@@ -2838,11 +2689,6 @@
 
         }
 
-
-        /*
-         * Major full-stack/data gaps
-         * matter substantially.
-         */
 
         if (
           [
@@ -2864,8 +2710,7 @@
 
 
         if (
-          requirement.status ===
-          "Strong"
+          requirement.status === "Strong"
         ) {
 
           score +=
@@ -2874,8 +2719,7 @@
         }
 
         else if (
-          requirement.status ===
-          "Partial"
+          requirement.status === "Partial"
         ) {
 
           score +=
@@ -2893,13 +2737,8 @@
         : 0;
 
 
-    /*
-     * Experience adjustment
-     */
-
     if (
-      experienceAnalysis.status ===
-      "Gap"
+      experienceAnalysis.status === "Gap"
     ) {
 
       const minimum =
@@ -2910,6 +2749,7 @@
       const profileYears =
         experienceAnalysis.profileYears;
 
+
       if (
         minimum >= profileYears + 5
       ) {
@@ -2917,6 +2757,7 @@
         baseScore -= 15;
 
       }
+
       else if (
         minimum >= profileYears + 3
       ) {
@@ -2924,6 +2765,7 @@
         baseScore -= 10;
 
       }
+
       else {
 
         baseScore -= 5;
@@ -2932,14 +2774,6 @@
 
     }
 
-
-    /*
-     * Major technology gap penalty
-     *
-     * Avoid allowing Java/backend overlap to
-     * hide a role that is primarily full-stack
-     * or data-platform oriented.
-     */
 
     const majorGaps =
       requirements.filter(
@@ -2963,6 +2797,7 @@
       baseScore -= 10;
 
     }
+
     else if (
       majorGaps === 2
     ) {
@@ -2972,15 +2807,10 @@
     }
 
 
-    /*
-     * Principal-level role adjustment.
-     */
-
     const leadershipRequired =
       requirements.some(
         item =>
-          item.key ===
-          "Technical Leadership"
+          item.key === "Technical Leadership"
       );
 
 
@@ -3022,6 +2852,7 @@
 
     }
 
+
     if (score >= 65) {
 
       return {
@@ -3032,6 +2863,7 @@
 
     }
 
+
     if (score >= 50) {
 
       return {
@@ -3041,6 +2873,7 @@
       };
 
     }
+
 
     return {
       label: "Low / Selective Fit",
@@ -3053,7 +2886,7 @@
 
   /*
    * =========================================================
-   * MATCH / GAP LISTS
+   * MATCH LISTS
    * =========================================================
    */
 
@@ -3061,28 +2894,26 @@
     requirements
   ) {
 
-    const strong =
-      requirements.filter(
-        item =>
-          item.status === "Strong"
-      );
-
-    const partial =
-      requirements.filter(
-        item =>
-          item.status === "Partial"
-      );
-
-    const gaps =
-      requirements.filter(
-        item =>
-          item.status === "Gap"
-      );
-
     return {
-      strong,
-      partial,
-      gaps
+
+      strong:
+        requirements.filter(
+          item =>
+            item.status === "Strong"
+        ),
+
+      partial:
+        requirements.filter(
+          item =>
+            item.status === "Partial"
+        ),
+
+      gaps:
+        requirements.filter(
+          item =>
+            item.status === "Gap"
+        )
+
     };
 
   }
@@ -3090,7 +2921,7 @@
 
   /*
    * =========================================================
-   * WHY PROFILE FITS
+   * WHY FIT
    * =========================================================
    */
 
@@ -3102,6 +2933,7 @@
 
     const strengths = [];
 
+
     if (
       concepts.includes("backend")
     ) {
@@ -3111,6 +2943,7 @@
       );
 
     }
+
 
     if (
       concepts.includes("microservices")
@@ -3122,6 +2955,7 @@
 
     }
 
+
     if (
       concepts.includes("performance")
     ) {
@@ -3131,6 +2965,7 @@
       );
 
     }
+
 
     if (
       concepts.includes("cloud")
@@ -3142,6 +2977,7 @@
 
     }
 
+
     if (
       concepts.includes("production")
     ) {
@@ -3152,6 +2988,7 @@
 
     }
 
+
     if (
       concepts.includes("ai")
     ) {
@@ -3161,6 +2998,7 @@
       );
 
     }
+
 
     if (
       !strengths.length
@@ -3174,8 +3012,7 @@
 
 
     if (
-      experienceAnalysis.status ===
-      "Gap"
+      experienceAnalysis.status === "Gap"
     ) {
 
       strengths.push(
@@ -3185,9 +3022,7 @@
     }
 
 
-    return strengths.join(
-      "\n\n"
-    );
+    return strengths.join("\n\n");
 
   }
 
@@ -3199,16 +3034,23 @@
    */
 
   function renderSolutions(
-    rankedSolutions
+    rankedSolutions,
+    targetId = "solutionsContainer"
   ) {
 
     const container =
       document.getElementById(
-        "solutionsContainer"
+        targetId
       );
 
+
+    if (!container) {
+      return;
+    }
+
+
     if (
-      !rankedSolutions.length
+      !rankedSolutions?.length
     ) {
 
       container.innerHTML = `
@@ -3242,11 +3084,14 @@
             const solution =
               item.solution;
 
+
             const architecture =
               solution.architecture || [];
 
+
             const decisions =
               solution.engineeringDecisions || [];
+
 
             return `
 
@@ -3263,16 +3108,20 @@
 
                 ${
                   index === 0
-                    ? `<div
-                         class="status status-strong"
-                         style="margin-bottom:10px">
-                         PRIMARY APPROACH
-                       </div>`
-                    : `<div
-                         class="status status-neutral"
-                         style="margin-bottom:10px">
-                         SUPPORTING APPROACH
-                       </div>`
+                    ? `
+                      <div
+                        class="status status-strong"
+                        style="margin-bottom:10px">
+                        PRIMARY APPROACH
+                      </div>
+                    `
+                    : `
+                      <div
+                        class="status status-neutral"
+                        style="margin-bottom:10px">
+                        SUPPORTING APPROACH
+                      </div>
+                    `
                 }
 
                 <h3>
@@ -3287,13 +3136,18 @@
 
                 <p>
                   ${escapeHtml(
-                    solution.problem
+                    solution.problem || ""
                   )}
                 </p>
+
 
                 ${
                   architecture.length
                     ? `
+                      <div class="architecture-title">
+                        Architecture
+                      </div>
+
                       <div class="architecture">
 
                         ${architecture
@@ -3310,13 +3164,18 @@
                     : ""
                 }
 
+
                 ${
                   decisions.length
                     ? `
+                      <div class="decision-title">
+                        Engineering Decisions
+                      </div>
+
                       <ul class="decision-list">
 
                         ${decisions
-                          .slice(0, 5)
+                          .slice(0, 6)
                           .map(
                             decision =>
                               `<li>
@@ -3328,6 +3187,27 @@
                           .join("")}
 
                       </ul>
+                    `
+                    : ""
+                }
+
+
+                ${
+                  solution.prototype
+                    ? `
+                      <div class="prototype-title">
+                        Prototype / Technical Proof
+                      </div>
+
+                      <div class="prototype">${escapeHtml(
+                        typeof solution.prototype === "string"
+                          ? solution.prototype
+                          : JSON.stringify(
+                              solution.prototype,
+                              null,
+                              2
+                            )
+                      )}</div>
                     `
                     : ""
                 }
@@ -3357,19 +3237,17 @@
       analysis.company ||
       "your organization";
 
+
     const role =
       analysis.role ||
       "this role";
 
-    const score =
-      analysis.score;
 
     const strong =
-      analysis.matches
+      (analysis.matches || [])
         .filter(
           item =>
-            item.status ===
-            "Strong"
+            item.status === "Strong"
         )
         .slice(0, 5)
         .map(
@@ -3377,12 +3255,12 @@
             item.label
         );
 
+
     const gaps =
-      analysis.matches
+      (analysis.matches || [])
         .filter(
           item =>
-            item.status ===
-            "Gap"
+            item.status === "Gap"
         )
         .slice(0, 4)
         .map(
@@ -3421,15 +3299,14 @@ Gunjata Wadhwani`;
       analysis.company ||
       "your organization";
 
+
     const role =
       analysis.role ||
       "this role";
 
-    const problem =
-      analysis.hiringProblem;
 
     const solutions =
-      analysis.rankedSolutions
+      (analysis.rankedSolutions || [])
         .slice(0, 3)
         .map(
           item =>
@@ -3443,7 +3320,7 @@ I’m reaching out regarding the ${role} opportunity at ${company}.
 
 From the JD, the core engineering problem appears to be:
 
-${problem}
+${analysis.hiringProblem}
 
 My background is strongest in Java, Spring Boot, microservices, REST APIs, production troubleshooting, performance optimization and cloud/platform engineering.
 
@@ -3466,7 +3343,7 @@ Gunjata Wadhwani`;
 
   /*
    * =========================================================
-   * COMPACT HM PROOF
+   * HM PROOF
    * =========================================================
    */
 
@@ -3475,11 +3352,12 @@ Gunjata Wadhwani`;
   ) {
 
     const primary =
-      analysis.rankedSolutions[0];
+      analysis.rankedSolutionObjects?.[0];
+
 
     const primaryTitle =
       primary
-        ? primary.title
+        ? primary.solution.title
         : "scalable backend engineering";
 
 
@@ -3526,6 +3404,7 @@ This makes the profile a ${
           item =>
             item.label
         );
+
 
     const gaps =
       analysis.matches
@@ -3578,7 +3457,22 @@ What problem is the company hiring this person to solve, and what evidence does 
 
   /*
    * =========================================================
-   * SHARE PAYLOAD
+   * COMPACT SHARE PAYLOAD
+   * =========================================================
+   *
+   * IMPORTANT:
+   *
+   * We do NOT put:
+   *
+   * - full JD
+   * - full profile
+   * - full solutions
+   * - full architecture
+   * - full prototype
+   *
+   * into the URL.
+   *
+   * solutions.json and profile.json reconstruct those.
    * =========================================================
    */
 
@@ -3588,42 +3482,57 @@ What problem is the company hiring this person to solve, and what evidence does 
 
     const payload = {
 
-      version: 3,
+      v: 4,
 
-      company:
-        analysis.company,
+      c:
+        analysis.company || "",
 
-      role:
-        analysis.role,
+      r:
+        analysis.role || "",
 
-      score:
-        analysis.score,
+      s:
+        analysis.score || 0,
 
-      hiringProblem:
-        analysis.hiringProblem,
+      h:
+        analysis.hiringProblem || "",
 
-      concepts:
-        analysis.concepts,
+      m:
+        (analysis.matches || [])
+          .map(
+            item =>
+              `${item.key}:${item.status.charAt(0)}`
+          ),
 
-      experienceAnalysis:
-        analysis.experienceAnalysis,
+      x:
+        analysis.experienceAnalysis?.status === "Strong"
+          ? "S"
+          : analysis.experienceAnalysis?.status === "Gap"
+            ? "G"
+            : "U",
 
-      matches:
-        analysis.matches,
-
-      gaps:
-        analysis.gaps,
-
-      rankedSolutions:
-        analysis.rankedSolutions
+      sol:
+        (analysis.rankedSolutions || [])
+          .slice(0, 3)
+          .map(
+            item => ({
+              i: item.id,
+              s: item.score
+            })
+          )
 
     };
+
+
+    const json =
+      JSON.stringify(
+        payload
+      );
 
 
     const encoded =
       btoa(
         encodeURIComponent(
-          JSON.stringify(payload)
+          json
         )
       );
 
@@ -3643,6 +3552,7 @@ What problem is the company hiring this person to solve, and what evidence does 
     const hash =
       window.location.hash || "";
 
+
     if (
       !hash.startsWith("#fit=")
     ) {
@@ -3651,19 +3561,25 @@ What problem is the company hiring this person to solve, and what evidence does 
 
     }
 
+
     try {
 
       const encoded =
         hash.substring(5);
+
 
       const json =
         decodeURIComponent(
           atob(encoded)
         );
 
-      return JSON.parse(json);
+
+      return JSON.parse(
+        json
+      );
 
     }
+
     catch (error) {
 
       console.error(
@@ -3707,24 +3623,11 @@ What problem is the company hiring this person to solve, and what evidence does 
       "";
 
 
-    document.getElementById(
-      "profileExperience"
-    ).textContent =
-      profile.experience ||
-      "5+";
-
-
-    document.getElementById(
-      "profileNotice"
-    ).textContent =
-      profile.noticePeriod ||
-      "30 days";
-
-
     const meta =
       document.getElementById(
         "profileMeta"
       );
+
 
     meta.innerHTML = `
 
@@ -3756,6 +3659,7 @@ What problem is the company hiring this person to solve, and what evidence does 
       document.getElementById(
         "skillsGrid"
       );
+
 
     const skills =
       profile.skills || {};
@@ -3807,7 +3711,8 @@ What problem is the company hiring this person to solve, and what evidence does 
    */
 
   function renderAnalysis(
-    analysis
+    analysis,
+    scroll = true
   ) {
 
     currentAnalysis =
@@ -3819,10 +3724,6 @@ What problem is the company hiring this person to solve, and what evidence does 
     ).style.display =
       "block";
 
-
-    /*
-     * Score
-     */
 
     document.getElementById(
       "scoreNumber"
@@ -3848,10 +3749,6 @@ What problem is the company hiring this person to solve, and what evidence does 
       fit.description;
 
 
-    /*
-     * Experience
-     */
-
     const experienceElement =
       document.getElementById(
         "experienceSummary"
@@ -3859,8 +3756,8 @@ What problem is the company hiring this person to solve, and what evidence does 
 
 
     if (
-      analysis.experienceAnalysis
-        ?.status === "Gap"
+      analysis.experienceAnalysis?.status ===
+      "Gap"
     ) {
 
       experienceElement.innerHTML = `
@@ -3880,8 +3777,8 @@ What problem is the company hiring this person to solve, and what evidence does 
     }
 
     else if (
-      analysis.experienceAnalysis
-        ?.status === "Strong"
+      analysis.experienceAnalysis?.status ===
+      "Strong"
     ) {
 
       experienceElement.innerHTML = `
@@ -3902,34 +3799,31 @@ What problem is the company hiring this person to solve, and what evidence does 
 
     else {
 
-      experienceElement.innerHTML = "";
+      experienceElement.innerHTML = `
+
+        <span class="status status-neutral">
+          Experience Not Explicitly Detected
+        </span>
+
+      `;
 
     }
 
 
-    /*
-     * Concepts
-     */
-
     document.getElementById(
       "conceptList"
     ).innerHTML =
-
       analysis.concepts.length
-
         ? analysis.concepts
             .map(
               concept =>
                 `<span class="concept">
                   ${escapeHtml(
-                    prettyConcept(
-                      concept
-                    )
+                    prettyConcept(concept)
                   )}
                  </span>`
             )
             .join("")
-
         : `
           <span class="concept">
             No major concepts detected
@@ -3937,19 +3831,11 @@ What problem is the company hiring this person to solve, and what evidence does 
         `;
 
 
-    /*
-     * Hiring problem
-     */
-
     document.getElementById(
       "hiringProblem"
     ).textContent =
       analysis.hiringProblem;
 
-
-    /*
-     * Requirements table
-     */
 
     const body =
       document.getElementById(
@@ -3984,8 +3870,7 @@ What problem is the company hiring this person to solve, and what evidence does 
 
                 <td>
                   ${escapeHtml(
-                    item.matchedPhrases
-                      .join(", ")
+                    item.matchedPhrases.join(", ")
                   )}
                 </td>
 
@@ -4013,10 +3898,6 @@ What problem is the company hiring this person to solve, and what evidence does 
         .join("");
 
 
-    /*
-     * Strong matches
-     */
-
     const strongList =
       document.getElementById(
         "strongMatches"
@@ -4026,14 +3907,12 @@ What problem is the company hiring this person to solve, and what evidence does 
     const strong =
       analysis.matches.filter(
         item =>
-          item.status ===
-          "Strong"
+          item.status === "Strong"
       );
 
 
     strongList.innerHTML =
       strong.length
-
         ? strong
             .map(
               item =>
@@ -4049,17 +3928,12 @@ What problem is the company hiring this person to solve, and what evidence does 
                  </li>`
             )
             .join("")
-
         : `
           <li>
             No strong direct requirement matches identified.
           </li>
         `;
 
-
-    /*
-     * Gaps
-     */
 
     const gapList =
       document.getElementById(
@@ -4069,7 +3943,6 @@ What problem is the company hiring this person to solve, and what evidence does 
 
     gapList.innerHTML =
       analysis.gaps.length
-
         ? analysis.gaps
             .map(
               item =>
@@ -4085,17 +3958,12 @@ What problem is the company hiring this person to solve, and what evidence does 
                  </li>`
             )
             .join("")
-
         : `
           <li>
             No major technology gaps identified from the JD.
           </li>
         `;
 
-
-    /*
-     * Why fit
-     */
 
     document.getElementById(
       "whyFits"
@@ -4107,19 +3975,10 @@ What problem is the company hiring this person to solve, and what evidence does 
       );
 
 
-    /*
-     * Solutions
-     */
-
     renderSolutions(
-      analysis.rankedSolutionObjects ||
-      []
+      analysis.rankedSolutionObjects || []
     );
 
-
-    /*
-     * HM proof
-     */
 
     document.getElementById(
       "hmProof"
@@ -4129,10 +3988,6 @@ What problem is the company hiring this person to solve, and what evidence does 
       );
 
 
-    /*
-     * Company brief
-     */
-
     document.getElementById(
       "companyFitBrief"
     ).textContent =
@@ -4141,16 +3996,16 @@ What problem is the company hiring this person to solve, and what evidence does 
       );
 
 
-    /*
-     * Scroll to result
-     */
+    if (scroll) {
 
-    document.getElementById(
-      "results"
-    ).scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
+      document.getElementById(
+        "results"
+      ).scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+    }
 
   }
 
@@ -4199,11 +4054,15 @@ What problem is the company hiring this person to solve, and what evidence does 
 
 
     const concepts =
-      detectConcepts(jd);
+      detectConcepts(
+        jd
+      );
 
 
     const experienceAnalysis =
-      analyzeExperience(jd);
+      analyzeExperience(
+        jd
+      );
 
 
     const hiringProblem =
@@ -4214,11 +4073,9 @@ What problem is the company hiring this person to solve, and what evidence does 
 
 
     const rankedSolutions =
-      rankSolutions(jd);
-
-
-    const matches =
-      requirements;
+      rankSolutions(
+        jd
+      );
 
 
     const matchLists =
@@ -4230,14 +4087,13 @@ What problem is the company hiring this person to solve, and what evidence does 
     const score =
       calculateScore(
         requirements,
-        experienceAnalysis,
-        concepts
+        experienceAnalysis
       );
 
 
     currentAnalysis = {
 
-      version: 3,
+      version: 4,
 
       company,
 
@@ -4253,7 +4109,8 @@ What problem is the company hiring this person to solve, and what evidence does 
 
       requirements,
 
-      matches,
+      matches:
+        requirements,
 
       gaps:
         matchLists.gaps,
@@ -4274,16 +4131,18 @@ What problem is the company hiring this person to solve, and what evidence does 
             })
           ),
 
-      /*
-       * Keep full solution objects locally
-       * for rendering.
-       */
-
       rankedSolutionObjects:
         rankedSolutions
           .slice(0, 3)
 
     };
+
+
+    sharedFitMode =
+      false;
+
+
+    showAnalyzer();
 
 
     renderAnalysis(
@@ -4350,15 +4209,13 @@ Kubernetes, observability, performance optimization and AI-assisted development.
 
   /*
    * =========================================================
-   * SHAREABLE FIT BRIEF
+   * COMPACT SHARE LINK
    * =========================================================
    */
 
   function generateShareLink() {
 
-    if (
-      !currentAnalysis
-    ) {
+    if (!currentAnalysis) {
 
       alert(
         "Analyze a job description first."
@@ -4384,16 +4241,20 @@ Kubernetes, observability, performance optimization and AI-assisted development.
     container.textContent =
       url;
 
+
     container.classList.remove(
       "hidden"
     );
 
 
-    window.history.replaceState(
-      null,
-      "",
-      url
-    );
+    /*
+     * IMPORTANT:
+     *
+     * Keep the analyzer visible after generating.
+     * The user can copy the URL or open it.
+     */
+
+    return url;
 
   }
 
@@ -4408,11 +4269,13 @@ Kubernetes, observability, performance optimization and AI-assisted development.
         text
       );
 
+
       alert(
         "Copied to clipboard."
       );
 
     }
+
     catch (error) {
 
       const textarea =
@@ -4420,20 +4283,26 @@ Kubernetes, observability, performance optimization and AI-assisted development.
           "textarea"
         );
 
+
       textarea.value =
         text;
+
 
       document.body.appendChild(
         textarea
       );
 
+
       textarea.select();
+
 
       document.execCommand(
         "copy"
       );
 
+
       textarea.remove();
+
 
       alert(
         "Copied to clipboard."
@@ -4446,12 +4315,10 @@ Kubernetes, observability, performance optimization and AI-assisted development.
 
   async function copyShareLink() {
 
-    if (
-      !currentAnalysis
-    ) {
+    if (!currentAnalysis) {
 
       alert(
-        "Generate or analyze a Fit Brief first."
+        "Analyze a job description first."
       );
 
       return;
@@ -4474,9 +4341,7 @@ Kubernetes, observability, performance optimization and AI-assisted development.
 
   async function copyHRMessage() {
 
-    if (
-      !currentAnalysis
-    ) {
+    if (!currentAnalysis) {
 
       alert(
         "Analyze a job description first."
@@ -4498,9 +4363,7 @@ Kubernetes, observability, performance optimization and AI-assisted development.
 
   async function copyHMMessage() {
 
-    if (
-      !currentAnalysis
-    ) {
+    if (!currentAnalysis) {
 
       alert(
         "Analyze a job description first."
@@ -4522,35 +4385,907 @@ Kubernetes, observability, performance optimization and AI-assisted development.
 
   /*
    * =========================================================
-   * LOAD SHARED FIT BRIEF
+   * RECONSTRUCT SHARED V4 ANALYSIS
    * =========================================================
    */
 
-  function loadSharedFitBrief() {
+  function reconstructSharedAnalysis(
+    payload
+  ) {
+
+    /*
+     * -------------------------------------------------------
+     * Requirement statuses
+     * -------------------------------------------------------
+     */
+
+    const statusMap = {
+
+      S: "Strong",
+
+      P: "Partial",
+
+      G: "Gap"
+
+    };
+
+
+    const matches =
+      (payload.m || [])
+        .map(
+          encodedItem => {
+
+            const separator =
+              encodedItem.lastIndexOf(":");
+
+
+            if (
+              separator === -1
+            ) {
+
+              return null;
+
+            }
+
+
+            const key =
+              encodedItem.substring(
+                0,
+                separator
+              );
+
+
+            const statusCode =
+              encodedItem.substring(
+                separator + 1
+              );
+
+
+            const group =
+              requirementGroups.find(
+                item =>
+                  item.key === key
+              );
+
+
+            if (!group) {
+              return null;
+            }
+
+
+            const status =
+              statusMap[
+                statusCode
+              ] || "Partial";
+
+
+            let profileEvidence =
+              "Relevant requirement detected.";
+
+
+            const explicitGapMap = {
+
+              "React":
+                "React is not currently evidenced in the profile.",
+
+              "TypeScript":
+                "TypeScript is not currently evidenced in the profile.",
+
+              "JavaScript":
+                "JavaScript is not currently evidenced as a core skill.",
+
+              "HTML/CSS":
+                "HTML/CSS is not currently evidenced as a core skill.",
+
+              "Snowflake":
+                "Snowflake is not currently evidenced in the profile.",
+
+              "Databricks":
+                "Databricks is not currently evidenced in the profile.",
+
+              "Data Pipelines":
+                "Dedicated data-pipeline experience is not currently evidenced.",
+
+              "BI / Analytics":
+                "Dedicated BI / analytics platform experience is not currently evidenced."
+
+            };
+
+
+            if (
+              explicitGapMap[key]
+            ) {
+
+              profileEvidence =
+                explicitGapMap[key];
+
+            }
+
+            else if (
+              categoryHasProfileEvidence(
+                group.profileCategories
+              )
+            ) {
+
+              const categoryText =
+                group.profileCategories
+                  .filter(
+                    category =>
+                      profile.skills?.[category]
+                  )
+                  .map(
+                    category =>
+                      `${category}: ${profile.skills[category]
+                        .slice(0, 6)
+                        .join(", ")}`
+                  )
+                  .join(" | ");
+
+
+              profileEvidence =
+                categoryText ||
+                "Relevant profile evidence available.";
+
+            }
+
+            else if (
+              key === "Performance"
+            ) {
+
+              profileEvidence =
+                "Profile includes backend/microservices, API, caching, scalability and production-performance experience.";
+
+            }
+
+            else if (
+              key === "Technical Leadership"
+            ) {
+
+              profileEvidence =
+                "Profile includes code reviews, Agile/Scrum delivery and mentoring-related engineering experience, but Principal-level leadership scope should be validated.";
+
+            }
+
+
+            return {
+
+              key,
+
+              label:
+                group.label,
+
+              matchedPhrases:
+                group.phrases.slice(0, 3),
+
+              status,
+
+              profileEvidence
+
+            };
+
+          }
+        )
+        .filter(Boolean);
+
+
+    /*
+     * -------------------------------------------------------
+     * Experience
+     * -------------------------------------------------------
+     */
+
+    const experienceStatus =
+      payload.x === "S"
+        ? "Strong"
+        : payload.x === "G"
+          ? "Gap"
+          : "Unknown";
+
+
+    const profileYears =
+      getProfileYears();
+
+
+    const experienceAnalysis = {
+
+      status:
+        experienceStatus,
+
+      profileYears,
+
+      requirement: null,
+
+      message:
+        experienceStatus === "Gap"
+          ? `Profile: ${profileYears}+ years. The JD requires a higher experience level.`
+          : experienceStatus === "Strong"
+            ? `Profile: ${profileYears}+ years. Experience requirement is aligned.`
+            : "Experience requirement was not fully stored in the share link."
+
+    };
+
+
+    /*
+     * -------------------------------------------------------
+     * Solutions
+     * -------------------------------------------------------
+     *
+     * Only IDs were stored in the URL.
+     *
+     * The complete solution comes from solutions.json.
+     */
+
+    const rankedSolutionObjects =
+      (payload.sol || [])
+        .map(
+          saved => {
+
+            const found =
+              solutions.find(
+                solution =>
+                  solution.id === saved.i
+              );
+
+
+            if (!found) {
+              return null;
+            }
+
+
+            return {
+
+              solution: found,
+
+              score:
+                saved.s || 0,
+
+              matchedTriggers: []
+
+            };
+
+          }
+        )
+        .filter(Boolean);
+
+
+    /*
+     * -------------------------------------------------------
+     * Concepts
+     * -------------------------------------------------------
+     */
+
+    const conceptMapping = {
+
+      "Java": ["backend"],
+
+      "Spring Boot": ["backend"],
+
+      "Microservices": [
+        "microservices",
+        "backend"
+      ],
+
+      "REST APIs": ["backend"],
+
+      "Cloud": ["cloud"],
+
+      "CI/CD": ["cicd"],
+
+      "Git / Maven": ["cicd"],
+
+      "Testing": ["testing"],
+
+      "Production Support": [
+        "production"
+      ],
+
+      "RCA": [
+        "production",
+        "reliability"
+      ],
+
+      "Performance": [
+        "performance"
+      ],
+
+      "Security": [
+        "security"
+      ],
+
+      "Observability": [
+        "observability"
+      ],
+
+      "Agile / Scrum": [],
+
+      "AI Development": [
+        "ai"
+      ],
+
+      "React": [
+        "frontend"
+      ],
+
+      "TypeScript": [
+        "frontend"
+      ],
+
+      "JavaScript": [
+        "frontend"
+      ],
+
+      "HTML/CSS": [
+        "frontend"
+      ],
+
+      "Snowflake": [
+        "dataPlatform"
+      ],
+
+      "Databricks": [
+        "dataPlatform"
+      ],
+
+      "Data Pipelines": [
+        "dataPlatform"
+      ],
+
+      "BI / Analytics": [
+        "dataPlatform"
+      ],
+
+      "Technical Leadership": [
+        "leadership"
+      ]
+
+    };
+
+
+    const concepts =
+      unique(
+        matches.flatMap(
+          item =>
+            conceptMapping[
+              item.key
+            ] || []
+        )
+      );
+
+
+    const gaps =
+      matches.filter(
+        item =>
+          item.status === "Gap"
+      );
+
+
+    return {
+
+      version: 4,
+
+      company:
+        payload.c || "",
+
+      role:
+        payload.r || "",
+
+      score:
+        payload.s || 0,
+
+      hiringProblem:
+        payload.h || "",
+
+      concepts,
+
+      experienceAnalysis,
+
+      requirements:
+        matches,
+
+      matches,
+
+      gaps,
+
+      rankedSolutions:
+        rankedSolutionObjects.map(
+          item => ({
+            id:
+              item.solution.id,
+
+            title:
+              item.solution.title,
+
+            score:
+              item.score
+          })
+        ),
+
+      rankedSolutionObjects
+
+    };
+
+  }
+
+
+  /*
+   * =========================================================
+   * FIT CARD HTML
+   * =========================================================
+   */
+
+  function buildFitCardHtml(
+    analysis
+  ) {
+
+    const fit =
+      getFitLabel(
+        analysis.score
+      );
+
+
+    const strong =
+      analysis.matches
+        .filter(
+          item =>
+            item.status === "Strong"
+        )
+        .slice(0, 8);
+
+
+    const gaps =
+      analysis.gaps
+        .slice(0, 8);
+
+
+    const solutions =
+      analysis.rankedSolutionObjects ||
+      [];
+
+
+    const whyFit =
+      buildWhyFits(
+        analysis.matches,
+        analysis.concepts,
+        analysis.experienceAnalysis
+      );
+
+
+    return `
+
+      <div class="fit-card-header">
+
+        <div class="eyebrow">
+          Engineering Fit Card
+        </div>
+
+        <h1>
+          ${escapeHtml(
+            analysis.company ||
+            "Company"
+          )}
+        </h1>
+
+        <div class="role">
+          ${escapeHtml(
+            analysis.role ||
+            "Software Engineering Opportunity"
+          )}
+        </div>
+
+        <div class="fit-card-score">
+
+          <strong>
+            ${analysis.score}/100
+          </strong>
+
+          <div>
+            <div style="font-weight:800;">
+              ${escapeHtml(
+                fit.label
+              )}
+            </div>
+
+            <div style="font-size:12px;color:#dbeafe;">
+              ${escapeHtml(
+                fit.description
+              )}
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="fit-card-grid">
+
+
+        <!-- WHY FIT -->
+
+        <div class="fit-card-section">
+
+          <h2>
+            Why I'm a Fit
+          </h2>
+
+          <div class="text-block">
+            ${escapeHtml(
+              whyFit
+            )}
+          </div>
+
+        </div>
+
+
+        <!-- EXPERIENCE -->
+
+        <div class="fit-card-section">
+
+          <h2>
+            Experience Fit
+          </h2>
+
+          <div style="margin-bottom:10px;">
+
+            <span class="status ${
+              analysis.experienceAnalysis.status === "Strong"
+                ? "status-strong"
+                : analysis.experienceAnalysis.status === "Gap"
+                  ? "status-gap"
+                  : "status-neutral"
+            }">
+
+              ${escapeHtml(
+                analysis.experienceAnalysis.status
+              )}
+
+            </span>
+
+          </div>
+
+          <div class="text-block">
+
+            ${escapeHtml(
+              analysis.experienceAnalysis.message
+            )}
+
+          </div>
+
+        </div>
+
+
+        <!-- HIRING PROBLEM -->
+
+        <div
+          class="fit-card-section full">
+
+          <h2>
+            What Problem Is The Company Hiring Me To Solve?
+          </h2>
+
+          <div class="proof-highlight">
+
+            ${escapeHtml(
+              analysis.hiringProblem
+            )}
+
+          </div>
+
+        </div>
+
+
+        <!-- STRONG MATCHES -->
+
+        <div class="fit-card-section">
+
+          <h2>
+            Strong Matches
+          </h2>
+
+          ${
+            strong.length
+              ? `
+                <ul class="fit-card-list">
+
+                  ${strong
+                    .map(
+                      item =>
+                        `<li>
+                          <strong>
+                            ${escapeHtml(
+                              item.label
+                            )}
+                          </strong>
+                          — ${escapeHtml(
+                            item.profileEvidence
+                          )}
+                        </li>`
+                    )
+                    .join("")}
+
+                </ul>
+              `
+              : `
+                <p>
+                  No strong direct matches identified.
+                </p>
+              `
+          }
+
+        </div>
+
+
+        <!-- GAPS -->
+
+        <div class="fit-card-section">
+
+          <h2>
+            Important Gaps
+          </h2>
+
+          ${
+            gaps.length
+              ? `
+                <ul class="fit-card-list">
+
+                  ${gaps
+                    .map(
+                      item =>
+                        `<li>
+                          <strong>
+                            ${escapeHtml(
+                              item.label
+                            )}
+                          </strong>
+                          — ${escapeHtml(
+                            item.profileEvidence
+                          )}
+                        </li>`
+                    )
+                    .join("")}
+
+                </ul>
+              `
+              : `
+                <p>
+                  No major technology gaps identified.
+                </p>
+              `
+          }
+
+        </div>
+
+
+        <!-- TECHNICAL APPROACH -->
+
+        <div
+          class="fit-card-section full">
+
+          <h2>
+            My Technical Approach
+          </h2>
+
+          <p style="color:#667085;font-size:13px;">
+            These reusable engineering patterns are selected
+            from the underlying technical problem in the JD.
+          </p>
+
+          <div id="fitSolutionsContainer">
+          </div>
+
+        </div>
+
+
+        <!-- HM PROOF -->
+
+        <div
+          class="fit-card-section full">
+
+          <h2>
+            Hiring Manager Proof
+          </h2>
+
+          <div class="message-box">
+
+            ${escapeHtml(
+              buildHMProof(
+                analysis
+              )
+            )}
+
+          </div>
+
+        </div>
+
+
+        <!-- HR -->
+
+        <div class="fit-card-section">
+
+          <h2>
+            HR Message
+          </h2>
+
+          <div class="message-box">
+
+            ${escapeHtml(
+              buildHRMessage(
+                analysis
+              )
+            )}
+
+          </div>
+
+        </div>
+
+
+        <!-- HM MESSAGE -->
+
+        <div class="fit-card-section">
+
+          <h2>
+            Hiring Manager Message
+          </h2>
+
+          <div class="message-box">
+
+            ${escapeHtml(
+              buildHMMessage(
+                analysis
+              )
+            )}
+
+          </div>
+
+        </div>
+
+      </div>
+
+    `;
+
+  }
+
+
+  /*
+   * =========================================================
+   * SHOW FIT CARD
+   * =========================================================
+   */
+
+  function showFitCard(
+    analysis
+  ) {
+
+    sharedFitMode =
+      true;
+
+
+    document.getElementById(
+      "mainApp"
+    ).style.display =
+      "none";
+
+
+    const view =
+      document.getElementById(
+        "fitCardView"
+      );
+
+
+    view.style.display =
+      "block";
+
+
+    document.getElementById(
+      "fitCardContent"
+    ).innerHTML =
+      buildFitCardHtml(
+        analysis
+      );
+
+
+    renderSolutions(
+      analysis.rankedSolutionObjects || [],
+      "fitSolutionsContainer"
+    );
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "instant"
+    });
+
+  }
+
+
+  /*
+   * =========================================================
+   * SHOW ANALYZER
+   * =========================================================
+   */
+
+  function showAnalyzer() {
+
+    sharedFitMode =
+      false;
+
+
+    document.getElementById(
+      "fitCardView"
+    ).style.display =
+      "none";
+
+
+    document.getElementById(
+      "mainApp"
+    ).style.display =
+      "block";
+
+  }
+
+
+  /*
+   * =========================================================
+   * LOAD SHARED FIT CARD
+   * =========================================================
+   */
+
+  function loadSharedFitCard() {
 
     const payload =
       decodeSharePayload();
 
 
     if (!payload) {
+
       return false;
+
     }
 
 
     /*
-     * Shared links contain only the
-     * necessary analysis information.
-     *
-     * Full JD is intentionally not stored.
+     * Version 4 = new compact format.
      */
 
-    currentAnalysis = {
+    if (
+      payload.v === 4
+    ) {
 
-      ...payload,
+      const analysis =
+        reconstructSharedAnalysis(
+          payload
+        );
 
-      rankedSolutionObjects:
+
+      currentAnalysis =
+        analysis;
+
+
+      showFitCard(
+        analysis
+      );
+
+
+      return true;
+
+    }
+
+
+    /*
+     * -------------------------------------------------------
+     * Backward compatibility with old v3 links.
+     * -------------------------------------------------------
+     */
+
+    if (
+      payload.company !== undefined ||
+      payload.rankedSolutions
+    ) {
+
+      const rankedSolutionObjects =
         (
-          payload.rankedSolutions || []
+          payload.rankedSolutions ||
+          []
         )
           .map(
             saved => {
@@ -4558,8 +5293,7 @@ Kubernetes, observability, performance optimization and AI-assisted development.
               const found =
                 solutions.find(
                   solution =>
-                    solution.id ===
-                    saved.id
+                    solution.id === saved.id
                 );
 
 
@@ -4581,84 +5315,64 @@ Kubernetes, observability, performance optimization and AI-assisted development.
 
             }
           )
-          .filter(Boolean)
-
-    };
+          .filter(Boolean);
 
 
-    /*
-     * If an older v2 link doesn't contain
-     * experience analysis, reconstruct what
-     * is possible from the stored fields.
-     */
+      const analysis = {
 
-    if (
-      !currentAnalysis
-        .experienceAnalysis
-    ) {
+        ...payload,
 
-      currentAnalysis
-        .experienceAnalysis = {
+        rankedSolutionObjects,
 
-          status: "Unknown",
+        requirements:
+          payload.matches || [],
 
-          profileYears:
-            getProfileYears(),
+        matches:
+          payload.matches || [],
 
-          requirement: null,
+        gaps:
+          payload.gaps || [],
 
-          message:
-            "Experience requirement was not stored in this older share link."
+        experienceAnalysis:
+          payload.experienceAnalysis || {
 
-        };
+            status: "Unknown",
+
+            profileYears:
+              getProfileYears(),
+
+            requirement: null,
+
+            message:
+              "Experience information was not stored in this older link."
+
+          }
+
+      };
+
+
+      currentAnalysis =
+        analysis;
+
+
+      showFitCard(
+        analysis
+      );
+
+
+      return true;
 
     }
 
 
-    document.getElementById(
-      "company"
-    ).value =
-      payload.company || "";
-
-
-    document.getElementById(
-      "role"
-    ).value =
-      payload.role || "";
-
-
-    renderAnalysis(
-      currentAnalysis
-    );
-
-
-    /*
-     * Make share URL visible.
-     */
-
-    const container =
-      document.getElementById(
-        "shareLinkContainer"
-      );
-
-
-    container.textContent =
-      window.location.href;
-
-
-    container.classList.remove(
-      "hidden"
-    );
-
-
-    return true;
+    return false;
 
   }
 
 
   /*
    * =========================================================
-   * LOAD DATA
+   * DATA LOADING
    * =========================================================
    */
 
@@ -4718,16 +5432,6 @@ Kubernetes, observability, performance optimization and AI-assisted development.
         await solutionsResponse.json();
 
 
-      /*
-       * IMPORTANT:
-       *
-       * Your solutions.json is currently
-       * an object keyed by solution ID.
-       *
-       * This converts it to an array and
-       * preserves the key as solution.id.
-       */
-
       if (
         Array.isArray(
           solutionData
@@ -4755,7 +5459,8 @@ Kubernetes, observability, performance optimization and AI-assisted development.
         solutions =
           Object.entries(
             solutionData
-          ).map(
+          )
+          .map(
             ([id, solution]) => ({
 
               id,
@@ -4772,7 +5477,7 @@ Kubernetes, observability, performance optimization and AI-assisted development.
 
 
       const loadedShared =
-        loadSharedFitBrief();
+        loadSharedFitCard();
 
 
       if (
@@ -4787,6 +5492,7 @@ Kubernetes, observability, performance optimization and AI-assisted development.
       }
 
     }
+
     catch (error) {
 
       console.error(
@@ -4823,17 +5529,20 @@ Kubernetes, observability, performance optimization and AI-assisted development.
 
     document.getElementById(
       "company"
-    ).value = "";
+    ).value =
+      "";
 
 
     document.getElementById(
       "role"
-    ).value = "";
+    ).value =
+      "";
 
 
     document.getElementById(
       "jd"
-    ).value = "";
+    ).value =
+      "";
 
 
     document.getElementById(
@@ -4853,6 +5562,9 @@ Kubernetes, observability, performance optimization and AI-assisted development.
       null;
 
 
+    showAnalyzer();
+
+
     if (
       window.location.hash
     ) {
@@ -4870,13 +5582,96 @@ Kubernetes, observability, performance optimization and AI-assisted development.
 
   /*
    * =========================================================
+   * SHARE FIT CARD FROM ANALYZER
+   * =========================================================
+   */
+
+  function openFitCardFromAnalyzer() {
+
+    if (!currentAnalysis) {
+
+      alert(
+        "Analyze a job description first."
+      );
+
+      return;
+
+    }
+
+
+    const url =
+      createShareUrl(
+        currentAnalysis
+      );
+
+
+    /*
+     * We update the hash so the Fit Card has
+     * exactly the same state if refreshed.
+     */
+
+    window.history.replaceState(
+      null,
+      "",
+      url
+    );
+
+
+    showFitCard(
+      currentAnalysis
+    );
+
+  }
+
+
+  /*
+   * =========================================================
+   * BACK TO ANALYZER
+   * =========================================================
+   */
+
+  function backToAnalyzer() {
+
+    showAnalyzer();
+
+
+    if (
+      currentAnalysis
+    ) {
+
+      renderAnalysis(
+        currentAnalysis,
+        false
+      );
+
+    }
+
+
+    window.history.replaceState(
+      null,
+      "",
+      window.location.pathname
+    );
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
+
+
+  /*
+   * =========================================================
    * EVENT LISTENERS
    * =========================================================
    */
 
   document.getElementById(
     "analyzeButton"
-  ).addEventListener(
+  )
+  .addEventListener(
     "click",
     analyzeOpportunity
   );
@@ -4884,7 +5679,8 @@ Kubernetes, observability, performance optimization and AI-assisted development.
 
   document.getElementById(
     "exampleButton"
-  ).addEventListener(
+  )
+  .addEventListener(
     "click",
     load3PillarExample
   );
@@ -4892,7 +5688,8 @@ Kubernetes, observability, performance optimization and AI-assisted development.
 
   document.getElementById(
     "clearButton"
-  ).addEventListener(
+  )
+  .addEventListener(
     "click",
     clearAnalyzer
   );
@@ -4900,15 +5697,17 @@ Kubernetes, observability, performance optimization and AI-assisted development.
 
   document.getElementById(
     "generateShareButton"
-  ).addEventListener(
+  )
+  .addEventListener(
     "click",
-    generateShareLink
+    openFitCardFromAnalyzer
   );
 
 
   document.getElementById(
     "copyShareButton"
-  ).addEventListener(
+  )
+  .addEventListener(
     "click",
     copyShareLink
   );
@@ -4916,7 +5715,8 @@ Kubernetes, observability, performance optimization and AI-assisted development.
 
   document.getElementById(
     "copyHRButton"
-  ).addEventListener(
+  )
+  .addEventListener(
     "click",
     copyHRMessage
   );
@@ -4924,7 +5724,8 @@ Kubernetes, observability, performance optimization and AI-assisted development.
 
   document.getElementById(
     "copyHMButton"
-  ).addEventListener(
+  )
+  .addEventListener(
     "click",
     copyHMMessage
   );
@@ -4932,9 +5733,132 @@ Kubernetes, observability, performance optimization and AI-assisted development.
 
   document.getElementById(
     "printButton"
-  ).addEventListener(
+  )
+  .addEventListener(
     "click",
     () => window.print()
+  );
+
+
+  document.getElementById(
+    "backToAnalyzerButton"
+  )
+  .addEventListener(
+    "click",
+    backToAnalyzer
+  );
+
+
+  document.getElementById(
+    "fitCopyHRButton"
+  )
+  .addEventListener(
+    "click",
+    async () => {
+
+      if (currentAnalysis) {
+
+        await copyText(
+          buildHRMessage(
+            currentAnalysis
+          )
+        );
+
+      }
+
+    }
+  );
+
+
+  document.getElementById(
+    "fitCopyHMButton"
+  )
+  .addEventListener(
+    "click",
+    async () => {
+
+      if (currentAnalysis) {
+
+        await copyText(
+          buildHMMessage(
+            currentAnalysis
+          )
+        );
+
+      }
+
+    }
+  );
+
+
+  document.getElementById(
+    "fitCopyLinkButton"
+  )
+  .addEventListener(
+    "click",
+    async () => {
+
+      if (currentAnalysis) {
+
+        await copyText(
+          createShareUrl(
+            currentAnalysis
+          )
+        );
+
+      }
+
+    }
+  );
+
+
+  document.getElementById(
+    "fitPrintButton"
+  )
+  .addEventListener(
+    "click",
+    () =>
+      window.print()
+  );
+
+
+  /*
+   * =========================================================
+   * HANDLE HASH CHANGES
+   * =========================================================
+   */
+
+  window.addEventListener(
+    "hashchange",
+    () => {
+
+      if (
+        !profile ||
+        !solutions.length
+      ) {
+
+        return;
+
+      }
+
+
+      if (
+        window.location.hash.startsWith(
+          "#fit="
+        )
+      ) {
+
+        loadSharedFitCard();
+
+      }
+
+      else {
+
+        showAnalyzer();
+
+      }
+
+    }
   );
 
 
