@@ -1,0 +1,5682 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Career Fit Analyzer — Gunjata Wadhwani</title>
+
+  <meta
+    name="description"
+    content="JD to engineering-fit analyzer for Gunjata Wadhwani — Java, Spring Boot, Microservices and Cloud."
+  />
+
+  <style>
+
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #172033;
+      --muted: #667085;
+      --border: #e4e7ec;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --success: #067647;
+      --success-bg: #ecfdf3;
+      --warning: #b54708;
+      --warning-bg: #fffaeb;
+      --danger: #b42318;
+      --danger-bg: #fef3f2;
+      --purple: #6941c6;
+      --purple-bg: #f9f5ff;
+      --shadow: 0 8px 30px rgba(16, 24, 40, 0.06);
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      line-height: 1.55;
+    }
+
+    button,
+    textarea,
+    input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 55%, #2563eb 100%);
+      color: #ffffff;
+      border-bottom: 0;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.18);
+    }
+
+    .header-inner {
+      padding: 42px 0 36px;
+    }
+
+    .eyebrow {
+      color: #bfdbfe;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.25;
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 8px;
+      font-size: clamp(28px, 5vw, 44px);
+      color: #ffffff;
+    }
+
+    h2 {
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+
+    h3 {
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .headline {
+      font-size: 18px;
+      font-weight: 600;
+      color: #dbeafe;
+      margin-bottom: 12px;
+    }
+
+    .summary {
+      max-width: 850px;
+      color: #e2e8f0;
+      margin: 0 0 18px;
+    }
+
+    .profile-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .profile-pill,
+    .concept,
+    .skill-tag {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 12px;
+      color: #475467;
+    }
+
+    main {
+      padding: 28px 0 60px;
+    }
+
+    section {
+      margin-bottom: 24px;
+    }
+
+    .section-header {
+      margin-bottom: 14px;
+    }
+
+    .section-header p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .skill-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 15px;
+      background: #fff;
+    }
+
+    .skill-card h3 {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .skill-tag {
+      background: #f8fafc;
+      padding: 4px 8px;
+    }
+
+    .analyzer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .field {
+      margin-bottom: 16px;
+    }
+
+    .field:last-child {
+      margin-bottom: 0;
+    }
+
+    label {
+      display: block;
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 7px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid #d0d5dd;
+      border-radius: 10px;
+      padding: 11px 12px;
+      color: var(--text);
+      background: #fff;
+      outline: none;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, .10);
+    }
+
+    textarea {
+      min-height: 300px;
+      resize: vertical;
+      line-height: 1.55;
+    }
+
+    .jd-field {
+      grid-column: 1 / -1;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 16px;
+    }
+
+    button {
+      border: 1px solid var(--border);
+      background: #fff;
+      color: #344054;
+      border-radius: 9px;
+      padding: 10px 14px;
+      font-weight: 700;
+    }
+
+    button:hover {
+      background: #f8fafc;
+    }
+
+    button.primary {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+    }
+
+    button.primary:hover {
+      background: var(--primary-dark);
+    }
+
+    button.success {
+      background: var(--success);
+      border-color: var(--success);
+      color: #fff;
+    }
+
+    button.secondary {
+      background: #f8fafc;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .results {
+      display: none;
+    }
+
+    .score-grid {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .score-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #f8fafc;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .score-number {
+      font-size: 56px;
+      line-height: 1;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .score-label {
+      font-weight: 800;
+      margin-top: 8px;
+    }
+
+    .score-description {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 6px;
+    }
+
+    .concept-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 12px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 4px 8px;
+      font-size: 11px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .status-strong {
+      color: var(--success);
+      background: var(--success-bg);
+    }
+
+    .status-partial {
+      color: var(--warning);
+      background: var(--warning-bg);
+    }
+
+    .status-gap {
+      color: var(--danger);
+      background: var(--danger-bg);
+    }
+
+    .status-neutral {
+      color: #475467;
+      background: #f2f4f7;
+    }
+
+    .problem-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 14px;
+      padding: 18px;
+    }
+
+    .problem-box strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #1e40af;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 780px;
+    }
+
+    th,
+    td {
+      padding: 12px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+
+    th {
+      background: #f8fafc;
+      color: #475467;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .03em;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .list-card ul {
+      margin: 10px 0 0;
+      padding-left: 20px;
+    }
+
+    .list-card li {
+      margin-bottom: 9px;
+      color: #475467;
+    }
+
+    .solution-card {
+      position: relative;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 14px;
+      background: #fff;
+    }
+
+    .solution-card.primary {
+      border-color: #93c5fd;
+      box-shadow: 0 8px 24px rgba(37, 99, 235, .08);
+    }
+
+    .solution-rank {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #eff6ff;
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .solution-score {
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .architecture-title,
+    .decision-title,
+    .prototype-title {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #667085;
+      letter-spacing: .04em;
+      margin-top: 16px;
+      margin-bottom: 8px;
+    }
+
+    .architecture {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .architecture span {
+      border: 1px solid #dbeafe;
+      background: #eff6ff;
+      color: #1e40af;
+      border-radius: 8px;
+      padding: 7px 10px;
+      font-size: 12px;
+    }
+
+    .architecture span:not(:last-child)::after {
+      content: "→";
+      margin-left: 7px;
+      color: #94a3b8;
+    }
+
+    .decision-list {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .decision-list li {
+      margin-bottom: 6px;
+      color: #475467;
+      font-size: 13px;
+    }
+
+    .prototype {
+      margin-top: 8px;
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 12px;
+      padding: 15px;
+      overflow-x: auto;
+      font-size: 12px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+
+    .text-block {
+      white-space: pre-line;
+      color: #475467;
+    }
+
+    .message-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 15px;
+      white-space: pre-line;
+      color: #475467;
+      font-size: 13px;
+    }
+
+    .share-box {
+      background: var(--purple-bg);
+      border: 1px solid #e9d7fe;
+    }
+
+    .share-link {
+      margin-top: 12px;
+      padding: 10px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      font-size: 12px;
+      word-break: break-all;
+      color: #475467;
+    }
+
+    .fit-card-view {
+      display: none;
+      padding: 30px 0 60px;
+    }
+
+    .fit-card-header {
+      background: linear-gradient(
+        135deg,
+        #172554,
+        #1d4ed8
+      );
+      color: #fff;
+      border-radius: 20px;
+      padding: 28px;
+      margin-bottom: 18px;
+    }
+
+    .fit-card-header .eyebrow {
+      color: #bfdbfe;
+    }
+
+    .fit-card-header h1 {
+      margin-bottom: 5px;
+    }
+
+    .fit-card-header .role {
+      color: #dbeafe;
+      font-size: 17px;
+    }
+
+    .fit-card-score {
+      margin-top: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 12px;
+      padding: 12px 15px;
+    }
+
+    .fit-card-score strong {
+      font-size: 30px;
+    }
+
+    .fit-card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .fit-card-section {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .fit-card-section.full {
+      grid-column: 1 / -1;
+    }
+
+
+    .fit-card-section h2 {
+      font-size: 17px;
+    }
+
+    /* Fit-card visual status accents */
+    .fit-card-section.match-section {
+      border-top: 4px solid var(--success);
+    }
+
+    .fit-card-section.gap-section {
+      border-top: 4px solid var(--danger);
+    }
+
+    .fit-card-section.approach-section {
+      border-top: 4px solid var(--primary);
+    }
+
+    .fit-card-section.proof-section {
+      border-top: 4px solid var(--purple);
+    }
+
+    .fit-card-section.experience-section {
+      border-top: 4px solid var(--warning);
+    }
+
+    .fit-card-section h2 {
+      color: var(--text);
+    }
+
+    .fit-card-section.match-section h2 {
+      color: var(--success);
+    }
+
+    .fit-card-section.gap-section h2 {
+      color: var(--danger);
+    }
+
+    .fit-card-section.approach-section h2 {
+      color: var(--primary-dark);
+    }
+
+    .fit-card-section.proof-section h2 {
+      color: var(--purple);
+    }
+
+    .fit-card-section.experience-section h2 {
+      color: var(--warning);
+    }
+
+    .fit-card-list li::marker {
+      color: var(--primary);
+    }
+
+    .match-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin: 0 6px 6px 0;
+      padding: 5px 9px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--success);
+      background: var(--success-bg);
+      border: 1px solid #abefc6;
+    }
+
+    .gap-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin: 0 6px 6px 0;
+      padding: 5px 9px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--danger);
+      background: var(--danger-bg);
+      border: 1px solid #fecdca;
+    }
+
+    .fit-card-header .eyebrow {
+      color: #bfdbfe;
+    }
+
+    .fit-card-header {
+      box-shadow: 0 12px 30px rgba(37, 99, 235, .18);
+    }
+
+    .fit-card-list {
+      margin: 0;
+      padding-left: 19px;
+    }
+
+    .fit-card-list li {
+      margin-bottom: 8px;
+      color: #475467;
+    }
+
+    .proof-highlight {
+      border-left: 4px solid var(--primary);
+      padding: 12px 14px;
+      background: #eff6ff;
+      border-radius: 0 10px 10px 0;
+      color: #344054;
+    }
+
+    .fit-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-bottom: 10px;
+    }
+
+    .shared-card-note {
+      margin: 0 0 18px;
+      padding: 10px 13px;
+      border: 1px solid #dbeafe;
+      border-radius: 10px;
+      background: #eff6ff;
+      color: #1e40af;
+      font-size: 12px;
+    }
+
+    footer {
+      padding: 25px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .error {
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 10px;
+      background: var(--danger-bg);
+      color: var(--danger);
+      border: 1px solid #fecdca;
+      font-size: 13px;
+    }
+
+    @media (max-width: 950px) {
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .analyzer-grid,
+      .two-column,
+      .fit-card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .score-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .fit-card-section.full {
+        grid-column: auto;
+      }
+
+    }
+
+    @media (max-width: 600px) {
+
+      .container {
+        width: min(100% - 20px, 1180px);
+      }
+
+      .header-inner {
+        padding-top: 28px;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 16px;
+      }
+
+      .fit-card-header {
+        padding: 20px;
+      }
+
+      .button-row,
+      .fit-actions {
+        flex-direction: column;
+      }
+
+      button {
+        width: 100%;
+      }
+
+    }
+
+    @media print {
+
+      body {
+        background: #fff;
+      }
+
+      header,
+      .analyzer-section,
+      .button-row,
+      .share-box,
+      footer {
+        display: none !important;
+      }
+
+      .results {
+        display: block !important;
+      }
+
+      .card {
+        box-shadow: none;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <!-- =====================================================
+       MAIN APPLICATION
+       ===================================================== -->
+
+  <div id="mainApp">
+
+    <header>
+      <div class="container header-inner">
+
+        <div class="eyebrow">
+          Career Fit Analyzer
+        </div>
+
+        <h1 id="profileName">
+          Gunjata Wadhwani
+        </h1>
+
+        <div
+          id="profileHeadline"
+          class="headline">
+          Software Engineer — Backend, Microservices & Cloud Platforms
+        </div>
+
+        <p
+          id="profileSummary"
+          class="summary">
+          Loading profile...
+        </p>
+
+        <div
+          id="profileMeta"
+          class="profile-meta">
+        </div>
+
+      </div>
+    </header>
+
+
+    <main class="container">
+
+      <!-- =================================================
+           TECHNICAL PROFILE
+           ================================================= -->
+
+      <section>
+
+        <div class="section-header">
+
+          <h2>
+            Technical Profile
+          </h2>
+
+          <p>
+            Evidence used by the analyzer when evaluating job descriptions.
+          </p>
+
+        </div>
+
+        <div
+          id="skillsGrid"
+          class="skills-grid">
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           ANALYZER
+           ================================================= -->
+
+      <section
+        class="analyzer-section">
+
+        <div class="section-header">
+
+          <h2>
+            Analyze a Job Description
+          </h2>
+
+          <p>
+            Identify the company's hiring problem and map it to your engineering evidence.
+          </p>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="analyzer-grid">
+
+            <div class="field">
+
+              <label for="company">
+                Company
+              </label>
+
+              <input
+                id="company"
+                type="text"
+                placeholder="e.g. Mastercard"
+              />
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="role">
+                Role
+              </label>
+
+              <input
+                id="role"
+                type="text"
+                placeholder="e.g. Senior Software Engineer"
+              />
+
+            </div>
+
+
+            <div class="field jd-field">
+
+              <label for="jd">
+                Job Description
+              </label>
+
+              <textarea
+                id="jd"
+                placeholder="Paste the complete job description here..."></textarea>
+
+            </div>
+
+          </div>
+
+
+          <div class="button-row">
+
+            <button
+              id="analyzeButton"
+              class="primary">
+              Analyze JD
+            </button>
+
+            <button
+              id="exampleButton"
+              class="secondary">
+              Load 3Pillar Example
+            </button>
+
+            <button
+              id="clearButton">
+              Clear
+            </button>
+
+          </div>
+
+
+          <div
+            id="loadError"
+            class="error hidden">
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           RESULTS
+           ================================================= -->
+
+      <section
+        id="results"
+        class="results">
+
+
+        <!-- SCORE -->
+
+        <div class="card">
+
+          <div class="section-header">
+
+            <h2>
+              Profile Alignment
+            </h2>
+
+            <p>
+              Overall technical and experience alignment with the JD.
+            </p>
+
+          </div>
+
+
+          <div class="score-grid">
+
+            <div class="score-card">
+
+              <div
+                id="scoreNumber"
+                class="score-number">
+                0
+              </div>
+
+              <div
+                id="fitLabel"
+                class="score-label">
+                —
+              </div>
+
+              <div
+                id="fitDescription"
+                class="score-description">
+              </div>
+
+            </div>
+
+
+            <div>
+
+              <h3>
+                Experience
+              </h3>
+
+              <div
+                id="experienceSummary">
+              </div>
+
+
+              <h3 style="margin-top:20px;">
+                Detected JD Areas
+              </h3>
+
+              <div
+                id="conceptList"
+                class="concept-list">
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- HIRING PROBLEM -->
+
+        <div class="card">
+
+          <div class="section-header">
+
+            <h2>
+              What Problem Is The Company Hiring For?
+            </h2>
+
+            <p>
+              The analyzer converts the JD into the underlying engineering problem.
+            </p>
+
+          </div>
+
+          <div class="problem-box">
+
+            <strong>
+              Hiring Problem
+            </strong>
+
+            <div id="hiringProblem">
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- REQUIREMENTS -->
+
+        <div class="card">
+
+          <div class="section-header">
+
+            <h2>
+              Requirement Evidence
+            </h2>
+
+            <p>
+              Direct evidence, transferable experience and important gaps.
+            </p>
+
+          </div>
+
+
+          <div class="table-wrap">
+
+            <table>
+
+              <thead>
+
+                <tr>
+                  <th>Requirement</th>
+                  <th>JD Evidence</th>
+                  <th>Profile Evidence</th>
+                  <th>Status</th>
+                </tr>
+
+              </thead>
+
+              <tbody
+                id="requirementsBody">
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </div>
+
+
+        <!-- MATCHES / GAPS -->
+
+        <div class="two-column">
+
+          <div class="card list-card">
+
+            <h2>
+              Strong Matches
+            </h2>
+
+            <ul id="strongMatches">
+            </ul>
+
+          </div>
+
+
+          <div class="card list-card">
+
+            <h2>
+              Potential Gaps
+            </h2>
+
+            <ul id="potentialGaps">
+            </ul>
+
+          </div>
+
+        </div>
+
+
+        <!-- WHY FIT -->
+
+        <div class="card">
+
+          <div class="section-header">
+
+            <h2>
+              Why This Profile Fits
+            </h2>
+
+          </div>
+
+          <div
+            id="whyFits"
+            class="text-block">
+          </div>
+
+        </div>
+
+
+        <!-- TECHNICAL APPROACH -->
+
+        <div class="card">
+
+          <div class="section-header">
+
+            <h2>
+              My Technical Approach for This Role
+            </h2>
+
+            <p>
+              Reusable engineering patterns selected from the JD's underlying problem.
+            </p>
+
+          </div>
+
+
+          <div
+            id="solutionsContainer">
+          </div>
+
+        </div>
+
+
+        <!-- HM PROOF -->
+
+        <div class="card">
+
+          <div class="section-header">
+
+            <h2>
+              Compact Hiring-Manager Proof
+            </h2>
+
+          </div>
+
+          <div
+            id="hmProof"
+            class="message-box">
+          </div>
+
+        </div>
+
+
+        <!-- COMPANY BRIEF -->
+
+        <div class="card">
+
+          <div class="section-header">
+
+            <h2>
+              Company Fit Brief
+            </h2>
+
+          </div>
+
+          <div
+            id="companyFitBrief"
+            class="message-box">
+          </div>
+
+        </div>
+
+
+        <!-- SHARE -->
+
+        <div class="card share-box">
+
+          <div class="section-header">
+
+            <h2>
+              Share Fit Card
+            </h2>
+
+            <p>
+              Generate one compact link that opens directly to the finished Fit Card.
+            </p>
+
+          </div>
+
+
+          <div class="button-row">
+
+            <button
+              id="generateShareButton"
+              class="primary">
+              Generate Fit Card Link
+            </button>
+
+            <button
+              id="copyShareButton">
+              Copy Link
+            </button>
+
+            <button
+              id="copyHRButton">
+              Copy HR Message
+            </button>
+
+            <button
+              id="copyHMButton">
+              Copy Hiring Manager Message
+            </button>
+
+            <button
+              id="printButton">
+              Print
+            </button>
+
+          </div>
+
+
+          <div
+            id="shareLinkContainer"
+            class="share-link hidden">
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+
+    <footer>
+
+      Gunjata Wadhwani · Java · Spring Boot · Microservices · Cloud
+
+    </footer>
+
+  </div>
+
+
+  <!-- =====================================================
+       DIRECT SHARE / FIT CARD VIEW
+       ===================================================== -->
+
+  <div
+    id="fitCardView"
+    class="fit-card-view">
+
+    <div class="container">
+
+      <div class="fit-actions">
+
+        <button
+          id="backToAnalyzerButton"
+          class="secondary">
+          ← Back to Analyzer
+        </button>
+
+        <button
+          id="fitCopyLinkButton"
+          class="primary">
+          Copy Fit Card Link
+        </button>
+
+        <button
+          id="fitPrintButton">
+          Print Fit Card
+        </button>
+
+      </div>
+
+      <div class="shared-card-note">
+        This page is the shareable technical fit card. Outreach messages remain available from the analyzer as copy-only actions.
+      </div>
+
+
+      <div
+        id="fitCardContent">
+      </div>
+
+    </div>
+
+  </div>
+
+
+<script>
+
+  /*
+   * =========================================================
+   * GLOBAL STATE
+   * =========================================================
+   */
+
+  let profile = null;
+
+  let solutions = [];
+
+  let currentAnalysis = null;
+
+  let sharedFitMode = false;
+
+
+  /*
+   * =========================================================
+   * HELPERS
+   * =========================================================
+   */
+
+  function normalize(value) {
+
+    return String(value || "")
+      .toLowerCase()
+      .replace(/[^\w\s+#/.:-]/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+
+  }
+
+
+  function phraseFound(text, phrase) {
+
+    return normalize(text)
+      .includes(
+        normalize(phrase)
+      );
+
+  }
+
+
+  function unique(items) {
+
+    return [...new Set(items)];
+
+  }
+
+
+  function escapeHtml(value) {
+
+    return String(value ?? "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+
+  }
+
+
+  function prettyConcept(concept) {
+
+    const labels = {
+
+      backend: "Backend",
+
+      rest: "REST APIs",
+
+      microservices: "Microservices",
+
+      performance: "Performance",
+
+      scalability: "Scalability",
+
+      reliability: "Reliability",
+
+      cloud: "Cloud",
+
+      production: "Production",
+
+      security: "Security",
+
+      observability: "Observability",
+
+      testing: "Testing",
+
+      cicd: "CI/CD",
+
+      ai: "AI Development",
+
+      frontend: "Frontend",
+
+      dataPlatform: "Data Platform",
+
+      leadership: "Technical Leadership"
+
+    };
+
+    return labels[concept] || concept;
+
+  }
+
+
+  /*
+   * =========================================================
+   * CONCEPT DETECTION
+   * =========================================================
+   */
+
+  const conceptAliases = {
+
+    backend: [
+      "backend",
+      "back-end",
+      "server-side",
+      "java services",
+      "backend services"
+    ],
+
+    rest: [
+      "rest",
+      "rest api",
+      "rest apis",
+      "restful api",
+      "restful apis",
+      "api",
+      "apis"
+    ],
+
+    microservices: [
+      "microservices",
+      "microservice",
+      "distributed systems",
+      "distributed system"
+    ],
+
+    performance: [
+      "performance",
+      "performance tuning",
+      "performance optimization",
+      "optimization",
+      "latency",
+      "throughput",
+      "response time",
+      "query performance"
+    ],
+
+    scalability: [
+      "scalability",
+      "scalable",
+      "scale",
+      "autoscaling",
+      "auto scaling",
+      "high volume"
+    ],
+
+    reliability: [
+      "reliability",
+      "resilience",
+      "fault tolerance",
+      "availability",
+      "reliable"
+    ],
+
+    cloud: [
+      "cloud",
+      "cloud infrastructure",
+      "cloud platform",
+      "aws",
+      "azure",
+      "gcp",
+      "kubernetes",
+      "container"
+    ],
+
+    production: [
+      "production",
+      "production support",
+      "production readiness",
+      "production ready",
+      "production issues",
+      "production incidents"
+    ],
+
+    security: [
+      "security",
+      "secure api",
+      "api security",
+      "oauth",
+      "oauth2",
+      "oauth 2.0",
+      "jwt",
+      "authentication",
+      "authorization",
+      "token"
+    ],
+
+    observability: [
+      "observability",
+      "monitoring",
+      "logging",
+      "metrics",
+      "tracing",
+      "splunk",
+      "dynatrace",
+      "alerts",
+      "dashboards"
+    ],
+
+    testing: [
+      "testing",
+      "unit testing",
+      "unit tests",
+      "junit",
+      "test automation",
+      "integration testing",
+      "automated tests"
+    ],
+
+    cicd: [
+      "ci/cd",
+      "ci cd",
+      "continuous integration",
+      "continuous delivery",
+      "continuous deployment",
+      "pipeline"
+    ],
+
+    ai: [
+      "ai-assisted development",
+      "ai assisted development",
+      "copilot",
+      "claude",
+      "devin",
+      "ai coding",
+      "generative ai",
+      "ai-driven"
+    ],
+
+    frontend: [
+      "frontend",
+      "front-end",
+      "react",
+      "react.js",
+      "reactjs",
+      "typescript",
+      "javascript",
+      "html",
+      "css"
+    ],
+
+    dataPlatform: [
+      "snowflake",
+      "databricks",
+      "data pipeline",
+      "data pipelines",
+      "data processing",
+      "data integration",
+      "business intelligence",
+      "analytics",
+      "analytics workflows"
+    ],
+
+    leadership: [
+      "technical leadership",
+      "technical lead",
+      "technical guidance",
+      "architectural decisions",
+      "architecture decisions",
+      "mentor",
+      "mentoring",
+      "code review",
+      "senior engineers"
+    ]
+
+  };
+
+
+  function detectConcepts(jd) {
+
+    const normalizedJD =
+      normalize(jd);
+
+    return Object.entries(
+      conceptAliases
+    )
+      .filter(
+        ([, phrases]) =>
+          phrases.some(
+            phrase =>
+              normalizedJD.includes(
+                normalize(phrase)
+              )
+          )
+      )
+      .map(
+        ([concept]) =>
+          concept
+      );
+
+  }
+
+
+  /*
+   * =========================================================
+   * EXPERIENCE
+   * =========================================================
+   */
+
+  function detectExperienceRequirement(jd) {
+
+    const text = String(jd || "");
+
+    const ranges = [
+      /(\d+)\s*(?:\+)?\s*(?:to|-)\s*(\d+)\s*(?:years|yrs)/i,
+      /(\d+)\s*(?:\+)?\s*(?:years|yrs)\s+(?:of\s+)?experience/i,
+      /experience\s*(?:of\s*)?(\d+)\s*(?:\+)?\s*(?:years|yrs)/i,
+      /minimum\s*(?:of\s*)?(\d+)\s*(?:\+)?\s*(?:years|yrs)/i,
+      /at\s+least\s+(\d+)\s*(?:\+)?\s*(?:years|yrs)/i
+    ];
+
+    for (const regex of ranges) {
+      const match = text.match(regex);
+      if (!match) continue;
+
+      if (match[2]) {
+        return { minimum: Number(match[1]), maximum: Number(match[2]), source: "explicit" };
+      }
+
+      return { minimum: Number(match[1]), maximum: null, source: "explicit" };
+    }
+
+    return null;
+  }
+
+
+  function detectSeniorityLevel(jd) {
+
+    const text = normalize(jd);
+
+    const senioritySignals = [
+      { level: "Principal", patterns: ["principal software engineer", "principal engineer", "principal developer"] },
+      { level: "Staff", patterns: ["staff software engineer", "staff engineer", "staff developer"] },
+      { level: "Lead", patterns: ["lead software engineer", "lead engineer", "lead developer", "technical lead", "tech lead"] },
+      { level: "Senior", patterns: ["senior software engineer", "senior engineer", "senior developer", "senior backend engineer", "senior java engineer"] }
+    ];
+
+    for (const signal of senioritySignals) {
+      if (signal.patterns.some(pattern => text.includes(normalize(pattern)))) return signal.level;
+    }
+
+    return null;
+  }
+
+
+  function getProfileYears() {
+
+    const raw =
+      String(
+        profile?.experience || "5+"
+      );
+
+    const match =
+      raw.match(
+        /\d+(?:\.\d+)?/
+      );
+
+    return match
+      ? Number(match[0])
+      : 5;
+
+  }
+
+
+  function analyzeExperience(jd) {
+
+    const requirement = detectExperienceRequirement(jd);
+    const seniority = detectSeniorityLevel(jd);
+    const profileYears = getProfileYears();
+
+    if (requirement) {
+      if (profileYears >= requirement.minimum) {
+        return {
+          requirement, seniority, profileYears, status: "Strong",
+          message: `Profile: ${profileYears}+ years. JD minimum: ${requirement.minimum}+ years.`
+        };
+      }
+
+      const gap = requirement.minimum - profileYears;
+      return {
+        requirement, seniority, profileYears, status: "Gap",
+        message: `Profile: ${profileYears}+ years. JD minimum: ${requirement.minimum}+ years. Approximate gap: ${gap}+ years.`
+      };
+    }
+
+    if (seniority === "Senior") {
+      return { requirement: null, seniority, profileYears, status: "Likely Strong",
+        message: `Profile: ${profileYears}+ years. The JD does not state a numeric requirement, but the Senior-level title aligns with the candidate's experience.` };
+    }
+
+    if (seniority === "Lead") {
+      return { requirement: null, seniority, profileYears, status: "Likely Strong",
+        message: `Profile: ${profileYears}+ years. The role is Lead-level; technical leadership scope should be validated.` };
+    }
+
+    if (seniority === "Staff" || seniority === "Principal") {
+      return { requirement: null, seniority, profileYears, status: "Scope Review",
+        message: `Profile: ${profileYears}+ years. The ${seniority}-level title may require broader architecture and organizational scope than years of experience alone indicate.` };
+    }
+
+    return { requirement: null, seniority: null, profileYears, status: "Unknown",
+      message: "No explicit experience requirement or seniority signal detected in the JD." };
+  }
+
+  /*
+   * =========================================================
+   * PROFILE CAPABILITY MAP
+   * =========================================================
+   */
+
+  const profileCapabilityMap = {
+
+    java: true,
+    spring: true,
+    microservices: true,
+    backend: true,
+    rest: true,
+    sql: true,
+    cloud: true,
+    cicd: true,
+    testing: true,
+    production: true,
+    performance: true,
+    observability: true,
+    security: true,
+    ai: true,
+    frontend: false,
+    react: false,
+    typescript: false,
+    javascript: false,
+    snowflake: false,
+    databricks: false,
+    leadership: true
+
+  };
+
+
+  /*
+   * =========================================================
+   * SOLUTION WEIGHTS
+   * =========================================================
+   */
+
+  const solutionConceptWeights = {
+
+    "microservices-reliability": {
+      microservices: 6,
+      backend: 5,
+      reliability: 5,
+      production: 3,
+      scalability: 4
+    },
+
+    "secure-api": {
+      security: 7,
+      backend: 4,
+      microservices: 2
+    },
+
+    "api-performance": {
+      performance: 8,
+      scalability: 6,
+      backend: 4,
+      microservices: 3
+    },
+
+    "production-incident": {
+      production: 7,
+      reliability: 6,
+      observability: 4
+    },
+
+    "observability": {
+      observability: 8,
+      production: 4,
+      reliability: 3
+    },
+
+    "cloud-scalability": {
+      cloud: 7,
+      scalability: 7,
+      reliability: 3
+    },
+
+    "data-consistency": {
+      microservices: 4
+    },
+
+    "caching": {
+      performance: 6,
+      scalability: 3
+    },
+
+    "ci-cd": {
+      cicd: 8,
+      testing: 3,
+      production: 2
+    },
+
+    "testing": {
+      testing: 8,
+      cicd: 3
+    },
+
+    "ai-assisted-engineering": {
+      ai: 9
+    }
+
+  };
+
+
+  function rankSolutions(jd) {
+
+    const normalizedJD =
+      normalize(jd);
+
+    const concepts =
+      detectConcepts(jd);
+
+
+    return solutions
+      .map(solution => {
+
+        let score = 0;
+
+        const matchedTriggers = [];
+
+
+        const triggers =
+          solution.triggers || [];
+
+
+        triggers.forEach(
+          trigger => {
+
+            if (
+              normalizedJD.includes(
+                normalize(trigger)
+              )
+            ) {
+
+              score +=
+                2;
+
+              matchedTriggers.push(
+                trigger
+              );
+
+            }
+
+          }
+        );
+
+
+        const weights =
+          solutionConceptWeights[
+            solution.id
+          ] || {};
+
+
+        Object.entries(weights)
+          .forEach(
+            ([concept, weight]) => {
+
+              if (
+                concepts.includes(
+                  concept
+                )
+              ) {
+
+                score += weight;
+
+              }
+
+            }
+          );
+
+
+        return {
+
+          solution,
+
+          score,
+
+          matchedTriggers
+
+        };
+
+      })
+      .filter(
+        item =>
+          item.score > 0
+      )
+      .sort(
+        (a, b) =>
+          b.score - a.score
+      );
+
+  }
+
+
+  /*
+   * =========================================================
+   * REQUIREMENT GROUPS
+   * =========================================================
+   */
+
+  const requirementGroups = [
+
+    {
+      key: "Java",
+      label: "Java",
+      phrases: [
+        "java",
+        "core java",
+        "java 8",
+        "java 17",
+        "java 21"
+      ],
+      profileCategories: ["Java"]
+    },
+
+    {
+      key: "Spring Boot",
+      label: "Spring Boot",
+      phrases: [
+        "spring boot",
+        "spring framework",
+        "spring"
+      ],
+      profileCategories: ["Spring"]
+    },
+
+    {
+      key: "Microservices",
+      label: "Microservices",
+      phrases: [
+        "microservices",
+        "microservice",
+        "distributed systems",
+        "distributed system"
+      ],
+      profileCategories: ["Microservices"]
+    },
+
+    {
+      key: "REST APIs",
+      label: "REST APIs",
+      phrases: [
+        "rest api",
+        "rest apis",
+        "restful api",
+        "restful apis",
+        "rest services"
+      ],
+      profileCategories: ["APIs"]
+    },
+
+    {
+      key: "SQL / Database",
+      label: "SQL / Database",
+      phrases: [
+        "sql",
+        "mysql",
+        "database",
+        "relational database"
+      ],
+      profileCategories: ["Database"]
+    },
+
+    {
+      key: "Cloud",
+      label: "Cloud",
+      phrases: [
+        "cloud",
+        "cloud infrastructure",
+        "cloud platform",
+        "aws",
+        "azure",
+        "gcp",
+        "kubernetes",
+        "container"
+      ],
+      profileCategories: ["Cloud"]
+    },
+
+    {
+      key: "CI/CD",
+      label: "CI/CD",
+      phrases: [
+        "ci/cd",
+        "ci cd",
+        "continuous integration",
+        "continuous delivery",
+        "continuous deployment",
+        "pipeline"
+      ],
+      profileCategories: ["Delivery"]
+    },
+
+    {
+      key: "Git / Maven",
+      label: "Git / Maven",
+      phrases: [
+        "git",
+        "maven"
+      ],
+      profileCategories: ["Delivery"]
+    },
+
+    {
+      key: "Testing",
+      label: "Testing",
+      phrases: [
+        "testing",
+        "unit testing",
+        "unit tests",
+        "junit",
+        "test automation",
+        "integration testing",
+        "automated tests"
+      ],
+      profileCategories: ["Testing"]
+    },
+
+    {
+      key: "Production Support",
+      label: "Production Support",
+      phrases: [
+        "production support",
+        "production readiness",
+        "production ready",
+        "production issues",
+        "production incidents",
+        "production environment"
+      ],
+      profileCategories: ["Production"]
+    },
+
+    {
+      key: "RCA",
+      label: "RCA / Troubleshooting",
+      phrases: [
+        "rca",
+        "root cause",
+        "root cause analysis",
+        "troubleshooting",
+        "incident response"
+      ],
+      profileCategories: ["Production"]
+    },
+
+    {
+      key: "Performance",
+      label: "Performance",
+      phrases: [
+        "performance",
+        "performance tuning",
+        "performance optimization",
+        "optimization",
+        "latency",
+        "throughput",
+        "response time",
+        "query performance"
+      ],
+      profileCategories: [
+        "Microservices",
+        "APIs",
+        "Cloud"
+      ]
+    },
+
+    {
+      key: "Security",
+      label: "Security",
+      phrases: [
+        "security",
+        "secure api",
+        "api security",
+        "oauth",
+        "oauth2",
+        "oauth 2.0",
+        "jwt",
+        "authentication",
+        "authorization",
+        "token"
+      ],
+      profileCategories: ["Security"]
+    },
+
+    {
+      key: "Observability",
+      label: "Observability",
+      phrases: [
+        "observability",
+        "monitoring",
+        "logging",
+        "metrics",
+        "tracing",
+        "splunk",
+        "dynatrace"
+      ],
+      profileCategories: ["Observability"]
+    },
+
+    {
+      key: "Agile / Scrum",
+      label: "Agile / Scrum",
+      phrases: [
+        "agile",
+        "scrum",
+        "sprint",
+        "scrum ceremonies"
+      ],
+      profileCategories: ["Engineering"]
+    },
+
+    {
+      key: "AI Development",
+      label: "AI-Assisted Development",
+      phrases: [
+        "ai-assisted development",
+        "ai assisted development",
+        "copilot",
+        "claude",
+        "devin",
+        "ai coding",
+        "generative ai"
+      ],
+      profileCategories: ["AI"]
+    },
+
+    {
+      key: "React",
+      label: "React",
+      phrases: [
+        "react",
+        "react.js",
+        "reactjs",
+        "react architecture"
+      ],
+      profileCategories: []
+    },
+
+    {
+      key: "TypeScript",
+      label: "TypeScript",
+      phrases: [
+        "typescript"
+      ],
+      profileCategories: []
+    },
+
+    {
+      key: "JavaScript",
+      label: "JavaScript",
+      phrases: [
+        "javascript",
+        "java script"
+      ],
+      profileCategories: []
+    },
+
+    {
+      key: "HTML/CSS",
+      label: "HTML/CSS",
+      phrases: [
+        "html",
+        "html/css",
+        "css"
+      ],
+      profileCategories: []
+    },
+
+    {
+      key: "Snowflake",
+      label: "Snowflake",
+      phrases: [
+        "snowflake",
+        "snowflake sql"
+      ],
+      profileCategories: []
+    },
+
+    {
+      key: "Databricks",
+      label: "Databricks",
+      phrases: [
+        "databricks",
+        "databricks data",
+        "databricks pipelines"
+      ],
+      profileCategories: []
+    },
+
+    {
+      key: "Data Pipelines",
+      label: "Data Pipelines",
+      phrases: [
+        "data pipeline",
+        "data pipelines",
+        "data processing",
+        "data integration"
+      ],
+      profileCategories: []
+    },
+
+    {
+      key: "BI / Analytics",
+      label: "BI / Analytics",
+      phrases: [
+        "business intelligence",
+        "bi",
+        "analytics",
+        "analytics performance",
+        "analytics workflows"
+      ],
+      profileCategories: []
+    },
+
+    {
+      key: "Technical Leadership",
+      label: "Technical Leadership",
+      phrases: [
+        "technical leadership",
+        "technical lead",
+        "technical guidance",
+        "architectural decisions",
+        "architecture decisions",
+        "mentor",
+        "mentoring",
+        "code review",
+        "senior engineers"
+      ],
+      profileCategories: ["Engineering"]
+    }
+
+  ];
+
+
+  /*
+   * =========================================================
+   * PROFILE MATCHING
+   * =========================================================
+   */
+
+  function flattenProfileSkills() {
+
+    if (!profile?.skills) {
+      return "";
+    }
+
+    return Object.values(
+      profile.skills
+    )
+      .flat()
+      .join(" ");
+
+  }
+
+
+  function categoryHasProfileEvidence(
+    categories
+  ) {
+
+    if (
+      !profile?.skills ||
+      !categories?.length
+    ) {
+      return false;
+    }
+
+    return categories.some(
+      category =>
+        Array.isArray(
+          profile.skills[category]
+        ) &&
+        profile.skills[category].length > 0
+    );
+
+  }
+
+
+  function buildRequirementAnalysis(jd) {
+
+    const normalizedJD =
+      normalize(jd);
+
+    const profileText =
+      normalize(
+        flattenProfileSkills()
+      );
+
+
+    return requirementGroups
+      .map(group => {
+
+        const matchedPhrases =
+          group.phrases.filter(
+            phrase =>
+              normalizedJD.includes(
+                normalize(phrase)
+              )
+          );
+
+
+        if (
+          matchedPhrases.length === 0
+        ) {
+
+          return null;
+
+        }
+
+
+        let status = "Gap";
+
+        let profileEvidence =
+          "No direct profile evidence.";
+
+
+        const explicitGapMap = {
+
+          "React":
+            "React is not currently evidenced in the profile.",
+
+          "TypeScript":
+            "TypeScript is not currently evidenced in the profile.",
+
+          "JavaScript":
+            "JavaScript is not currently evidenced as a core skill.",
+
+          "HTML/CSS":
+            "HTML/CSS is not currently evidenced as a core skill.",
+
+          "Snowflake":
+            "Snowflake is not currently evidenced in the profile.",
+
+          "Databricks":
+            "Databricks is not currently evidenced in the profile.",
+
+          "Data Pipelines":
+            "Dedicated data-pipeline experience is not currently evidenced.",
+
+          "BI / Analytics":
+            "Dedicated BI / analytics platform experience is not currently evidenced."
+
+        };
+
+
+        if (
+          explicitGapMap[group.key]
+        ) {
+
+          status = "Gap";
+
+          profileEvidence =
+            explicitGapMap[group.key];
+
+        }
+
+        else if (
+          categoryHasProfileEvidence(
+            group.profileCategories
+          )
+        ) {
+
+          status = "Strong";
+
+
+          const categoryText =
+            group.profileCategories
+              .filter(
+                category =>
+                  profile.skills?.[category]
+              )
+              .map(
+                category =>
+                  `${category}: ${profile.skills[category]
+                    .slice(0, 6)
+                    .join(", ")}`
+              )
+              .join(" | ");
+
+
+          profileEvidence =
+            categoryText ||
+            "Relevant profile evidence available.";
+
+        }
+
+        else if (
+          group.key === "Performance" &&
+          profileCapabilityMap.performance
+        ) {
+
+          status = "Strong";
+
+          profileEvidence =
+            "Profile includes backend/microservices, API, caching, scalability and production-performance experience.";
+
+        }
+
+        else if (
+          group.key === "Technical Leadership"
+        ) {
+
+          status = "Partial";
+
+          profileEvidence =
+            "Profile includes code reviews, Agile/Scrum delivery and mentoring-related engineering experience, but Principal-level leadership scope should be validated.";
+
+        }
+
+        else if (
+          matchedPhrases.some(
+            phrase =>
+              profileText.includes(
+                normalize(phrase)
+              )
+          )
+        ) {
+
+          status = "Strong";
+
+          profileEvidence =
+            "Direct technology/keyword evidence exists in the profile.";
+
+        }
+
+        else {
+
+          status = "Partial";
+
+          profileEvidence =
+            "The role requirement has related transferable backend/cloud experience, but the exact technology is not directly evidenced.";
+
+        }
+
+
+        return {
+
+          key: group.key,
+
+          label: group.label,
+
+          matchedPhrases,
+
+          status,
+
+          profileEvidence
+
+        };
+
+      })
+      .filter(Boolean);
+
+  }
+
+
+  /*
+   * =========================================================
+   * HIRING PROBLEM
+   * =========================================================
+   */
+
+  function identifyHiringProblem(
+    jd,
+    requirements
+  ) {
+
+    const concepts =
+      detectConcepts(jd);
+
+    const has =
+      concept =>
+        concepts.includes(concept);
+
+    const requirement =
+      key =>
+        requirements.some(
+          item =>
+            item.key === key
+        );
+
+
+    if (
+      has("frontend") &&
+      has("backend") &&
+      has("performance")
+    ) {
+
+      return "Deliver a high-performance full-stack platform with scalable Java backend services while maintaining frontend performance, reliability and maintainability.";
+
+    }
+
+
+    if (
+      has("backend") &&
+      has("performance") &&
+      has("scalability")
+    ) {
+
+      return "Build and optimize scalable backend services with strong performance, reliability and production readiness.";
+
+    }
+
+
+    if (
+      has("microservices") &&
+      has("performance")
+    ) {
+
+      return "Build scalable Java microservices while improving backend performance, throughput and production reliability.";
+
+    }
+
+
+    if (
+      has("cloud") &&
+      has("scalability")
+    ) {
+
+      return "Build and operate scalable cloud-based applications that maintain predictable performance and reliability as traffic and infrastructure demand changes.";
+
+    }
+
+
+    if (
+      has("dataPlatform") &&
+      has("performance")
+    ) {
+
+      return "Improve application and analytics performance by making data processing, query execution and backend integration more efficient.";
+
+    }
+
+
+    if (
+      has("production") &&
+      has("reliability")
+    ) {
+
+      return "Improve production reliability and operational readiness by identifying performance, stability and service issues and preventing recurring failures.";
+
+    }
+
+
+    if (
+      has("ai")
+    ) {
+
+      return "Integrate AI-driven capabilities while maintaining application performance, scalability, security and engineering quality.";
+
+    }
+
+
+    if (
+      requirement("Security") &&
+      (
+        requirement("REST APIs") ||
+        requirement("Microservices")
+      )
+    ) {
+
+      return "Build secure, scalable backend services and APIs while protecting authentication, authorization and service-to-service communication.";
+
+    }
+
+
+    if (
+      requirement("Performance")
+    ) {
+
+      return "Improve backend performance, scalability and API responsiveness while maintaining reliable production behavior.";
+
+    }
+
+
+    if (
+      requirement("Testing") &&
+      requirement("CI/CD")
+    ) {
+
+      return "Deliver reliable software through automated testing, repeatable CI/CD and strong engineering quality practices.";
+
+    }
+
+
+    return "Build maintainable, reliable production software that translates the company's technical and business requirements into scalable engineering solutions.";
+
+  }
+
+
+  /*
+   * =========================================================
+   * SCORE
+   * =========================================================
+   */
+
+  function calculateScore(
+    requirements,
+    experienceAnalysis
+  ) {
+
+    if (!requirements.length) {
+      return 0;
+    }
+
+
+    let score = 0;
+
+    let weightTotal = 0;
+
+
+    requirements.forEach(
+      requirement => {
+
+        let weight = 1;
+
+
+        if (
+          [
+            "Java",
+            "Spring Boot",
+            "Microservices",
+            "REST APIs",
+            "Cloud",
+            "Performance"
+          ].includes(
+            requirement.key
+          )
+        ) {
+
+          weight = 2;
+
+        }
+
+
+        if (
+          [
+            "React",
+            "TypeScript",
+            "Snowflake",
+            "Databricks"
+          ].includes(
+            requirement.key
+          )
+        ) {
+
+          weight = 2;
+
+        }
+
+
+        weightTotal += weight;
+
+
+        if (
+          requirement.status === "Strong"
+        ) {
+
+          score +=
+            weight * 100;
+
+        }
+
+        else if (
+          requirement.status === "Partial"
+        ) {
+
+          score +=
+            weight * 55;
+
+        }
+
+      }
+    );
+
+
+    let baseScore =
+      weightTotal > 0
+        ? score / weightTotal
+        : 0;
+
+
+    if (
+      experienceAnalysis.status === "Gap"
+    ) {
+
+      const minimum =
+        experienceAnalysis
+          .requirement
+          ?.minimum || 0;
+
+      const profileYears =
+        experienceAnalysis.profileYears;
+
+
+      if (
+        minimum >= profileYears + 5
+      ) {
+
+        baseScore -= 15;
+
+      }
+
+      else if (
+        minimum >= profileYears + 3
+      ) {
+
+        baseScore -= 10;
+
+      }
+
+      else {
+
+        baseScore -= 5;
+
+      }
+
+    }
+
+
+    const majorGaps =
+      requirements.filter(
+        item =>
+          item.status === "Gap" &&
+          [
+            "React",
+            "TypeScript",
+            "Snowflake",
+            "Databricks"
+          ].includes(
+            item.key
+          )
+      ).length;
+
+
+    if (
+      majorGaps >= 3
+    ) {
+
+      baseScore -= 10;
+
+    }
+
+    else if (
+      majorGaps === 2
+    ) {
+
+      baseScore -= 6;
+
+    }
+
+
+    const leadershipRequired =
+      requirements.some(
+        item =>
+          item.key === "Technical Leadership"
+      );
+
+
+    if (
+      leadershipRequired
+    ) {
+
+      baseScore += 3;
+
+    }
+
+
+    return Math.max(
+      0,
+      Math.min(
+        100,
+        Math.round(baseScore)
+      )
+    );
+
+  }
+
+
+  /*
+   * =========================================================
+   * FIT LABEL
+   * =========================================================
+   */
+
+  function getFitLabel(score) {
+
+    if (score >= 80) {
+
+      return {
+        label: "Strong Fit",
+        description:
+          "The role has strong overlap with the candidate's current backend engineering capabilities."
+      };
+
+    }
+
+
+    if (score >= 65) {
+
+      return {
+        label: "Good / Transferable Fit",
+        description:
+          "There is meaningful technical overlap, although some role-specific requirements should be validated."
+      };
+
+    }
+
+
+    if (score >= 50) {
+
+      return {
+        label: "Partial Fit",
+        description:
+          "The profile covers important parts of the role, but there are notable technology, scope or experience gaps."
+      };
+
+    }
+
+
+    return {
+      label: "Low / Selective Fit",
+      description:
+        "The role contains significant requirements outside the current evidence in the profile."
+    };
+
+  }
+
+
+  /*
+   * =========================================================
+   * MATCH LISTS
+   * =========================================================
+   */
+
+  function buildMatchLists(
+    requirements
+  ) {
+
+    return {
+
+      strong:
+        requirements.filter(
+          item =>
+            item.status === "Strong"
+        ),
+
+      partial:
+        requirements.filter(
+          item =>
+            item.status === "Partial"
+        ),
+
+      gaps:
+        requirements.filter(
+          item =>
+            item.status === "Gap"
+        )
+
+    };
+
+  }
+
+
+  /*
+   * =========================================================
+   * WHY FIT
+   * =========================================================
+   */
+
+  function buildWhyFits(
+    requirements,
+    concepts,
+    experienceAnalysis
+  ) {
+
+    const strengths = [];
+
+
+    if (
+      concepts.includes("backend")
+    ) {
+
+      strengths.push(
+        "Strong Java/backend engineering alignment."
+      );
+
+    }
+
+
+    if (
+      concepts.includes("microservices")
+    ) {
+
+      strengths.push(
+        "Relevant microservices and distributed-service experience."
+      );
+
+    }
+
+
+    if (
+      concepts.includes("performance")
+    ) {
+
+      strengths.push(
+        "Relevant performance, optimization, scalability and production engineering experience."
+      );
+
+    }
+
+
+    if (
+      concepts.includes("cloud")
+    ) {
+
+      strengths.push(
+        "Relevant cloud/platform experience through PCF, Kubernetes and cloud-native deployment environments."
+      );
+
+    }
+
+
+    if (
+      concepts.includes("production")
+    ) {
+
+      strengths.push(
+        "Production troubleshooting, monitoring and RCA experience is relevant to production-readiness requirements."
+      );
+
+    }
+
+
+    if (
+      concepts.includes("ai")
+    ) {
+
+      strengths.push(
+        "Experience using AI-assisted engineering tools provides useful alignment with modern AI-enabled engineering environments."
+      );
+
+    }
+
+
+    if (
+      !strengths.length
+    ) {
+
+      strengths.push(
+        "The strongest evidence comes from the direct Java/backend engineering overlap identified in the requirements."
+      );
+
+    }
+
+
+    if (
+      experienceAnalysis.status === "Gap"
+    ) {
+
+      strengths.push(
+        "The main qualification concern is the JD's higher experience requirement."
+      );
+
+    }
+
+
+    return strengths.join("\n\n");
+
+  }
+
+
+  /*
+   * =========================================================
+   * SOLUTION RENDERING
+   * =========================================================
+   */
+
+  function formatPrototype(prototype) {
+    if (prototype == null) return "";
+    if (typeof prototype === "string") return prototype;
+    if (Array.isArray(prototype)) {
+      return prototype.map(item => {
+        if (typeof item === "string") return item;
+        if (item == null) return "";
+        if (typeof item === "object") return item.code || item.text || item.content || JSON.stringify(item, null, 2);
+        return String(item);
+      }).filter(Boolean).join("\n");
+    }
+    if (typeof prototype === "object") {
+      return prototype.code || prototype.text || prototype.content || prototype.example || JSON.stringify(prototype, null, 2);
+    }
+    return String(prototype);
+  }
+
+
+  function renderSolutions(
+    rankedSolutions,
+    targetId = "solutionsContainer"
+  ) {
+
+    const container =
+      document.getElementById(
+        targetId
+      );
+
+
+    if (!container) {
+      return;
+    }
+
+
+    if (
+      !rankedSolutions?.length
+    ) {
+
+      container.innerHTML = `
+
+        <div class="solution-card">
+
+          <h3>
+            No direct reusable pattern
+          </h3>
+
+          <p>
+            No existing engineering pattern matched strongly enough.
+            The role should be reviewed manually.
+          </p>
+
+        </div>
+
+      `;
+
+      return;
+
+    }
+
+
+    container.innerHTML =
+      rankedSolutions
+        .slice(0, 3)
+        .map(
+          (item, index) => {
+
+            const solution =
+              item.solution;
+
+
+            const architecture =
+              solution.architecture || [];
+
+
+            const decisions =
+              solution.engineeringDecisions || [];
+
+
+            return `
+
+              <div
+                class="solution-card ${
+                  index === 0
+                    ? "primary"
+                    : ""
+                }">
+
+                <div class="solution-rank">
+                  ${index + 1}
+                </div>
+
+                ${
+                  index === 0
+                    ? `
+                      <div
+                        class="status status-strong"
+                        style="margin-bottom:10px">
+                        PRIMARY APPROACH
+                      </div>
+                    `
+                    : `
+                      <div
+                        class="status status-neutral"
+                        style="margin-bottom:10px">
+                        SUPPORTING APPROACH
+                      </div>
+                    `
+                }
+
+                <h3>
+                  ${escapeHtml(
+                    solution.title
+                  )}
+                </h3>
+
+                <div class="solution-score">
+                  Match strength: ${item.score}
+                </div>
+
+                <p>
+                  ${escapeHtml(
+                    solution.problem || ""
+                  )}
+                </p>
+
+
+                ${
+                  architecture.length
+                    ? `
+                      <div class="architecture-title">
+                        Architecture
+                      </div>
+
+                      <div class="architecture">
+
+                        ${architecture
+                          .map(
+                            part =>
+                              `<span>
+                                ${escapeHtml(part)}
+                               </span>`
+                          )
+                          .join("")}
+
+                      </div>
+                    `
+                    : ""
+                }
+
+
+                ${
+                  decisions.length
+                    ? `
+                      <div class="decision-title">
+                        Engineering Decisions
+                      </div>
+
+                      <ul class="decision-list">
+
+                        ${decisions
+                          .slice(0, 6)
+                          .map(
+                            decision =>
+                              `<li>
+                                ${escapeHtml(
+                                  decision
+                                )}
+                               </li>`
+                          )
+                          .join("")}
+
+                      </ul>
+                    `
+                    : ""
+                }
+
+
+                ${
+                  solution.prototype
+                    ? `
+                      <div class="prototype-title">
+                        Prototype / Technical Proof
+                      </div>
+
+                      <div class="prototype">${escapeHtml(
+                        formatPrototype(solution.prototype)
+                      )}</div>
+                    `
+                    : ""
+                }
+
+              </div>
+
+            `;
+
+          }
+        )
+        .join("");
+
+  }
+
+
+  /*
+   * =========================================================
+   * HR MESSAGE
+   * =========================================================
+   */
+
+  function buildHRMessage(
+    analysis
+  ) {
+
+    const company =
+      analysis.company ||
+      "your organization";
+
+
+    const role =
+      analysis.role ||
+      "this role";
+
+
+    const strong =
+      (analysis.matches || [])
+        .filter(
+          item =>
+            item.status === "Strong"
+        )
+        .slice(0, 5)
+        .map(
+          item =>
+            item.label
+        );
+
+
+    const gaps =
+      (analysis.matches || [])
+        .filter(
+          item =>
+            item.status === "Gap"
+        )
+        .slice(0, 4)
+        .map(
+          item =>
+            item.label
+        );
+
+
+    return `Hi,
+
+I’m a Software Engineer with 5+ years of experience building Java, Spring Boot and microservices-based backend systems.
+
+I reviewed the ${role} opportunity at ${company}. My strongest alignment is around ${strong.join(", ") || "Java backend engineering, microservices and scalable production systems"}.
+
+I also noticed that the role has some requirements such as ${gaps.join(", ") || "role-specific technologies"} that are outside my strongest current experience, but I believe my backend and production engineering background could transfer well where relevant.
+
+I’d be happy to discuss whether my profile could be considered for the opportunity.
+
+Regards,
+Gunjata Wadhwani`;
+
+  }
+
+
+  /*
+   * =========================================================
+   * HIRING MANAGER MESSAGE
+   * =========================================================
+   */
+
+  function buildHMMessage(
+    analysis
+  ) {
+
+    const company =
+      analysis.company ||
+      "your organization";
+
+
+    const role =
+      analysis.role ||
+      "this role";
+
+
+    const solutions =
+      (analysis.rankedSolutions || [])
+        .slice(0, 3)
+        .map(
+          item =>
+            item.title
+        );
+
+
+    return `Hi,
+
+I’m reaching out regarding the ${role} opportunity at ${company}.
+
+From the JD, the core engineering problem appears to be:
+
+${analysis.hiringProblem}
+
+My background is strongest in Java, Spring Boot, microservices, REST APIs, production troubleshooting, performance optimization and cloud/platform engineering.
+
+For this type of problem, my technical approach would typically focus on:
+
+${solutions
+  .map(
+    item =>
+      `• ${item}`
+  )
+  .join("\n")}
+
+I would be glad to discuss how my existing backend and production engineering experience could contribute to the team.
+
+Regards,
+Gunjata Wadhwani`;
+
+  }
+
+
+  /*
+   * =========================================================
+   * HM PROOF
+   * =========================================================
+   */
+
+  function buildHMProof(
+    analysis
+  ) {
+
+    const primary =
+      analysis.rankedSolutionObjects?.[0];
+
+
+    const primaryTitle =
+      primary
+        ? primary.solution.title
+        : "scalable backend engineering";
+
+
+    return `The role appears to be solving a combination of ${analysis.concepts
+      .slice(0, 5)
+      .map(prettyConcept)
+      .join(", ")}.
+
+My strongest evidence is in Java/Spring Boot microservices, REST APIs, production engineering, performance optimization and cloud/platform environments.
+
+The reusable technical approach I would bring is ${primaryTitle}.
+
+The main gaps to validate are ${analysis.gaps
+      .slice(0, 5)
+      .map(item => item.label)
+      .join(", ") || "none identified from the available JD evidence"}.
+
+This makes the profile a ${
+      analysis.score >= 65
+        ? "meaningful"
+        : "selective"
+    } match rather than a pure keyword match.`;
+
+  }
+
+
+  /*
+   * =========================================================
+   * COMPANY FIT BRIEF
+   * =========================================================
+   */
+
+  function buildCompanyFitBrief(
+    analysis
+  ) {
+
+    const strong =
+      analysis.matches
+        .filter(
+          item =>
+            item.status === "Strong"
+        )
+        .map(
+          item =>
+            item.label
+        );
+
+
+    const gaps =
+      analysis.matches
+        .filter(
+          item =>
+            item.status === "Gap"
+        )
+        .map(
+          item =>
+            item.label
+        );
+
+
+    return `COMPANY:
+${analysis.company || "Not specified"}
+
+ROLE:
+${analysis.role || "Not specified"}
+
+PROFILE FIT:
+${analysis.score}/100
+
+HIRING PROBLEM:
+${analysis.hiringProblem}
+
+STRONG ALIGNMENT:
+${strong.length
+  ? strong.map(item => `• ${item}`).join("\n")
+  : "• No strong direct matches detected."}
+
+IMPORTANT GAPS:
+${gaps.length
+  ? gaps.map(item => `• ${item}`).join("\n")
+  : "• No major direct gaps detected."}
+
+PRIMARY TECHNICAL APPROACH:
+${analysis.rankedSolutions[0]?.title || "Manual technical review recommended."}
+
+SUPPORTING APPROACHES:
+${analysis.rankedSolutions
+  .slice(1, 3)
+  .map(item => `• ${item.title}`)
+  .join("\n") || "None"}
+
+CORE QUESTION:
+What problem is the company hiring this person to solve, and what evidence does Gunjata have that she can solve it?`;
+
+  }
+
+
+  /*
+   * =========================================================
+   * COMPACT SHARE PAYLOAD
+   * =========================================================
+   *
+   * IMPORTANT:
+   *
+   * We do NOT put:
+   *
+   * - full JD
+   * - full profile
+   * - full solutions
+   * - full architecture
+   * - full prototype
+   *
+   * into the URL.
+   *
+   * solutions.json and profile.json reconstruct those.
+   * =========================================================
+   */
+
+  function createShareUrl(
+    analysis
+  ) {
+
+    const payload = {
+
+      v: 4,
+
+      c:
+        analysis.company || "",
+
+      r:
+        analysis.role || "",
+
+      s:
+        analysis.score || 0,
+
+      h:
+        analysis.hiringProblem || "",
+
+      m:
+        (analysis.matches || [])
+          .map(
+            item =>
+              `${item.key}:${item.status.charAt(0)}`
+          ),
+
+      x:
+        analysis.experienceAnalysis?.status === "Strong"
+          ? "S"
+          : analysis.experienceAnalysis?.status === "Gap"
+            ? "G"
+            : analysis.experienceAnalysis?.status === "Likely Strong"
+              ? "L"
+              : analysis.experienceAnalysis?.status === "Scope Review"
+                ? "R"
+                : "U",
+
+      e: analysis.experienceAnalysis?.requirement?.minimum || null,
+      em: analysis.experienceAnalysis?.requirement?.maximum || null,
+      sx: analysis.experienceAnalysis?.seniority || null,
+
+      sol:
+        (analysis.rankedSolutions || [])
+          .slice(0, 3)
+          .map(
+            item => ({
+              i: item.id,
+              s: item.score
+            })
+          )
+
+    };
+
+
+    const json =
+      JSON.stringify(
+        payload
+      );
+
+
+    const encoded =
+      btoa(
+        encodeURIComponent(
+          json
+        )
+      );
+
+
+    return (
+      window.location.origin +
+      window.location.pathname +
+      "#fit=" +
+      encoded
+    );
+
+  }
+
+
+  function decodeSharePayload() {
+
+    const hash =
+      window.location.hash || "";
+
+
+    if (
+      !hash.startsWith("#fit=")
+    ) {
+
+      return null;
+
+    }
+
+
+    try {
+
+      const encoded =
+        hash.substring(5);
+
+
+      const json =
+        decodeURIComponent(
+          atob(encoded)
+        );
+
+
+      return JSON.parse(
+        json
+      );
+
+    }
+
+    catch (error) {
+
+      console.error(
+        "Could not decode share payload:",
+        error
+      );
+
+      return null;
+
+    }
+
+  }
+
+
+  /*
+   * =========================================================
+   * RENDER PROFILE
+   * =========================================================
+   */
+
+  function renderProfile() {
+
+    document.getElementById(
+      "profileName"
+    ).textContent =
+      profile.name ||
+      "Gunjata Wadhwani";
+
+
+    document.getElementById(
+      "profileHeadline"
+    ).textContent =
+      profile.headline ||
+      "Software Engineer";
+
+
+    document.getElementById(
+      "profileSummary"
+    ).textContent =
+      profile.summary ||
+      "";
+
+
+    const meta =
+      document.getElementById(
+        "profileMeta"
+      );
+
+
+    meta.innerHTML = `
+
+      <span class="profile-pill">
+        ${escapeHtml(
+          profile.location ||
+          "India"
+        )}
+      </span>
+
+      <span class="profile-pill">
+        ${escapeHtml(
+          profile.experience ||
+          "5+ years"
+        )}
+      </span>
+
+      <span class="profile-pill">
+        ${escapeHtml(
+          profile.noticePeriod ||
+          "30 days"
+        )}
+      </span>
+
+    `;
+
+
+    const grid =
+      document.getElementById(
+        "skillsGrid"
+      );
+
+
+    const skills =
+      profile.skills || {};
+
+
+    grid.innerHTML =
+      Object.entries(skills)
+        .map(
+          ([category, items]) => `
+
+            <div class="skill-card">
+
+              <h3>
+                ${escapeHtml(
+                  category
+                )}
+              </h3>
+
+              <div class="skill-list">
+
+                ${
+                  Array.isArray(items)
+                    ? items
+                        .map(
+                          item =>
+                            `<span class="skill-tag">
+                              ${escapeHtml(item)}
+                             </span>`
+                        )
+                        .join("")
+                    : ""
+                }
+
+              </div>
+
+            </div>
+
+          `
+        )
+        .join("");
+
+  }
+
+
+  /*
+   * =========================================================
+   * RENDER ANALYSIS
+   * =========================================================
+   */
+
+  function renderAnalysis(
+    analysis,
+    scroll = true
+  ) {
+
+    currentAnalysis =
+      analysis;
+
+
+    document.getElementById(
+      "results"
+    ).style.display =
+      "block";
+
+
+    document.getElementById(
+      "scoreNumber"
+    ).textContent =
+      analysis.score;
+
+
+    const fit =
+      getFitLabel(
+        analysis.score
+      );
+
+
+    document.getElementById(
+      "fitLabel"
+    ).textContent =
+      fit.label;
+
+
+    document.getElementById(
+      "fitDescription"
+    ).textContent =
+      fit.description;
+
+
+    const experienceElement =
+      document.getElementById(
+        "experienceSummary"
+      );
+
+
+    if (analysis.experienceAnalysis?.status === "Gap") {
+      experienceElement.innerHTML = `
+        <span class="status status-gap">Experience Gap</span>
+        <span style="margin-left:8px;font-size:13px">${escapeHtml(analysis.experienceAnalysis.message)}</span>
+      `;
+    } else if (analysis.experienceAnalysis?.status === "Strong" || analysis.experienceAnalysis?.status === "Likely Strong") {
+      experienceElement.innerHTML = `
+        <span class="status status-strong">${analysis.experienceAnalysis.status === "Strong" ? "Experience Aligned" : "Likely Experience Fit"}</span>
+        <span style="margin-left:8px;font-size:13px">${escapeHtml(analysis.experienceAnalysis.message)}</span>
+      `;
+    } else if (analysis.experienceAnalysis?.status === "Scope Review") {
+      experienceElement.innerHTML = `
+        <span class="status status-neutral">Scope Review</span>
+        <span style="margin-left:8px;font-size:13px">${escapeHtml(analysis.experienceAnalysis.message)}</span>
+      `;
+    } else {
+      experienceElement.innerHTML = `
+        <span class="status status-neutral">Experience Not Explicitly Detected</span>
+        <span style="margin-left:8px;font-size:13px">${escapeHtml(analysis.experienceAnalysis.message)}</span>
+      `;
+    }
+
+    document.getElementById(
+      "conceptList"
+    ).innerHTML =
+      analysis.concepts.length
+        ? analysis.concepts
+            .map(
+              concept =>
+                `<span class="concept">
+                  ${escapeHtml(
+                    prettyConcept(concept)
+                  )}
+                 </span>`
+            )
+            .join("")
+        : `
+          <span class="concept">
+            No major concepts detected
+          </span>
+        `;
+
+
+    document.getElementById(
+      "hiringProblem"
+    ).textContent =
+      analysis.hiringProblem;
+
+
+    const body =
+      document.getElementById(
+        "requirementsBody"
+      );
+
+
+    body.innerHTML =
+      analysis.matches
+        .map(
+          item => {
+
+            const statusClass =
+              item.status === "Strong"
+                ? "status-strong"
+                : item.status === "Partial"
+                  ? "status-partial"
+                  : "status-gap";
+
+
+            return `
+
+              <tr>
+
+                <td>
+                  <strong>
+                    ${escapeHtml(
+                      item.label
+                    )}
+                  </strong>
+                </td>
+
+                <td>
+                  ${escapeHtml(
+                    item.matchedPhrases.join(", ")
+                  )}
+                </td>
+
+                <td>
+                  ${escapeHtml(
+                    item.profileEvidence
+                  )}
+                </td>
+
+                <td>
+                  <span
+                    class="status ${statusClass}">
+                    ${escapeHtml(
+                      item.status
+                    )}
+                  </span>
+                </td>
+
+              </tr>
+
+            `;
+
+          }
+        )
+        .join("");
+
+
+    const strongList =
+      document.getElementById(
+        "strongMatches"
+      );
+
+
+    const strong =
+      analysis.matches.filter(
+        item =>
+          item.status === "Strong"
+      );
+
+
+    strongList.innerHTML =
+      strong.length
+        ? strong
+            .map(
+              item =>
+                `<li>
+                  <strong>
+                    ${escapeHtml(
+                      item.label
+                    )}
+                  </strong>
+                  — ${escapeHtml(
+                    item.profileEvidence
+                  )}
+                 </li>`
+            )
+            .join("")
+        : `
+          <li>
+            No strong direct requirement matches identified.
+          </li>
+        `;
+
+
+    const gapList =
+      document.getElementById(
+        "potentialGaps"
+      );
+
+
+    gapList.innerHTML =
+      analysis.gaps.length
+        ? analysis.gaps
+            .map(
+              item =>
+                `<li>
+                  <strong>
+                    ${escapeHtml(
+                      item.label
+                    )}
+                  </strong>
+                  — ${escapeHtml(
+                    item.profileEvidence
+                  )}
+                 </li>`
+            )
+            .join("")
+        : `
+          <li>
+            No major technology gaps identified from the JD.
+          </li>
+        `;
+
+
+    document.getElementById(
+      "whyFits"
+    ).textContent =
+      buildWhyFits(
+        analysis.matches,
+        analysis.concepts,
+        analysis.experienceAnalysis
+      );
+
+
+    renderSolutions(
+      analysis.rankedSolutionObjects || []
+    );
+
+
+    document.getElementById(
+      "hmProof"
+    ).textContent =
+      buildHMProof(
+        analysis
+      );
+
+
+    document.getElementById(
+      "companyFitBrief"
+    ).textContent =
+      buildCompanyFitBrief(
+        analysis
+      );
+
+
+    if (scroll) {
+
+      document.getElementById(
+        "results"
+      ).scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+    }
+
+  }
+
+
+  /*
+   * =========================================================
+   * RUN ANALYSIS
+   * =========================================================
+   */
+
+  function analyzeOpportunity() {
+
+    const company =
+      document.getElementById(
+        "company"
+      ).value.trim();
+
+
+    const role =
+      document.getElementById(
+        "role"
+      ).value.trim();
+
+
+    const jd =
+      document.getElementById(
+        "jd"
+      ).value.trim();
+
+
+    if (!jd) {
+
+      alert(
+        "Please paste a job description first."
+      );
+
+      return;
+
+    }
+
+
+    const requirements =
+      buildRequirementAnalysis(
+        jd
+      );
+
+
+    const concepts =
+      detectConcepts(
+        jd
+      );
+
+
+    const experienceAnalysis =
+      analyzeExperience(
+        jd
+      );
+
+
+    const hiringProblem =
+      identifyHiringProblem(
+        jd,
+        requirements
+      );
+
+
+    const rankedSolutions =
+      rankSolutions(
+        jd
+      );
+
+
+    const matchLists =
+      buildMatchLists(
+        requirements
+      );
+
+
+    const score =
+      calculateScore(
+        requirements,
+        experienceAnalysis
+      );
+
+
+    currentAnalysis = {
+
+      version: 4,
+
+      company,
+
+      role,
+
+      score,
+
+      hiringProblem,
+
+      concepts,
+
+      experienceAnalysis,
+
+      requirements,
+
+      matches:
+        requirements,
+
+      gaps:
+        matchLists.gaps,
+
+      rankedSolutions:
+        rankedSolutions
+          .slice(0, 3)
+          .map(
+            item => ({
+              id:
+                item.solution.id,
+
+              title:
+                item.solution.title,
+
+              score:
+                item.score
+            })
+          ),
+
+      rankedSolutionObjects:
+        rankedSolutions
+          .slice(0, 3)
+
+    };
+
+
+    sharedFitMode =
+      false;
+
+
+    showAnalyzer();
+
+
+    renderAnalysis(
+      currentAnalysis
+    );
+
+  }
+
+
+  /*
+   * =========================================================
+   * 3PILLAR EXAMPLE
+   * =========================================================
+   */
+
+  function load3PillarExample() {
+
+    document.getElementById(
+      "company"
+    ).value =
+      "3Pillar Global";
+
+
+    document.getElementById(
+      "role"
+    ).value =
+      "Senior Software Engineer";
+
+
+    document.getElementById(
+      "jd"
+    ).value =
+
+`Senior Software Engineer
+
+We are looking for a Senior Software Engineer to design, build and maintain scalable backend services using Java and Spring Boot.
+
+Key responsibilities:
+
+• Design and develop Java/Spring Boot microservices.
+• Build and maintain REST APIs.
+• Work with distributed systems and service-to-service communication.
+• Improve application performance and reliability.
+• Write unit and integration tests.
+• Participate in code reviews and Agile/Scrum ceremonies.
+• Troubleshoot production issues and perform root cause analysis.
+• Work with CI/CD pipelines and cloud deployment environments.
+• Follow secure coding and engineering best practices.
+• Collaborate with other engineers to deliver high-quality software.
+
+Required skills:
+
+Java, Spring Boot, Microservices, REST APIs, SQL, Git, Maven, CI/CD, Unit Testing, Production Support, RCA, Cloud, Agile/Scrum.
+
+Preferred:
+
+Kubernetes, observability, performance optimization and AI-assisted development.`;
+
+
+    analyzeOpportunity();
+
+  }
+
+
+  /*
+   * =========================================================
+   * COMPACT SHARE LINK
+   * =========================================================
+   */
+
+  function generateShareLink() {
+
+    if (!currentAnalysis) {
+
+      alert(
+        "Analyze a job description first."
+      );
+
+      return;
+
+    }
+
+
+    const url =
+      createShareUrl(
+        currentAnalysis
+      );
+
+
+    const container =
+      document.getElementById(
+        "shareLinkContainer"
+      );
+
+
+    container.textContent =
+      url;
+
+
+    container.classList.remove(
+      "hidden"
+    );
+
+
+    /*
+     * IMPORTANT:
+     *
+     * Keep the analyzer visible after generating.
+     * The user can copy the URL or open it.
+     */
+
+    return url;
+
+  }
+
+
+  async function copyText(
+    text
+  ) {
+
+    try {
+
+      await navigator.clipboard.writeText(
+        text
+      );
+
+
+      alert(
+        "Copied to clipboard."
+      );
+
+    }
+
+    catch (error) {
+
+      const textarea =
+        document.createElement(
+          "textarea"
+        );
+
+
+      textarea.value =
+        text;
+
+
+      document.body.appendChild(
+        textarea
+      );
+
+
+      textarea.select();
+
+
+      document.execCommand(
+        "copy"
+      );
+
+
+      textarea.remove();
+
+
+      alert(
+        "Copied to clipboard."
+      );
+
+    }
+
+  }
+
+
+  async function copyShareLink() {
+
+    if (!currentAnalysis) {
+
+      alert(
+        "Analyze a job description first."
+      );
+
+      return;
+
+    }
+
+
+    const url =
+      createShareUrl(
+        currentAnalysis
+      );
+
+
+    await copyText(
+      url
+    );
+
+  }
+
+
+  async function copyHRMessage() {
+
+    if (!currentAnalysis) {
+
+      alert(
+        "Analyze a job description first."
+      );
+
+      return;
+
+    }
+
+
+    await copyText(
+      buildHRMessage(
+        currentAnalysis
+      )
+    );
+
+  }
+
+
+  async function copyHMMessage() {
+
+    if (!currentAnalysis) {
+
+      alert(
+        "Analyze a job description first."
+      );
+
+      return;
+
+    }
+
+
+    await copyText(
+      buildHMMessage(
+        currentAnalysis
+      )
+    );
+
+  }
+
+
+  /*
+   * =========================================================
+   * RECONSTRUCT SHARED V4 ANALYSIS
+   * =========================================================
+   */
+
+  function reconstructSharedAnalysis(
+    payload
+  ) {
+
+    /*
+     * -------------------------------------------------------
+     * Requirement statuses
+     * -------------------------------------------------------
+     */
+
+    const statusMap = {
+
+      S: "Strong",
+
+      P: "Partial",
+
+      G: "Gap",
+      L: "Likely Strong",
+      R: "Scope Review"
+
+    };
+
+
+    const experienceStatus =
+      payload.x === "S" ? "Strong"
+      : payload.x === "G" ? "Gap"
+      : payload.x === "L" ? "Likely Strong"
+      : payload.x === "R" ? "Scope Review"
+      : "Unknown";
+
+    const profileYears = getProfileYears();
+
+    const experienceRequirement =
+      payload.e || payload.em
+        ? { minimum: payload.e || null, maximum: payload.em || null, source: "shared" }
+        : null;
+
+    const experienceSeniority = payload.sx || null;
+
+    const experienceAnalysis = {
+      status: experienceStatus,
+      profileYears,
+      requirement: experienceRequirement,
+      seniority: experienceSeniority,
+      message:
+        experienceStatus === "Gap"
+          ? `Profile: ${profileYears}+ years. The JD requires a higher experience level.`
+          : experienceStatus === "Strong"
+            ? experienceRequirement?.minimum
+              ? `Profile: ${profileYears}+ years. JD minimum: ${experienceRequirement.minimum}+ years.`
+              : `Profile: ${profileYears}+ years. Experience requirement is aligned.`
+            : experienceStatus === "Likely Strong"
+              ? `Profile: ${profileYears}+ years. The JD is ${experienceSeniority || "Senior"}-level; this is broadly aligned with the candidate's experience.`
+              : experienceStatus === "Scope Review"
+                ? `Profile: ${profileYears}+ years. The JD is ${experienceSeniority || "advanced"}-level; broader technical/architecture scope should be validated.`
+                : "Experience requirement was not fully stored in the share link."
+    };
+
+    /*
+     * -------------------------------------------------------
+     * Solutions
+     * -------------------------------------------------------
+     *
+     * Only IDs were stored in the URL.
+     *
+     * The complete solution comes from solutions.json.
+     */
+
+    const rankedSolutionObjects =
+      (payload.sol || [])
+        .map(
+          saved => {
+
+            const found =
+              solutions.find(
+                solution =>
+                  solution.id === saved.i
+              );
+
+
+            if (!found) {
+              return null;
+            }
+
+
+            return {
+
+              solution: found,
+
+              score:
+                saved.s || 0,
+
+              matchedTriggers: []
+
+            };
+
+          }
+        )
+        .filter(Boolean);
+
+
+    /*
+     * -------------------------------------------------------
+     * Concepts
+     * -------------------------------------------------------
+     */
+
+    const conceptMapping = {
+
+      "Java": ["backend"],
+
+      "Spring Boot": ["backend"],
+
+      "Microservices": [
+        "microservices",
+        "backend"
+      ],
+
+      "REST APIs": ["backend"],
+
+      "Cloud": ["cloud"],
+
+      "CI/CD": ["cicd"],
+
+      "Git / Maven": ["cicd"],
+
+      "Testing": ["testing"],
+
+      "Production Support": [
+        "production"
+      ],
+
+      "RCA": [
+        "production",
+        "reliability"
+      ],
+
+      "Performance": [
+        "performance"
+      ],
+
+      "Security": [
+        "security"
+      ],
+
+      "Observability": [
+        "observability"
+      ],
+
+      "Agile / Scrum": [],
+
+      "AI Development": [
+        "ai"
+      ],
+
+      "React": [
+        "frontend"
+      ],
+
+      "TypeScript": [
+        "frontend"
+      ],
+
+      "JavaScript": [
+        "frontend"
+      ],
+
+      "HTML/CSS": [
+        "frontend"
+      ],
+
+      "Snowflake": [
+        "dataPlatform"
+      ],
+
+      "Databricks": [
+        "dataPlatform"
+      ],
+
+      "Data Pipelines": [
+        "dataPlatform"
+      ],
+
+      "BI / Analytics": [
+        "dataPlatform"
+      ],
+
+      "Technical Leadership": [
+        "leadership"
+      ]
+
+    };
+
+
+    const concepts =
+      unique(
+        matches.flatMap(
+          item =>
+            conceptMapping[
+              item.key
+            ] || []
+        )
+      );
+
+
+    const gaps =
+      matches.filter(
+        item =>
+          item.status === "Gap"
+      );
+
+
+    return {
+
+      version: 4,
+
+      company:
+        payload.c || "",
+
+      role:
+        payload.r || "",
+
+      score:
+        payload.s || 0,
+
+      hiringProblem:
+        payload.h || "",
+
+      concepts,
+
+      experienceAnalysis,
+
+      requirements:
+        matches,
+
+      matches,
+
+      gaps,
+
+      rankedSolutions:
+        rankedSolutionObjects.map(
+          item => ({
+            id:
+              item.solution.id,
+
+            title:
+              item.solution.title,
+
+            score:
+              item.score
+          })
+        ),
+
+      rankedSolutionObjects
+
+    };
+
+  }
+
+
+  /*
+   * =========================================================
+   * FIT CARD HTML
+   * =========================================================
+   */
+
+  function buildFitCardHtml(
+    analysis
+  ) {
+
+    const fit =
+      getFitLabel(
+        analysis.score
+      );
+
+
+    const strong =
+      analysis.matches
+        .filter(
+          item =>
+            item.status === "Strong"
+        )
+        .slice(0, 8);
+
+
+    const gaps =
+      analysis.gaps
+        .slice(0, 8);
+
+
+    const solutions =
+      analysis.rankedSolutionObjects ||
+      [];
+
+
+    const whyFit =
+      buildWhyFits(
+        analysis.matches,
+        analysis.concepts,
+        analysis.experienceAnalysis
+      );
+
+
+    return `
+
+      <div class="fit-card-header">
+
+        <div class="eyebrow">
+          Engineering Fit Card
+        </div>
+
+        <h1>
+          ${escapeHtml(
+            analysis.company ||
+            "Company"
+          )}
+        </h1>
+
+        <div class="role">
+          ${escapeHtml(
+            analysis.role ||
+            "Software Engineering Opportunity"
+          )}
+        </div>
+
+        <div class="fit-card-score">
+
+          <strong>
+            ${analysis.score}/100
+          </strong>
+
+          <div>
+            <div style="font-weight:800;">
+              ${escapeHtml(
+                fit.label
+              )}
+            </div>
+
+            <div style="font-size:12px;color:#dbeafe;">
+              ${escapeHtml(
+                fit.description
+              )}
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="fit-card-grid">
+
+
+        <!-- WHY FIT -->
+
+        <div class="fit-card-section">
+
+          <h2>
+            Why I'm a Fit
+          </h2>
+
+          <div class="text-block">
+            ${escapeHtml(
+              whyFit
+            )}
+          </div>
+
+        </div>
+
+
+        <!-- EXPERIENCE -->
+
+        <div class="fit-card-section experience-section">
+
+          <h2>
+            Experience Fit
+          </h2>
+
+          <div style="margin-bottom:10px;">
+
+            <span class="status ${
+              (analysis.experienceAnalysis.status === "Strong" ||
+                  analysis.experienceAnalysis.status === "Likely Strong")
+                ? "status-strong"
+                : analysis.experienceAnalysis.status === "Gap"
+                  ? "status-gap"
+                  : "status-neutral"
+            }">
+
+              ${escapeHtml(
+                analysis.experienceAnalysis.status
+              )}
+
+            </span>
+
+          </div>
+
+          <div class="text-block">
+
+            ${escapeHtml(
+              analysis.experienceAnalysis.message
+            )}
+
+          </div>
+
+        </div>
+
+
+        <!-- HIRING PROBLEM -->
+
+        <div
+          class="fit-card-section full">
+
+          <h2>
+            What Problem Is The Company Hiring Me To Solve?
+          </h2>
+
+          <div class="proof-highlight">
+
+            ${escapeHtml(
+              analysis.hiringProblem
+            )}
+
+          </div>
+
+        </div>
+
+
+        <!-- STRONG MATCHES -->
+
+        <div class="fit-card-section match-section">
+
+          <h2>
+            Strong Matches
+          </h2>
+
+          ${
+            strong.length
+              ? `
+                <ul class="fit-card-list">
+
+                  ${strong
+                    .map(
+                      item =>
+                        `<li>
+                          <strong>
+                            ${escapeHtml(
+                              item.label
+                            )}
+                          </strong>
+                          — ${escapeHtml(
+                            item.profileEvidence
+                          )}
+                        </li>`
+                    )
+                    .join("")}
+
+                </ul>
+              `
+              : `
+                <p>
+                  No strong direct matches identified.
+                </p>
+              `
+          }
+
+        </div>
+
+
+        <!-- GAPS -->
+
+        <div class="fit-card-section gap-section">
+
+          <h2>
+            Important Gaps
+          </h2>
+
+          ${
+            gaps.length
+              ? `
+                <ul class="fit-card-list">
+
+                  ${gaps
+                    .map(
+                      item =>
+                        `<li>
+                          <strong>
+                            ${escapeHtml(
+                              item.label
+                            )}
+                          </strong>
+                          — ${escapeHtml(
+                            item.profileEvidence
+                          )}
+                        </li>`
+                    )
+                    .join("")}
+
+                </ul>
+              `
+              : `
+                <p>
+                  No major technology gaps identified.
+                </p>
+              `
+          }
+
+        </div>
+
+
+        <!-- TECHNICAL APPROACH -->
+
+        <div
+          class="fit-card-section full approach-section">
+
+          <h2>
+            My Technical Approach
+          </h2>
+
+          <p style="color:#667085;font-size:13px;">
+            These reusable engineering patterns are selected
+            from the underlying technical problem in the JD.
+          </p>
+
+          <div id="fitSolutionsContainer">
+          </div>
+
+        </div>
+
+
+        <!-- HM PROOF -->
+
+        <div
+          class="fit-card-section full proof-section">
+
+          <h2>
+            Hiring Manager Proof
+          </h2>
+
+          <div class="message-box">
+
+            ${escapeHtml(
+              buildHMProof(
+                analysis
+              )
+            )}
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    `;
+
+  }
+
+
+  /*
+   * =========================================================
+   * SHOW FIT CARD
+   * =========================================================
+   */
+
+  function showFitCard(
+    analysis
+  ) {
+
+    sharedFitMode =
+      true;
+
+
+    document.getElementById(
+      "mainApp"
+    ).style.display =
+      "none";
+
+
+    const view =
+      document.getElementById(
+        "fitCardView"
+      );
+
+
+    view.style.display =
+      "block";
+
+
+    document.getElementById(
+      "fitCardContent"
+    ).innerHTML =
+      buildFitCardHtml(
+        analysis
+      );
+
+
+    renderSolutions(
+      analysis.rankedSolutionObjects || [],
+      "fitSolutionsContainer"
+    );
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "instant"
+    });
+
+  }
+
+
+  /*
+   * =========================================================
+   * SHOW ANALYZER
+   * =========================================================
+   */
+
+  function showAnalyzer() {
+
+    sharedFitMode =
+      false;
+
+
+    document.getElementById(
+      "fitCardView"
+    ).style.display =
+      "none";
+
+
+    document.getElementById(
+      "mainApp"
+    ).style.display =
+      "block";
+
+  }
+
+
+  /*
+   * =========================================================
+   * LOAD SHARED FIT CARD
+   * =========================================================
+   */
+
+  function loadSharedFitCard() {
+
+    const payload =
+      decodeSharePayload();
+
+
+    if (!payload) {
+
+      return false;
+
+    }
+
+
+    /*
+     * Version 4 = new compact format.
+     */
+
+    if (
+      payload.v === 4
+    ) {
+
+      const analysis =
+        reconstructSharedAnalysis(
+          payload
+        );
+
+
+      currentAnalysis =
+        analysis;
+
+
+      showFitCard(
+        analysis
+      );
+
+
+      return true;
+
+    }
+
+
+    /*
+     * -------------------------------------------------------
+     * Backward compatibility with old v3 links.
+     * -------------------------------------------------------
+     */
+
+    if (
+      payload.company !== undefined ||
+      payload.rankedSolutions
+    ) {
+
+      const rankedSolutionObjects =
+        (
+          payload.rankedSolutions ||
+          []
+        )
+          .map(
+            saved => {
+
+              const found =
+                solutions.find(
+                  solution =>
+                    solution.id === saved.id
+                );
+
+
+              if (!found) {
+                return null;
+              }
+
+
+              return {
+
+                solution: found,
+
+                score:
+                  saved.score || 0,
+
+                matchedTriggers: []
+
+              };
+
+            }
+          )
+          .filter(Boolean);
+
+
+      const analysis = {
+
+        ...payload,
+
+        rankedSolutionObjects,
+
+        requirements:
+          payload.matches || [],
+
+        matches:
+          payload.matches || [],
+
+        gaps:
+          payload.gaps || [],
+
+        experienceAnalysis:
+          payload.experienceAnalysis || {
+
+            status: "Unknown",
+
+            profileYears:
+              getProfileYears(),
+
+            requirement: null,
+
+            message:
+              "Experience information was not stored in this older link."
+
+          }
+
+      };
+
+
+      currentAnalysis =
+        analysis;
+
+
+      showFitCard(
+        analysis
+      );
+
+
+      return true;
+
+    }
+
+
+    return false;
+
+  }
+
+
+  /*
+   * =========================================================
+   * DATA LOADING
+   * =========================================================
+   */
+
+  async function loadData() {
+
+    try {
+
+      const [
+        profileResponse,
+        solutionsResponse
+      ] = await Promise.all([
+
+        fetch(
+          "profile.json",
+          {
+            cache: "no-store"
+          }
+        ),
+
+        fetch(
+          "solutions.json",
+          {
+            cache: "no-store"
+          }
+        )
+
+      ]);
+
+
+      if (
+        !profileResponse.ok
+      ) {
+
+        throw new Error(
+          "Could not load profile.json"
+        );
+
+      }
+
+
+      if (
+        !solutionsResponse.ok
+      ) {
+
+        throw new Error(
+          "Could not load solutions.json"
+        );
+
+      }
+
+
+      profile =
+        await profileResponse.json();
+
+
+      const solutionData =
+        await solutionsResponse.json();
+
+
+      if (
+        Array.isArray(
+          solutionData
+        )
+      ) {
+
+        solutions =
+          solutionData;
+
+      }
+
+      else if (
+        Array.isArray(
+          solutionData.solutions
+        )
+      ) {
+
+        solutions =
+          solutionData.solutions;
+
+      }
+
+      else {
+
+        solutions =
+          Object.entries(
+            solutionData
+          )
+          .map(
+            ([id, solution]) => ({
+
+              id,
+
+              ...solution
+
+            })
+          );
+
+      }
+
+
+      renderProfile();
+
+
+      const loadedShared =
+        loadSharedFitCard();
+
+
+      if (
+        !loadedShared
+      ) {
+
+        document.getElementById(
+          "results"
+        ).style.display =
+          "none";
+
+      }
+
+    }
+
+    catch (error) {
+
+      console.error(
+        error
+      );
+
+
+      const errorElement =
+        document.getElementById(
+          "loadError"
+        );
+
+
+      errorElement.textContent =
+        "Unable to load profile.json or solutions.json. Make sure both files are in the same GitHub Pages folder as index.html.";
+
+
+      errorElement.classList.remove(
+        "hidden"
+      );
+
+    }
+
+  }
+
+
+  /*
+   * =========================================================
+   * CLEAR
+   * =========================================================
+   */
+
+  function clearAnalyzer() {
+
+    document.getElementById(
+      "company"
+    ).value =
+      "";
+
+
+    document.getElementById(
+      "role"
+    ).value =
+      "";
+
+
+    document.getElementById(
+      "jd"
+    ).value =
+      "";
+
+
+    document.getElementById(
+      "results"
+    ).style.display =
+      "none";
+
+
+    document.getElementById(
+      "shareLinkContainer"
+    ).classList.add(
+      "hidden"
+    );
+
+
+    currentAnalysis =
+      null;
+
+
+    showAnalyzer();
+
+
+    if (
+      window.location.hash
+    ) {
+
+      window.history.replaceState(
+        null,
+        "",
+        window.location.pathname
+      );
+
+    }
+
+  }
+
+
+  /*
+   * =========================================================
+   * SHARE FIT CARD FROM ANALYZER
+   * =========================================================
+   */
+
+  function openFitCardFromAnalyzer() {
+
+    if (!currentAnalysis) {
+
+      alert(
+        "Analyze a job description first."
+      );
+
+      return;
+
+    }
+
+
+    const url =
+      createShareUrl(
+        currentAnalysis
+      );
+
+
+    /*
+     * We update the hash so the Fit Card has
+     * exactly the same state if refreshed.
+     */
+
+    window.history.replaceState(
+      null,
+      "",
+      url
+    );
+
+
+    showFitCard(
+      currentAnalysis
+    );
+
+  }
+
+
+  /*
+   * =========================================================
+   * BACK TO ANALYZER
+   * =========================================================
+   */
+
+  function backToAnalyzer() {
+
+    showAnalyzer();
+
+
+    if (
+      currentAnalysis
+    ) {
+
+      renderAnalysis(
+        currentAnalysis,
+        false
+      );
+
+    }
+
+
+    window.history.replaceState(
+      null,
+      "",
+      window.location.pathname
+    );
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
+
+
+  /*
+   * =========================================================
+   * EVENT LISTENERS
+   * =========================================================
+   */
+
+  document.getElementById(
+    "analyzeButton"
+  )
+  .addEventListener(
+    "click",
+    analyzeOpportunity
+  );
+
+
+  document.getElementById(
+    "exampleButton"
+  )
+  .addEventListener(
+    "click",
+    load3PillarExample
+  );
+
+
+  document.getElementById(
+    "clearButton"
+  )
+  .addEventListener(
+    "click",
+    clearAnalyzer
+  );
+
+
+  document.getElementById(
+    "generateShareButton"
+  )
+  .addEventListener(
+    "click",
+    openFitCardFromAnalyzer
+  );
+
+
+  document.getElementById(
+    "copyShareButton"
+  )
+  .addEventListener(
+    "click",
+    copyShareLink
+  );
+
+
+  document.getElementById(
+    "copyHRButton"
+  )
+  .addEventListener(
+    "click",
+    copyHRMessage
+  );
+
+
+  document.getElementById(
+    "copyHMButton"
+  )
+  .addEventListener(
+    "click",
+    copyHMMessage
+  );
+
+
+  document.getElementById(
+    "printButton"
+  )
+  .addEventListener(
+    "click",
+    () => window.print()
+  );
+
+
+  document.getElementById(
+    "backToAnalyzerButton"
+  )
+  .addEventListener(
+    "click",
+    backToAnalyzer
+  );
+
+
+  document.getElementById(
+    "fitCopyLinkButton"
+  )
+  .addEventListener(
+    "click",
+    async () => {
+
+      if (currentAnalysis) {
+
+        await copyText(
+          createShareUrl(
+            currentAnalysis
+          )
+        );
+
+      }
+
+    }
+  );
+
+
+  document.getElementById(
+    "fitPrintButton"
+  )
+  .addEventListener(
+    "click",
+    () =>
+      window.print()
+  );
+
+
+  /*
+   * =========================================================
+   * HANDLE HASH CHANGES
+   * =========================================================
+   */
+
+  window.addEventListener(
+    "hashchange",
+    () => {
+
+      if (
+        !profile ||
+        !solutions.length
+      ) {
+
+        return;
+
+      }
+
+
+      if (
+        window.location.hash.startsWith(
+          "#fit="
+        )
+      ) {
+
+        loadSharedFitCard();
+
+      }
+
+      else {
+
+        showAnalyzer();
+
+      }
+
+    }
+  );
+
+
+  /*
+   * =========================================================
+   * INITIALIZE
+   * =========================================================
+   */
+
+  loadData();
+
+</script>
+
+</body>
+</html>
